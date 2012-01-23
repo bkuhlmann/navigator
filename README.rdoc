@@ -1,0 +1,47 @@
+= Overview
+
+{<img src="https://secure.travis-ci.org/bkuhlmann/navigator.png" />}[http://travis-ci.org/bkuhlmann/navigator]
+
+= Features
+
+= Requirements
+
+1. {Ruby on Rails}[http://rubyonrails.org].
+
+= Setup
+
+Type the following from the command line to install:
+
+  gem install navigator
+
+Add the following to your Gemfile:
+
+  gem "navigator"
+
+= Usage
+
+= Tests
+
+To test, do the following:
+
+1. cd to the gem root.
+2. bundle install
+3. bundle exec rspec spec
+
+= Contributions
+
+Please log all feedback/issues via GitHub Issues. Thanks.
+
+= Credits
+
+Developed by {Brooke Kuhlmann}[http://www.redalchemist.com] at {Red Alchemist}[http://www.redalchemist.com]
+
+= License
+
+Copyright (c) 2012 {Red Alchemist}[http://www.redalchemist.com].
+Read the LICENSE for details.
+
+= History
+
+Read the CHANGELOG for details.
+Built with Gemsmith[https://github.com/bkuhlmann/gemsmith].
