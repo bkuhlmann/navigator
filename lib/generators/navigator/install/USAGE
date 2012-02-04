@@ -1,8 +1,0 @@
-Description:
-    Installs additional Navigator resources.
-
-Example:
-    rails generate navigator:install
-
-    This will create:
-        what/will/it/create

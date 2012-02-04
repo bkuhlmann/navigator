@@ -2,11 +2,19 @@
 
 {<img src="https://secure.travis-ci.org/bkuhlmann/navigator.png" />}[http://travis-ci.org/bkuhlmann/navigator]
 
+Enhances Rails with a DSL for menu navigation.
+
 = Features
+
+* A simple DSL for creating navigation menus.
+* Supports sub-menus, nested tags, HTML attributes, etc.
+* Supports the following HTML tags: ul, li, a, b, em, s, small, span, strong, sub, and sup.
+* Provides the "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
 
 = Requirements
 
-1. {Ruby on Rails}[http://rubyonrails.org].
+1. {Ruby 1.9.x}[http://www.ruby-lang.org].
+2. {Ruby on Rails}[http://rubyonrails.org].
 
 = Setup
 
@@ -19,6 +27,50 @@ Add the following to your Gemfile:
   gem "navigator"
 
 = Usage
+
+The following are examples using the render_navigation view helper:
+
+== Unordered List (simple)
+
+  render_navigation do
+    item "Dashboard", "/dashboard"
+    item "News", "/posts"
+  end
+
+Yields:
+
+  <ul>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/posts">Posts</a></li>
+  </ul>
+
+== Unordered List (with attributes)
+
+  render_navigation "ul", class: "nav" do
+    item "Dashboard", "/dashboard", class: "active"
+    item "News", "/posts"
+  end
+
+Yields:
+
+  <ul class="nav">
+    <li class="active"><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/posts">Posts</a></li>
+  </ul>
+
+== Nav (with links)
+
+  render_navigation "nav" do
+    a "Dashboard", href: "/dashboard"
+    a "News", href: "/posts"
+  end
+
+Yields:
+
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/posts">Posts</a>
+  </nav>
 
 = Tests
 

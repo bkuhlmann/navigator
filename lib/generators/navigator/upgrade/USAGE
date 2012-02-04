@@ -1,8 +1,0 @@
-Description:
-    Upgrades previously installed Navigator resources.
-
-Example:
-    rails generate navigator:upgrade
-
-    This will create:
-        what/will/it/create
