@@ -79,8 +79,8 @@ Yields:
       b nil, class: "caret"
     end
     ul nil, class: "dropdown-menu" do
-			item "Dashboard", admin_dashboard_path
-			item "Users", admin_users_path
+      item "Dashboard", admin_dashboard_path
+      item "Users", admin_users_path
     end
   end
 
