@@ -72,6 +72,31 @@ Yields:
     <a href="/posts">Posts</a>
   </nav>
 
+== Twitter Bootstrap Dropdown
+
+  li nil, class: "dropdown" do
+    a "Manage", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do
+      b nil, class: "caret"
+    end
+    ul nil, class: "dropdown-menu" do
+			item "Dashboard", admin_dashboard_path
+			item "Users", admin_users_path
+    end
+  end
+
+Yields:
+
+  <ul class="nav">
+    <li><a href="/en-US/admin/dashboard">Dashboard</a></li>
+    <li class="dropdown">
+      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Manage<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/users">Users</a></li>
+      </ul>
+    </li>
+  </ul>
+
 = Tests
 
 To test, do the following:
