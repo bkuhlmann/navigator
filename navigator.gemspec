@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 	s.post_install_message	= "(W): www.redalchemist.com. (T): @ralchemist."
 
 	s.required_ruby_version = "~> 1.9.0"
-  s.add_dependency "rails", ">= 3.0.0", "< 4.0.0"
+	s.add_dependency "rails", "~> 3.0"
 	s.add_development_dependency "rake"
 	s.add_development_dependency "rspec-rails"
 
