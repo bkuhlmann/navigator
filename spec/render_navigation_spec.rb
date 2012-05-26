@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe "Navigator::ActionView::InstanceMethods" do
+  include ActionView::Helpers
+  include Navigator::ActionView::InstanceMethods
+  ERBHandler = ActionView::Template::Handlers::ERB.new
+
   before :all do
     @template = ActionView::Template.new "<html></html>", "Example", ERBHandler, {}
   end
