@@ -1,5 +1,6 @@
 = Overview
 
+{<img src="https://badge.fury.io/rb/navigator.png" alt="Gem Version" />}[http://badge.fury.io/rb/navigator]
 {<img src="https://secure.travis-ci.org/bkuhlmann/navigator.png" />}[http://travis-ci.org/bkuhlmann/navigator]
 
 Enhances Rails with a DSL for menu navigation.
