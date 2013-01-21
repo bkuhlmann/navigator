@@ -2,6 +2,7 @@
 
 {<img src="https://badge.fury.io/rb/navigator.png" alt="Gem Version" />}[http://badge.fury.io/rb/navigator]
 {<img src="https://secure.travis-ci.org/bkuhlmann/navigator.png" alt="Travis CI Status" />}[http://travis-ci.org/bkuhlmann/navigator]
+{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/bkuhlmann/navigator]
 
 Enhances Rails with a DSL for menu navigation.
 
