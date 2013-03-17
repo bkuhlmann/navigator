@@ -16,6 +16,10 @@ Gem::Specification.new do |s|
 	s.required_ruby_version = "~> 1.9.0"
 	s.add_dependency "rails", "~> 3.0"
 	s.add_development_dependency "rake"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "pry-nav"
+  s.add_development_dependency "pry-stack_explorer"
+  s.add_development_dependency "pry-vterm_aliases"
 	s.add_development_dependency "rspec-rails"
   s.add_development_dependency("rb-fsevent") if RUBY_PLATFORM =~ /darwin/i
   s.add_development_dependency "guard-rspec"

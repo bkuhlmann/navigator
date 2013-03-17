@@ -2,6 +2,7 @@ require "bundler/setup"
 require "action_view"
 require "navigator"
 require "navigator/action_view/instance_methods"
+require "pry"
 
 RSpec.configure do |config|
   config.filter_run focus: true
