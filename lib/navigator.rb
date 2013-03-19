@@ -1,11 +1,11 @@
-require File.join File.dirname(__FILE__), "navigator", "tag.rb"
-require File.join File.dirname(__FILE__), "navigator", "menu.rb"
+require "navigator/tag"
+require "navigator/menu"
 
 # Rails Enhancements
 if defined? Rails
   # Dependencies
-  require File.join File.dirname(__FILE__), "navigator", "version.rb"
-  require File.join File.dirname(__FILE__), "navigator", "action_view", "instance_methods.rb"
+  require "navigator/version"
+  require "navigator/action_view/instance_methods"
 
   # View
   if defined? ActionView
