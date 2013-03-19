@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description						= "Enhances Rails with a DSL for menu navigation complete with sub-menus, nested tags, HTML attributes, etc."
 	s.license								= "MIT"
 
-	s.required_ruby_version = "~> 1.9.0"
+	s.required_ruby_version = "~> 2.0.0"
 	s.add_dependency "rails", "~> 3.0"
 	s.add_development_dependency "rake"
   s.add_development_dependency "pry"
