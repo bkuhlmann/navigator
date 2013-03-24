@@ -5,19 +5,19 @@ describe Navigator::Tag do
     @tag = Navigator::Tag.new "li", "Not much here.", class: "example"
   end
 
-  describe ".initialize" do
+  describe "#initialize" do
     it "should ArgumentError when no tag is supplied" do
       expect{Navigator::Tag.new}.to raise_error(ArgumentError)
     end
   end
 
-  describe ".html_attributes" do
+  describe "#html_attributes" do
     it "answers key=value pair prefixed with a space" do
       @tag.html_attributes.should == 'class="example"'
     end
   end
 
-  describe ".prefix" do
+  describe "#prefix" do
     it "answers prefix with no attributes" do
       @tag.attributes = {}
       @tag.prefix.should == "<li>"
@@ -33,13 +33,13 @@ describe Navigator::Tag do
     end
   end
   
-  describe ".suffix" do
+  describe "#suffix" do
     it "answers closing tag" do
       @tag.suffix.should == "</li>"
     end
   end
   
-  describe ".render" do
+  describe "#render" do
     it "renders an empty tag" do
       @tag = Navigator::Tag.new "li"
       @tag.render.should == "<li></li>"

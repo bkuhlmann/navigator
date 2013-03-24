@@ -9,7 +9,7 @@ describe "Navigator::ActionView::InstanceMethods" do
     @template = ActionView::Template.new "<html></html>", "Example", ERBHandler, {}
   end
 
-  describe ".render_navigation" do
+  describe "#render_navigation" do
   	it "creates an empty menu" do
   	  render_navigation.should == "<ul></ul>"
     end

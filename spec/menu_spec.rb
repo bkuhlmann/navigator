@@ -9,13 +9,13 @@ describe Navigator::Menu do
     @menu = Navigator::Menu.new @template
   end
 
-  describe ".initialize" do
+  describe "#initialize" do
     it "has default options" do
       @menu.options.should == {active: "active"}
     end
   end
 
-  describe ".add" do
+  describe "#add" do
     it "adds a single list item" do
       @menu.add "li", "one"
       @menu.render.should == "<ul><li>one</li></ul>"
@@ -38,7 +38,7 @@ describe Navigator::Menu do
     end
   end
   
-  describe ".item" do
+  describe "#item" do
     it "adds an item with no item or link attributes" do
       @menu.item "Dashboard", "/dashboard"
       @menu.render.should == '<ul><li><a href="/dashboard">Dashboard</a></li></ul>' 
@@ -55,7 +55,7 @@ describe Navigator::Menu do
     end
   end
 
-  describe ".method_missing" do
+  describe "#method_missing" do
     it "adds the ul tag" do
       @menu.ul
       @menu.render.should == '<ul><ul></ul></ul>'
@@ -116,7 +116,7 @@ describe Navigator::Menu do
     end
   end
   
-  describe ".render" do
+  describe "#render" do
     it "renders an empty menu" do
       @menu.render.should == "<ul></ul>"
     end
