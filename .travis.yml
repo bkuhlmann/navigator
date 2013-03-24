@@ -2,7 +2,6 @@ language: ruby
 rvm:
   - 2.0.0
 gemfile:
-  - gemfiles/rails-3.1.x.gemfile
   - gemfiles/rails-3.2.x.gemfile
 script: bundle exec rspec spec
 notifications:
