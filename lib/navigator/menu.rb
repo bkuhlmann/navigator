@@ -70,7 +70,7 @@ module Navigator
       if name.to_s =~ /^(ul|li|a|b|em|s|small|span|strong|sub|sup)$/
         add(*args.unshift(name), &block)
       else
-        @template.send name, *args
+        @template.public_send name, *args
       end
     end
 
