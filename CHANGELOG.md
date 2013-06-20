@@ -1,4 +1,4 @@
-= v0.2.0
+# v0.2.0
 
 * Added Twitter Bootstrap navigation menu example.
 * Switched gem dependency to Rails 3.x.x range.
@@ -14,6 +14,6 @@
 * Added 'tmp' directory to .gitignore.
 * Cleaned up requirement path syntax.
 
-= v0.1.0
+# v0.1.0
 
 * Initial version.
