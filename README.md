@@ -20,7 +20,12 @@ Enhances Rails with a DSL for menu navigation.
 
 # Setup
 
-Type the following from the command line to install:
+Type the following from the command line to securely install (recommended):
+
+    gem cert --add <(curl -Ls https://raw.github.com/bkuhlmann/navigator/master/gem-public.pem)
+    gem install navigator -P HighSecurity
+
+...or type the following to insecurely install (not recommended):
 
     gem install navigator
 
