@@ -20,9 +20,9 @@ module Navigator
     # Answers the HTML tag prefix (i.e. the opening tag). Example: <li>.
     def prefix
       attrs = html_attributes.empty? ? nil : " #{html_attributes}"
-      ["<#{@name}", attrs, '>'].compact * ''      
+      ["<#{@name}", attrs, '>'].compact * ''
     end
-    
+
     # Answers the HTML tag suffix (i.e. the closing tag). Example: </li>.
     def suffix
       "</#{@name}>"

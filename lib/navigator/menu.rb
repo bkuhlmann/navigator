@@ -12,7 +12,7 @@ module Navigator
   # </nav>
   class Menu
     attr_accessor :options
-    
+
     # Initializes the menu.
     # ==== Parameters
     # * +template+ - Required. The view template.

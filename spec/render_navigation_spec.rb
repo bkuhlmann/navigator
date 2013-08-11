@@ -28,7 +28,7 @@ describe "Navigator::ActionView::InstanceMethods" do
 	      end
       end.should == '<ul><li><a href="' + url + '">One</a></li></ul>'
     end
-    
+
   	it "raises NameError for non-existent method" do
       expect{render_navigation(@template) {bogus_method "bogus"}}.to raise_error(NameError)
     end

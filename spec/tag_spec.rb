@@ -26,19 +26,19 @@ describe Navigator::Tag do
     it "answers prefix with an attribute" do
       @tag.prefix.should == '<li class="example">'
     end
-    
+
     it "answers prefix with multiple attributes" do
       @tag.attributes = {class: "tooltip", "data-enabled" => true}
       @tag.prefix.should == '<li class="tooltip" data-enabled="true">'
     end
   end
-  
+
   describe "#suffix" do
     it "answers closing tag" do
       @tag.suffix.should == "</li>"
     end
   end
-  
+
   describe "#render" do
     it "renders an empty tag" do
       @tag = Navigator::Tag.new "li"
@@ -49,7 +49,7 @@ describe Navigator::Tag do
       @tag.content = nil
       @tag.render.should == '<li class="example"></li>'
     end
-    
+
     it "renders a tag with attributes and content" do
       @tag.render.should == '<li class="example">Not much here.</li>'
     end
