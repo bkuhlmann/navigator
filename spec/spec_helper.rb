@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "active_support/core_ext"
 require "action_view"
 require "navigator"
 require "navigator/action_view/instance_methods"
