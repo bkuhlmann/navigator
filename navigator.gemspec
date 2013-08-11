@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 	s.add_dependency "rails", "~> 3.2"
 	s.add_development_dependency "rake"
   s.add_development_dependency "pry"
-  s.add_development_dependency "pry-debugger"
+  s.add_development_dependency "pry-byebug"
   s.add_development_dependency "pry-rescue"
   s.add_development_dependency "pry-stack_explorer"
   s.add_development_dependency "pry-vterm_aliases"
