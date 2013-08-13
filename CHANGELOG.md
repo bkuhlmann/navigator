@@ -1,3 +1,20 @@
+# v0.3.0
+
+* Dropped Rails 3.1.x support.
+* Upgraded to Rails 4.0.0.
+* Switched to using 'https://rubygems.org' instead of :rubygems for gem source.
+* Cleaned up RSpec spec definitions so that class and instance methods are described properly using . and # notation.
+* Switched to the public_send instead of the send method where appropriate.
+* Treat symbols and true values by default when running RSpec specs.
+* Added .ruby-version support.
+* Added pry-rescue support.
+* Removed the CHANGELOG documentation from gem install.
+* Added a Versioning section to the README.
+* Converted from RDoc to Markdown documentation.
+* Added public cert for secure install of gem.
+* Switched from the pry-debugger to pry-byebug gem.
+* Ignore the signing of a gem when building in a Travis CI environment.
+
 # v0.2.0
 
 * Added Twitter Bootstrap navigation menu example.
