@@ -22,7 +22,7 @@ Enhances Rails with a DSL for menu navigation.
 
 Type the following from the command line to securely install (recommended):
 
-    gem cert --add <(curl -Ls https://raw.github.com/bkuhlmann/navigator/master/gem-public.pem)
+    gem cert --add <(curl -Ls http://www.redalchemist.com/gem-public.pem)
     gem install navigator -P HighSecurity
 
 ...or type the following to insecurely install (not recommended):
