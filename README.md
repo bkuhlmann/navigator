@@ -15,7 +15,7 @@ Enhances Rails with a DSL for menu navigation.
 
 # Requirements
 
-0. [Ruby 2.0.x](http://www.ruby-lang.org).
+0. [Ruby 2.x.x](http://www.ruby-lang.org).
 0. [Ruby on Rails 4.0.x](http://rubyonrails.org).
 
 # Setup
