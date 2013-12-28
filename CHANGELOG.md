@@ -1,3 +1,13 @@
+# v0.4.0
+
+* Fixed Ruby Gem certificate requirements for package building.
+* Fixed RSpec deprecation warnings for treating metadata symbol keys as true values.
+* Removed UTF-8 encoding definitions - This is the default in Ruby 2.x.x.
+* Removed .ruby-version from .gitignore.
+* Removed Gemfile.lock from .gitignore.
+* Updated to Ruby 2.1.0.
+* Updated public gem certificate to be referenced from a central server.
+
 # v0.3.0
 
 * Dropped Rails 3.1.x support.
