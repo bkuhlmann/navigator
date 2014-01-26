@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform							= Gem::Platform::RUBY
   s.author								= "Brooke Kuhlmann"
   s.email									= "brooke@redalchemist.com"
-  s.homepage							= "http://www.redalchemist.com"
+  s.homepage							= "https://github.com/bkuhlmann/navigator"
   s.summary								= "Enhances Rails with a DSL for menu navigation."
   s.description						= "Enhances Rails with a DSL for menu navigation complete with sub-menus, nested tags, HTML attributes, etc."
 	s.license								= "MIT"
