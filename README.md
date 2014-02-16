@@ -15,7 +15,10 @@ Enhances Rails with a DSL for menu navigation.
 
 # Requirements
 
-0. [Ruby 2.x.x](http://www.ruby-lang.org).
+0. Any of the following Ruby VMs:
+    * [MRI 2.x.x](http://www.ruby-lang.org)
+    * [JRuby 1.x.x](http://jruby.org)
+    * [Rubinius 2.x.x](http://rubini.us)
 0. [Ruby on Rails 4.x.x](http://rubyonrails.org).
 
 # Setup

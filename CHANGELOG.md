@@ -1,3 +1,8 @@
+# v0.5.0
+
+* Updated gemspec homepage URL to use GitHub project URL.
+* Added JRuby and Rubinius VM support.
+
 # v0.4.0
 
 * Fixed Ruby Gem certificate requirements for package building.
