@@ -12,6 +12,5 @@ before_install:
 script: bundle exec rspec spec
 notifications:
   email: false
-  campfire:
-    rooms:
-      - secure: "YE6VB1/VMFreblU5Q6mb+8DKr8BcKY9WkpUOb96FdOYkn7xpYC7FmnE/J0uF\nxqrdAUWJ7I2HRohcqYuAG6SELJDtafCD4R2IIZH3jcBJLtBAdODBMFfv1bjo\nnKqqgzbKTEgL0Mxymw+nWQyYU8SE8claH1ZTKoS4F2KvqKWoaL8="
+  webhooks:
+    secure: "aJZv6NNFO7RnuvcSXAM6jftPQij9SED64Hitml3/1+DFrcidq+Ln8C43g6ODnxoJ7K9meegCoh2T4NLar9oDGvJ/QW6RfzK9UfqokLqmYnOTCrhok+/hKq2NBVI5CSxeRZlScj4oSipyMRYPBrovBZ8MgH0B9OWl2jsz+uW940o="
