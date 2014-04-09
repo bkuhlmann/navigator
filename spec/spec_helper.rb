@@ -1,4 +1,6 @@
 require "bundler/setup"
+require "coveralls"
+Coveralls.wear!
 require "active_support/core_ext"
 require "action_view"
 require "navigator"
@@ -6,7 +8,6 @@ require "navigator/action_view/instance_methods"
 require "pry"
 require "pry-remote"
 require "pry-rescue"
-require "coveralls"
 
 case Gem.ruby_engine
   when "ruby"
@@ -18,8 +19,6 @@ case Gem.ruby_engine
     require "pry-nav"
     require "pry-stack_explorer"
 end
-
-Coveralls.wear!
 
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
