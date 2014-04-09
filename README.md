@@ -28,9 +28,12 @@ Enhances Rails with a DSL for menu navigation.
 For a secure install, type the following from the command line (recommended):
 
     gem cert --add <(curl -Ls http://www.redalchemist.com/gem-public.pem)
-    gem install navigator --trust-policy HighSecurity
+    gem install navigator --trust-policy MediumSecurity
 
-...or, for an insecure install, type the following (not recommended):
+NOTE: A HighSecurity trust policy would be best but MediumSecurity enables signed gem verification while
+allowing the installation of unsigned dependencies since they are beyond the scope of this gem.
+
+For an insecure install, type the following (not recommended):
 
     gem install navigator
 
