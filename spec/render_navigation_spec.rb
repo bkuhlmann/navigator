@@ -11,22 +11,22 @@ describe "Navigator::ActionView::InstanceMethods" do
 
   describe "#render_navigation" do
   	it "creates an empty menu" do
-  	  render_navigation.should == "<ul></ul>"
+  	  expect(render_navigation).to eq("<ul></ul>")
     end
 
   	it "creates a menu with one item" do
-  	  render_navigation do
+  	  expect(render_navigation do
   	    li "one"
-      end.should == "<ul><li>one</li></ul>"
+      end).to eq("<ul><li>one</li></ul>")
     end
 
   	it "creates a menu with one item that contains a link" do
   	  url = "http://www.example.com"
-  	  render_navigation do
+  	  expect(render_navigation do
   	    li do
   	      a "One", href: url
 	      end
-      end.should == '<ul><li><a href="' + url + '">One</a></li></ul>'
+      end).to eq('<ul><li><a href="' + url + '">One</a></li></ul>')
     end
 
   	it "raises NameError for non-existent method" do

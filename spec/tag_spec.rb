@@ -13,45 +13,45 @@ describe Navigator::Tag do
 
   describe "#html_attributes" do
     it "answers key=value pair prefixed with a space" do
-      @tag.html_attributes.should == 'class="example"'
+      expect(@tag.html_attributes).to eq('class="example"')
     end
   end
 
   describe "#prefix" do
     it "answers prefix with no attributes" do
       @tag.attributes = {}
-      @tag.prefix.should == "<li>"
+      expect(@tag.prefix).to eq("<li>")
     end
 
     it "answers prefix with an attribute" do
-      @tag.prefix.should == '<li class="example">'
+      expect(@tag.prefix).to eq('<li class="example">')
     end
 
     it "answers prefix with multiple attributes" do
       @tag.attributes = {class: "tooltip", "data-enabled" => true}
-      @tag.prefix.should == '<li class="tooltip" data-enabled="true">'
+      expect(@tag.prefix).to eq('<li class="tooltip" data-enabled="true">')
     end
   end
 
   describe "#suffix" do
     it "answers closing tag" do
-      @tag.suffix.should == "</li>"
+      expect(@tag.suffix).to eq("</li>")
     end
   end
 
   describe "#render" do
     it "renders an empty tag" do
       @tag = Navigator::Tag.new "li"
-      @tag.render.should == "<li></li>"
+      expect(@tag.render).to eq("<li></li>")
     end
 
     it "renders an empty tag with attributes" do
       @tag.content = nil
-      @tag.render.should == '<li class="example"></li>'
+      expect(@tag.render).to eq('<li class="example"></li>')
     end
 
     it "renders a tag with attributes and content" do
-      @tag.render.should == '<li class="example">Not much here.</li>'
+      expect(@tag.render).to eq('<li class="example">Not much here.</li>')
     end
   end
 end
