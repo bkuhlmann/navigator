@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rb-fsevent" # Guard file events for OSX.
   s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "coveralls"
+  s.add_development_dependency "codeclimate-test-reporter"
 
   s.files            = Dir["lib/**/*"]
   s.extra_rdoc_files = Dir["README*", "LICENSE*"]

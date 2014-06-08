@@ -1,6 +1,6 @@
 require "bundler/setup"
-require "coveralls"
-Coveralls.wear!
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 require "active_support/core_ext"
 require "action_view"
 require "navigator"

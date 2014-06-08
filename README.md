@@ -2,9 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/navigator.png)](http://badge.fury.io/rb/navigator)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/navigator.png)](https://codeclimate.com/github/bkuhlmann/navigator)
+[![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/navigator/coverage.png)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/navigator.png)](https://gemnasium.com/bkuhlmann/navigator)
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/navigator.png)](http://travis-ci.org/bkuhlmann/navigator)
-[![Coverage Status](https://coveralls.io/repos/bkuhlmann/navigator/badge.png)](https://coveralls.io/r/bkuhlmann/navigator)
 [![Gittip](http://img.shields.io/gittip/bkuhlmann.svg)](https://www.gittip.com/bkuhlmann)
 
 Enhances Rails with a DSL for menu navigation.
