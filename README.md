@@ -28,7 +28,7 @@ Enhances Rails with a DSL for menu navigation.
 
 For a secure install, type the following from the command line (recommended):
 
-    gem cert --add <(curl -Ls http://www.redalchemist.com/gem-public.pem)
+    gem cert --add <(curl -Ls http://www.alchemists.io/gem-public.pem)
     gem install navigator --trust-policy MediumSecurity
 
 NOTE: A HighSecurity trust policy would be best but MediumSecurity enables signed gem verification while
@@ -135,11 +135,11 @@ Read CONTRIBUTING for details.
 
 # Credits
 
-Developed by [Brooke Kuhlmann](http://www.redalchemist.com) at [Red Alchemist](http://www.redalchemist.com)
+Developed by [Brooke Kuhlmann](http://www.alchemists.io) at [Alchemists](http://www.alchemists.io)
 
 # License
 
-Copyright (c) 2011 [Red Alchemist](http://www.redalchemist.com).
+Copyright (c) 2011 [Alchemists](http://www.alchemists.io).
 Read the LICENSE for details.
 
 # History
