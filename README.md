@@ -131,7 +131,7 @@ Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
 # Contributions
 
-Read CONTRIBUTING for details.
+Read [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 # Credits
 
@@ -140,9 +140,9 @@ Developed by [Brooke Kuhlmann](http://www.alchemists.io) at [Alchemists](http://
 # License
 
 Copyright (c) 2011 [Alchemists](http://www.alchemists.io).
-Read the LICENSE for details.
+Read the [LICENSE](LICENSE.md) for details.
 
 # History
 
-Read the CHANGELOG for details.
+Read the [CHANGELOG](CHANGELOG.md) for details.
 Built with [Gemsmith](https://github.com/bkuhlmann/gemsmith).
