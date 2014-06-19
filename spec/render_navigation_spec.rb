@@ -13,18 +13,22 @@ describe "Navigator::ActionView::InstanceMethods" do
     end
 
     it "creates a menu with one item" do
-      expect(render_navigation do
+      nav = render_navigation do
         li "one"
-      end).to eq("<ul><li>one</li></ul>")
+      end
+
+      expect(nav).to eq("<ul><li>one</li></ul>")
     end
 
     it "creates a menu with one item that contains a link" do
       url = "http://www.example.com"
-      expect(render_navigation do
+      nav = render_navigation do
         li do
           a "One", href: url
         end
-      end).to eq('<ul><li><a href="' + url + '">One</a></li></ul>')
+      end
+
+      expect(nav).to eq('<ul><li><a href="' + url + '">One</a></li></ul>')
     end
 
     it "raises NameError for non-existent method" do
