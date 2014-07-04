@@ -11,8 +11,6 @@ module Navigator
   #   <a href="/two">Two</a>
   # </nav>
   class Menu
-    attr_accessor :options
-
     # Initializes the menu.
     # ==== Parameters
     # * +template+ - Required. The view template.
@@ -23,7 +21,7 @@ module Navigator
     def initialize template, tag = "ul", attributes = {}, options = {}, &block
       @template = template
       @tag = Tag.new tag, nil, attributes
-      @options = options.reverse_merge! active: "active"
+      @options = options.reverse_merge active: "active"
       @items = []
       instance_eval(&block) if block_given?
     end
@@ -37,12 +35,12 @@ module Navigator
     def add name, content = nil, attributes = {}, &block
       tag = Tag.new name, content, attributes
       if block_given?
-        @items << tag.prefix
-        @items << tag.content
+        items << tag.prefix
+        items << tag.content
         instance_eval(&block)
-        @items << tag.suffix
+        items << tag.suffix
       else
-        @items << tag.render
+        items << tag.render
       end
     end
 
@@ -67,16 +65,23 @@ module Navigator
     # * +args+ - Optional. The method arguments.
     # * +block+ - Optional. The code block.
     def method_missing name, *args, &block
-      if name.to_s =~ /^(ul|li|a|b|em|s|small|span|strong|sub|sup)$/
-        add(*args.unshift(name), &block)
-      else
-        @template.public_send name, *args
+      case name.to_s
+        when %r(^(ul|li|a|b|em|s|small|span|strong|sub|sup)$)
+          add(*args.unshift(name), &block)
+        when %r(^(options)$)
+          self.send(name, *args, &block)
+        else
+          template.public_send name, *args
       end
     end
 
     # Renders the menu.
     def render
-      [@tag.prefix, @tag.content, @items.compact.join(''), @tag.suffix].compact * ''
+      [@tag.prefix, @tag.content, items.compact.join(''), @tag.suffix].compact * ''
     end
+
+    private
+
+    attr_accessor :template, :tag, :attributes, :options, :items
   end
 end

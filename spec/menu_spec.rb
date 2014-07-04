@@ -1,6 +1,7 @@
 require "spec_helper"
 
 describe Navigator::Menu do
+  ERBHandler = ActionView::Template::Handlers::ERB.new
   let(:template) { ActionView::Template.new "<html></html>", "Example", ERBHandler, {} }
   let(:menu) { Navigator::Menu.new template }
 

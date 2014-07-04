@@ -4,7 +4,7 @@ describe Navigator::Tag do
   let(:tag) { Navigator::Tag.new "li", "Not much here.", class: "example" }
 
   describe "#initialize" do
-    it "should ArgumentError when no tag is supplied" do
+    it "raises ArgumentError when no name is supplied" do
       expect{Navigator::Tag.new}.to raise_error(ArgumentError)
     end
   end
@@ -17,7 +17,7 @@ describe Navigator::Tag do
 
   describe "#prefix" do
     it "answers prefix with no attributes" do
-      tag.attributes = {}
+      tag = Navigator::Tag.new "li"
       expect(tag.prefix).to eq("<li>")
     end
 
@@ -26,7 +26,7 @@ describe Navigator::Tag do
     end
 
     it "answers prefix with multiple attributes" do
-      tag.attributes = {class: "tooltip", "data-enabled" => true}
+      tag = Navigator::Tag.new "li", nil, class: "tooltip", "data-enabled" => true
       expect(tag.prefix).to eq('<li class="tooltip" data-enabled="true">')
     end
   end
@@ -44,7 +44,7 @@ describe Navigator::Tag do
     end
 
     it "renders an empty tag with attributes" do
-      tag.content = nil
+      tag = Navigator::Tag.new "li", nil, class: "example"
       expect(tag.render).to eq('<li class="example"></li>')
     end
 
