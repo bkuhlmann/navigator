@@ -11,10 +11,10 @@ module Navigator
   #   <a href="/two">Two</a>
   # </nav>
   class Menu
-    def initialize template, tag = "ul", attributes = {}, options = {}, &block
+    def initialize template, tag = "ul", attributes = {}, settings = {}, &block
       @template = template
+      @settings = settings.reverse_merge active_class: "active"
       @tag = Tag.new tag, nil, attributes
-      @options = options.reverse_merge active: "active"
       @items = []
       instance_eval(&block) if block_given?
     end
@@ -41,8 +41,6 @@ module Navigator
       case name.to_s
         when %r(^(ul|li|a|b|em|s|small|span|strong|sub|sup)$)
           add(*args.unshift(name), &block)
-        when %r(^(options)$)
-          self.send(name, *args, &block)
         else
           template.public_send name, *args
       end
@@ -54,6 +52,6 @@ module Navigator
 
     private
 
-    attr_accessor :template, :tag, :attributes, :options, :items
+    attr_accessor :template, :tag, :attributes, :settings, :items
   end
 end

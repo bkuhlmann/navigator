@@ -5,12 +5,6 @@ describe Navigator::Menu do
   let(:template) { ActionView::Template.new "<html></html>", "Example", ERBHandler, {} }
   let(:menu) { Navigator::Menu.new template }
 
-  describe "#initialize" do
-    it "has default options" do
-      expect(menu.options).to eq({active: "active"})
-    end
-  end
-
   describe "#add" do
     it "adds a single list item" do
       menu.add "li", "one"
