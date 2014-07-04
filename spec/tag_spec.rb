@@ -9,12 +9,6 @@ describe Navigator::Tag do
     end
   end
 
-  describe "#html_attributes" do
-    it "answers key=value pair prefixed with a space" do
-      expect(tag.html_attributes).to eq('class="example"')
-    end
-  end
-
   describe "#prefix" do
     it "answers prefix with no attributes" do
       tag = Navigator::Tag.new "li"

@@ -47,7 +47,7 @@ describe Navigator::Menu do
 
     it "adds an item with item and link attributes" do
       menu.item "Dashboard", "/dashboard", {class: "active"}, {"data-enabled" => true}
-      expect(menu.render).to eq('<ul><li class="active"><a href="/dashboard" data-enabled="true">Dashboard</a></li></ul>')
+      expect(menu.render).to eq('<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>')
     end
   end
 
