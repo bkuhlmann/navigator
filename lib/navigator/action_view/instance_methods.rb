@@ -1,8 +1,8 @@
 module Navigator
   module ActionView
-	  def self.included base
-	    base.send :include, InstanceMethods
-	  end
+    def self.included base
+      base.send :include, InstanceMethods
+    end
 
     module InstanceMethods
       # Renders a navigation menu.
