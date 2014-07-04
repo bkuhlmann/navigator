@@ -32,7 +32,8 @@ describe "Navigator::ActionView::InstanceMethods" do
     end
 
     it "raises NameError for non-existent method" do
-      expect{render_navigation(template) {bogus_method "bogus"}}.to raise_error(NameError)
+      nav = -> { render_navigation(template) { bogus_method "bogus" } }
+      expect(&nav).to raise_error(NameError)
     end
   end
 end
