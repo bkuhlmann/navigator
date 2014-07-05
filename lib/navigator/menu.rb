@@ -14,12 +14,13 @@ module Navigator
     def initialize template, tag = "ul", attributes = {}, tag_activator = Navigator::TagActivator.new, &block
       @template = template
       @tag = Tag.new tag, nil, attributes, tag_activator
+      @tag_activator = tag_activator
       @items = []
       instance_eval(&block) if block_given?
     end
 
-    def add name, content = nil, attributes = {}, &block
-      tag = Tag.new name, content, attributes
+    def add name, content = nil, attributes = {}, activator = tag_activator, &block
+      tag = Tag.new name, content, attributes, activator
       if block_given?
         items << tag.prefix
         items << tag.content
@@ -51,6 +52,6 @@ module Navigator
 
     private
 
-    attr_accessor :template, :tag, :items
+    attr_accessor :template, :tag, :tag_activator, :items
   end
 end

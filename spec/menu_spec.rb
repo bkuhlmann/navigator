@@ -6,7 +6,7 @@ describe Navigator::Menu do
   let(:menu) { Navigator::Menu.new template }
 
   describe "#add" do
-    it "adds a single item" do
+    it "adds single item" do
       menu.add "li", "one"
       expect(menu.render).to eq("<ul><li>one</li></ul>")
     end
@@ -25,6 +25,27 @@ describe Navigator::Menu do
         end
       end
       expect(menu.render).to eq("<ul><li><ul><li>sub</li></ul></li></ul>")
+    end
+
+    it "adds item using default menu tag activator" do
+      path = "/home"
+      activator = Navigator::TagActivator.new search_value: path
+
+      menu = Navigator::Menu.new template, "nav", {}, activator
+      menu.add "a", "Home", href: path
+      menu.add "a", "About", href: "/about"
+
+      expect(menu.render).to eq(%(<nav><a href="#{path}" class="active">Home</a><a href="/about">About</a></nav>))
+    end
+
+    it "adds item using custom item tag activator" do
+      activator = Navigator::TagActivator.new search_value: "/about"
+
+      menu = Navigator::Menu.new template, "nav", {}
+      menu.add "a", "Home", href: "/home"
+      menu.add "a", "About", {href: "/about"}, activator
+
+      expect(menu.render).to eq(%(<nav><a href="/home">Home</a><a href="/about" class="active">About</a></nav>))
     end
   end
 
