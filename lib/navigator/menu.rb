@@ -11,10 +11,9 @@ module Navigator
   #   <a href="/two">Two</a>
   # </nav>
   class Menu
-    def initialize template, tag = "ul", attributes = {}, settings = {}, &block
+    def initialize template, tag = "ul", attributes = {}, tag_activator = Navigator::TagActivator.new, &block
       @template = template
-      @settings = settings.reverse_merge active_class: "active"
-      @tag = Tag.new tag, nil, attributes
+      @tag = Tag.new tag, nil, attributes, tag_activator
       @items = []
       instance_eval(&block) if block_given?
     end
@@ -52,6 +51,6 @@ module Navigator
 
     private
 
-    attr_accessor :template, :tag, :attributes, :settings, :items
+    attr_accessor :template, :tag, :items
   end
 end
