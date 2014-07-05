@@ -3,9 +3,9 @@ require "spec_helper"
 describe "Navigator::ActionView::InstanceMethods" do
   include ActionView::Helpers
   include Navigator::ActionView::InstanceMethods
-  ERBHandler = ActionView::Template::Handlers::ERB.new
 
-  let(:template) { ActionView::Template.new "<html></html>", "Example", ERBHandler, {} }
+  let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
+  let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
 
   describe "#render_navigation" do
     it "creates an empty menu" do
