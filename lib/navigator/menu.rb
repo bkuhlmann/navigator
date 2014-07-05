@@ -11,15 +11,15 @@ module Navigator
   #   <a href="/two">Two</a>
   # </nav>
   class Menu
-    def initialize template, tag = "ul", attributes = {}, tag_activator = Navigator::TagActivator.new, &block
+    def initialize template, tag = "ul", attributes = {}, menu_activator = Navigator::TagActivator.new, &block
       @template = template
-      @tag = Tag.new tag, nil, attributes, tag_activator
-      @tag_activator = tag_activator
+      @tag = Tag.new tag, nil, attributes, menu_activator
+      @menu_activator = menu_activator
       @items = []
       instance_eval(&block) if block_given?
     end
 
-    def add name, content = nil, attributes = {}, activator = tag_activator, &block
+    def add name, content = nil, attributes = {}, activator = menu_activator, &block
       tag = Tag.new name, content, attributes, activator
       if block_given?
         items << tag.prefix
@@ -31,9 +31,15 @@ module Navigator
       end
     end
 
-    def item content, url, item_attributes = {}, link_attributes = {}
-      add "li", nil, item_attributes do
-        add "a", content, {href: url}.reverse_merge(link_attributes)
+    def item content, url, item_attributes = {}, link_attributes = {}, activator = menu_activator
+      link_attributes.reverse_merge! href: url
+
+      if link_attributes[:href] == activator.search_value
+        item_attributes[activator.target_key] = activator.target_value
+      end
+
+      add "li", nil, item_attributes, activator do
+        add "a", content, link_attributes, Navigator::TagActivator.new
       end
     end
 
@@ -52,6 +58,6 @@ module Navigator
 
     private
 
-    attr_accessor :template, :tag, :tag_activator, :items
+    attr_accessor :template, :tag, :menu_activator, :items
   end
 end

@@ -50,19 +50,39 @@ describe Navigator::Menu do
   end
 
   describe "#item" do
-    it "adds an item with no item or link attributes" do
+    it "adds item with no item or link attributes" do
       menu.item "Dashboard", "/dashboard"
-      expect(menu.render).to eq('<ul><li><a href="/dashboard">Dashboard</a></li></ul>')
+      expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li></ul>))
     end
 
-    it "adds an item with item attributes" do
+    it "adds item with item attributes" do
       menu.item "Dashboard", "/dashboard", class: "active"
-      expect(menu.render).to eq('<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>')
+      expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>))
     end
 
-    it "adds an item with item and link attributes" do
+    it "adds item with item and link attributes" do
       menu.item "Dashboard", "/dashboard", {class: "active"}, {"data-enabled" => true}
-      expect(menu.render).to eq('<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>')
+      expect(menu.render).to eq(%(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>))
+    end
+
+    it "adds item using default menu tag activator" do
+      activator = Navigator::TagActivator.new search_value: "/users"
+
+      menu = Navigator::Menu.new template, "ul", {}, activator
+      menu.item "Dashboard", "/dashboard"
+      menu.item "Users", "/users"
+
+      expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li><li class="active"><a href="/users">Users</a></li></ul>))
+    end
+
+    it "adds item using custom item tag activator" do
+      activator = Navigator::TagActivator.new search_value: "/dashboard"
+
+      menu = Navigator::Menu.new template
+      menu.item "Dashboard", "/dashboard", {}, {}, activator
+      menu.item "Users", "/users"
+
+      expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li><li><a href="/users">Users</a></li></ul>))
     end
   end
 
