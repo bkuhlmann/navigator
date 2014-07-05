@@ -6,19 +6,19 @@ describe Navigator::Menu do
   let(:menu) { Navigator::Menu.new template }
 
   describe "#add" do
-    it "adds a single list item" do
+    it "adds a single item" do
       menu.add "li", "one"
       expect(menu.render).to eq("<ul><li>one</li></ul>")
     end
 
-    it "adds a multile list items" do
+    it "adds multiple items" do
       menu.add "li", "one"
       menu.add "li", "two"
       menu.add "li", "three"
       expect(menu.render).to eq("<ul><li>one</li><li>two</li><li>three</li></ul>")
     end
 
-    it "adds a list item that contains an unordered list with one item" do
+    it "adds an item that contains an unordered list with one item" do
       menu.add "li" do
         add "ul" do
           add "li", "sub"
@@ -46,57 +46,57 @@ describe Navigator::Menu do
   end
 
   describe "#method_missing" do
-    it "adds the ul tag" do
+    it "adds ul tag" do
       menu.ul
-      expect(menu.render).to eq('<ul><ul></ul></ul>')
+      expect(menu.render).to eq("<ul><ul></ul></ul>")
     end
 
-    it "adds the li tag" do
+    it "adds li tag" do
       menu.li "one"
       expect(menu.render).to eq("<ul><li>one</li></ul>")
     end
 
-    it "adds the a tag" do
+    it "adds a tag" do
       menu.a "one", href: "http://www.example.com"
-      expect(menu.render).to eq('<ul><a href="http://www.example.com">one</a></ul>')
+      expect(menu.render).to eq(%(<ul><a href="http://www.example.com">one</a></ul>))
     end
 
-    it "adds the b tag" do
+    it "adds b tag" do
       menu.b "stylistic text"
       expect(menu.render).to eq("<ul><b>stylistic text</b></ul>")
     end
 
-    it "adds the em tag" do
+    it "adds em tag" do
       menu.em "emphasis"
       expect(menu.render).to eq("<ul><em>emphasis</em></ul>")
     end
 
-    it "adds the s tag" do
+    it "adds s tag" do
       menu.s "strike"
       expect(menu.render).to eq("<ul><s>strike</s></ul>")
     end
 
-    it "adds the small tag" do
+    it "adds small tag" do
       menu.small "small"
       expect(menu.render).to eq("<ul><small>small</small></ul>")
     end
 
-    it "adds the span tag" do
+    it "adds span tag" do
       menu.span "span"
       expect(menu.render).to eq("<ul><span>span</span></ul>")
     end
 
-    it "adds the strong tag" do
+    it "adds strong tag" do
       menu.strong "bold"
       expect(menu.render).to eq("<ul><strong>bold</strong></ul>")
     end
 
-    it "adds the sub tag" do
+    it "adds sub tag" do
       menu.sub "sub-text"
       expect(menu.render).to eq("<ul><sub>sub-text</sub></ul>")
     end
 
-    it "adds the sup tag" do
+    it "adds sup tag" do
       menu.sup "super-text"
       expect(menu.render).to eq("<ul><sup>super-text</sup></ul>")
     end
@@ -117,7 +117,7 @@ describe Navigator::Menu do
 
     it "renders one attribute with no content" do
       menu = Navigator::Menu.new template, "ul", class: "test"
-      expect(menu.render).to eq('<ul class="test"></ul>')
+      expect(menu.render).to eq(%(<ul class="test"></ul>))
     end
   end
 end
