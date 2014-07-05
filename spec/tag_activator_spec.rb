@@ -47,6 +47,32 @@ describe Navigator::TagActivator do
     end
   end
 
+  describe "activatable?" do
+    context "with default settings" do
+      it "answers true when search value is found" do
+        subject = Navigator::TagActivator.new
+        result = subject.activatable?
+
+        expect(result).to eq(false)
+      end
+    end
+
+    context "with search value" do
+      let(:path) { "/example/path" }
+      subject { Navigator::TagActivator.new search_value: path }
+
+      it "answers true when search value is found" do
+        result = subject.activatable? "href" => path
+        expect(result).to eq(true)
+      end
+
+      it "answers false when search value is not found" do
+        result = subject.activatable? "href" => "/unknown/path"
+        expect(result).to eq(false)
+      end
+    end
+  end
+
   describe "#activate" do
     let(:path) { "/some/path" }
 

@@ -24,10 +24,15 @@ module Navigator
       settings.fetch :target_value
     end
 
+    def activatable? attributes = {}
+      attributes = attributes.with_indifferent_access
+      search_value.present? && attributes[search_key] == search_value
+    end
+
     def activate attributes = {}
       attributes = attributes.with_indifferent_access
 
-      if search_value.present? && attributes[search_key] == search_value
+      if activatable? attributes
         attributes[target_key] = [attributes[target_key], target_value].compact * ' '
       end
 
