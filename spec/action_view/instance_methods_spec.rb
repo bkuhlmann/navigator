@@ -6,6 +6,9 @@ describe "Navigator::ActionView::InstanceMethods" do
 
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
+  let(:path) { "/dashboard" }
+
+  before { allow(self).to receive(:current_path).and_return(path) }
 
   describe "#navigation" do
     it "answers default (empty) menu" do
@@ -40,15 +43,24 @@ describe "Navigator::ActionView::InstanceMethods" do
       expect(nav).to eq(%(<ul><li><a href="#{url}">One</a></li></ul>))
     end
 
-    it "answers menu with custom tag activator" do
-      url = "/dashboard"
-      activator = Navigator::TagActivator.new search_value: url
-
-      nav = navigation "ul", {}, activator do
-        item "Dashboard", url
+    it "answers menu with default navigation activator" do
+      nav = navigation "ul" do
+        item "Dashboard", path
       end
 
-      expect(nav).to eq(%(<ul><li class="active"><a href="#{url}">Dashboard</a></li></ul>))
+      expect(nav).to eq(%(<ul><li class="active"><a href="#{path}">Dashboard</a></li></ul>))
+    end
+
+    it "answers menu with custom navigation activator" do
+      path = "/one"
+      activator = Navigator::TagActivator.new search_value: path
+
+      nav = navigation "ul", {}, activator do
+        item "One", path
+        item "Two", "/two"
+      end
+
+      expect(nav).to eq(%(<ul><li class="active"><a href="#{path}">One</a></li><li><a href="/two">Two</a></li></ul>))
     end
 
     it "raises NameError for non-existent method" do
