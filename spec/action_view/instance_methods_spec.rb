@@ -8,11 +8,11 @@ describe "Navigator::ActionView::InstanceMethods" do
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
 
   describe "#navigation" do
-    it "creates an empty menu" do
+    it "answers default menu" do
       expect(navigation).to eq("<ul></ul>")
     end
 
-    it "creates a menu with one item" do
+    it "answers menu with one item" do
       nav = navigation do
         li "one"
       end
@@ -20,7 +20,7 @@ describe "Navigator::ActionView::InstanceMethods" do
       expect(nav).to eq("<ul><li>one</li></ul>")
     end
 
-    it "creates a menu with one item that contains a link" do
+    it "answers menu with one item that contains a link" do
       url = "http://www.example.com"
       nav = navigation do
         li do
