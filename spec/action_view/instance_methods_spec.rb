@@ -31,6 +31,17 @@ describe "Navigator::ActionView::InstanceMethods" do
       expect(nav).to eq(%(<ul><li><a href="#{url}">One</a></li></ul>))
     end
 
+    it "answers menu with custom tag activator" do
+      url = "/dashboard"
+      activator = Navigator::TagActivator.new search_value: url
+
+      nav = navigation "ul", {}, activator do
+        item "Dashboard", url
+      end
+
+      expect(nav).to eq(%(<ul><li class="active"><a href="#{url}">Dashboard</a></li></ul>))
+    end
+
     it "raises NameError for non-existent method" do
       nav = -> { navigation(template) { bogus_method "bogus" } }
       expect(&nav).to raise_error(NameError)

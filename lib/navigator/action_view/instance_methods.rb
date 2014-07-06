@@ -5,8 +5,8 @@ module Navigator
     end
 
     module InstanceMethods
-      def navigation tag = "ul", attributes = {}, &block
-        raw Menu.new(self, tag, attributes, &block).render
+      def navigation tag = "ul", attributes = {}, activator = Navigator::TagActivator.new, &block
+        raw Menu.new(self, tag, attributes, activator, &block).render
       end
     end
   end
