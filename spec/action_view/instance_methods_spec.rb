@@ -8,8 +8,17 @@ describe "Navigator::ActionView::InstanceMethods" do
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
 
   describe "#navigation" do
-    it "answers default menu" do
+    it "answers default (empty) menu" do
       expect(navigation).to eq("<ul></ul>")
+    end
+
+    it "answers custom (empty) menu" do
+      expect(navigation("nav")).to eq("<nav></nav>")
+    end
+
+    it "answers menu with attributes" do
+      nav = navigation "nav", "data-help" => "Main site navigation."
+      expect(nav).to eq(%(<nav data-help="Main site navigation."></nav>))
     end
 
     it "answers menu with one item" do
