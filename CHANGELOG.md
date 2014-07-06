@@ -1,3 +1,16 @@
+# v0.7.0
+
+* Removed render_navigation helper method (replaced with navigation).
+* Added Code Climate test coverage support.
+* Added a tag activator object for detecting which tags to activate.
+* Updated to Ruby 2.1.2.
+* Updated to Rails 4.1.4.
+* Updated CONTRIBUTING guidelines and documentation.
+* Updated Menu#add to use tag activator.
+* Updated Menu#item to use tag activator.
+* Updated navigation helper to accept default/custom tag activator.
+* Updated navigation helper to automatically configure current path.
+
 # v0.6.0
 
 * Updated to MRI 2.1.1.

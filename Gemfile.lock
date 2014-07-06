@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    navigator (0.6.0)
+    navigator (0.7.0)
       rails (~> 4.0)
 
 GEM

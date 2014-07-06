@@ -1,15 +1,5 @@
 module Navigator
-  # Renders a HTML menu. Examples:
-  # Example 1:
-  # <ul>
-  #   <li>One</li>
-  #   <li>Two</li>
-  # </ul>
-  # Example 2:
-  # <nav>
-  #   <a href="/one">One</a>
-  #   <a href="/two">Two</a>
-  # </nav>
+  # Renders a HTML menu.
   class Menu
     def initialize template, tag = "ul", attributes = {}, menu_activator = Navigator::TagActivator.new, &block
       @template = template

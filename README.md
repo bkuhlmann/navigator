@@ -11,10 +11,11 @@ Enhances Rails with a DSL for menu navigation.
 
 # Features
 
-* A simple DSL for creating navigation menus.
+* Provides a simple DSL for building navigation menus.
+* Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
 * Supports sub-menus, nested tags, HTML attributes, etc.
-* Supports the following HTML tags: ul, li, a, b, em, s, small, span, strong, sub, and sup.
-* Provides the "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
+* Supports the following HTML tags: nav, ul, li, a, b, em, s, small, span, strong, sub, and sup.
+* Provides an "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
 
 # Requirements
 
@@ -44,16 +45,18 @@ Add the following to your Gemfile:
 
 # Usage
 
-The following are examples using the render_navigation view helper:
+The following are examples using the navigation view helper:
 
 ## Unordered List (simple)
 
-    render_navigation do
+Code:
+
+    navigation do
       item "Dashboard", "/dashboard"
       item "News", "/posts"
     end
 
-Yields:
+Result:
 
     <ul>
       <li><a href="/dashboard">Dashboard</a></li>
@@ -62,12 +65,14 @@ Yields:
 
 ## Unordered List (with attributes)
 
-    render_navigation "ul", class: "nav" do
+Code:
+
+    navigation "ul", class: "nav" do
       item "Dashboard", "/dashboard", class: "active"
       item "News", "/posts"
     end
 
-Yields:
+Result:
 
     <ul class="nav">
       <li class="active"><a href="/dashboard">Dashboard</a></li>
@@ -76,42 +81,119 @@ Yields:
 
 ## Nav (with links)
 
-    render_navigation "nav" do
+Code:
+
+    navigation "nav" do
       a "Dashboard", href: "/dashboard"
       a "News", href: "/posts"
     end
 
-Yields:
+Result:
 
     <nav>
       <a href="/dashboard">Dashboard</a>
       <a href="/posts">Posts</a>
     </nav>
 
-## Twitter Bootstrap Dropdown
+## Foundation Menu
 
-    li nil, class: "dropdown" do
-      a "Manage", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do
-        b nil, class: "caret"
-      end
-      ul nil, class: "dropdown-menu" do
-        item "Dashboard", admin_dashboard_path
-        item "Users", admin_users_path
+Code:
+
+    navigation "ul", class: "left" do
+      item "Home", root_path
+      item "About", about_path
+    end
+
+Result:
+
+    <ul class="ul" class: "left">
+      <li class="active"><a href="/home">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+
+## Bootstrap Dropdown
+
+Code:
+
+    navigation "nav" do
+      item "Dashboard", admin_dashboard_path
+      li nil, class: "dropdown" do
+        a "Manage", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do
+          b nil, class: "caret"
+        end
+        ul nil, class: "dropdown-menu" do
+          item "Dashboard", admin_dashboard_path
+          item "Users", admin_users_path
+        end
       end
     end
 
-Yields:
+Result:
 
     <ul class="nav">
-      <li><a href="/en-US/admin/dashboard">Dashboard</a></li>
+      <li><a href="/admin/dashboard">Dashboard</a></li>
       <li class="dropdown">
-        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Manage<b class="caret"></b></a>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+          Manage
+          <b class="caret"></b>
+        </a>
         <ul class="dropdown-menu">
           <li><a href="/admin/dashboard">Dashboard</a></li>
           <li><a href="/admin/users">Users</a></li>
         </ul>
       </li>
     </ul>
+
+# Customization
+
+The `navigation` view helper can accept an optional `Navigator::TagActivator` instance. Example:
+
+    # Code
+    activator = Navigator::TagActivator.new search_value: request.env["PATH_INFO"]
+    navigation "nav", {}, activator do
+      a "Home", href: home_path
+      a "About", href: about_path
+    end
+
+    <!-- Result -->
+    <nav>
+      <a href="/home" class="active">Home</a>
+      <a href="/about" class="active">About</a>
+    </nav>
+
+This is the default behavior for all navigation menus and is how menu items automaticaly get the "active" class when the
+item URL (in this case "/home") matches the `request.env[“PATH_INFO"]` to indicate current page/active tab.
+
+`Navigator::TagActivator` instances can be configured as follows:
+
+* search_key = Optional. The HTML tag attribute to search for. Default: :href.
+* search_value = Required. The value to match against the search_key value in order to update the value of the
+  target_key. Default: nil.
+* target_key = Optional. The HTML tag attribute key value to update when the search_value and search_key value match.
+  Default:
+  :class.
+* target_value = Optional. The value to be applied to the target_key value. If no value exists, then the value is added.
+  Otherwise, if a value exists then the value is appended to the existing value. Default: "active".
+
+This customization allows for more sophisticated detection/updating of active HTML tags. For example, the example code
+(above) could be rewritten to use `data-*` attributes and customized styles as follows:
+
+    # Code
+    activator = Navigator::TagActivator.new search_key: "data-id",
+                                            search_value: "123",
+                                            target_key: "data-style"
+                                            target_value: "current"
+
+    navigation "nav", {}, activator do
+      a "Home", href: home_path, "data-id" => "123", data-style="info"
+      a "About", href: about_path, "data-id" => "789"
+    end
+
+    <!-- Result -->
+    <nav>
+      <a href="/home" data-id="123" data-style="info current">Home</a>
+      <a href="/about" data-id="789">About</a>
+    </nav>
 
 # Tests
 
@@ -137,7 +219,7 @@ Developed by [Brooke Kuhlmann](http://www.alchemists.io) at [Alchemists](http://
 
 # License
 
-Copyright (c) 2011 [Alchemists](http://www.alchemists.io).
+Copyright (c) 2012 [Alchemists](http://www.alchemists.io).
 Read the [LICENSE](LICENSE.md) for details.
 
 # History
