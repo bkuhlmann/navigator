@@ -5,7 +5,7 @@ module Navigator
     end
 
     module InstanceMethods
-      def render_navigation tag = "ul", attributes = {}, &block
+      def navigation tag = "ul", attributes = {}, &block
         raw Menu.new(self, tag, attributes, &block).render
       end
     end
