@@ -37,6 +37,10 @@ module Navigator
       end
     end
 
+    def respond_to? name
+      method_allowed?(name) || super(name)
+    end
+
     def method_missing name, *args, &block
       if method_allowed?(name.to_s)
         add(*args.unshift(name), &block)

@@ -86,6 +86,16 @@ describe Navigator::Menu do
     end
   end
 
+  describe "#respond_to?" do
+    it "answers true for a valid tag" do
+      expect(menu.respond_to? "section").to eq(true)
+    end
+
+    it "answers false for an invalid tag" do
+      expect(menu.respond_to? "bogus").to eq(false)
+    end
+  end
+
   describe "#method_missing" do
     context "header tags" do
       it "adds a section tag" do
