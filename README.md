@@ -14,7 +14,7 @@ Enhances Rails with a DSL for menu navigation.
 * Provides a simple DSL for building navigation menus.
 * Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
 * Supports sub-menus, nested tags, HTML attributes, etc.
-* Supports the following HTML tags: nav, ul, li, a, b, em, s, small, span, strong, sub, and sup.
+* Supports the following HTML tags: nav, section, h1-h6, ul, li, a, b, em, s, small, span, strong, sub, and sup.
 * Provides an "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
 
 # Requirements
@@ -135,7 +135,7 @@ Code:
         end
 
         ul nil, class: "right" do
-          item "Login", login_path, {}, {class: "button tiny round"}
+          item "Login", "/login", {}, {class: "button tiny round"}
         end
       end
     end
