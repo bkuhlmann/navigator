@@ -87,6 +87,53 @@ describe Navigator::Menu do
   end
 
   describe "#method_missing" do
+    context "header tags" do
+      it "adds an h1 tag" do
+        menu.h1 "header"
+        expect(menu.render).to eq("<ul><h1>header</h1></ul>")
+      end
+
+      it "adds an h2 tag" do
+        menu.h2 "header"
+        expect(menu.render).to eq("<ul><h2>header</h2></ul>")
+      end
+
+      it "adds an h3 tag" do
+        menu.h3 "header"
+        expect(menu.render).to eq("<ul><h3>header</h3></ul>")
+      end
+
+      it "adds an h4 tag" do
+        menu.h4 "header"
+        expect(menu.render).to eq("<ul><h4>header</h4></ul>")
+      end
+
+      it "adds an h5 tag" do
+        menu.h5 "header"
+        expect(menu.render).to eq("<ul><h5>header</h5></ul>")
+      end
+
+      it "adds an h6 tag" do
+        menu.h6 "header"
+        expect(menu.render).to eq("<ul><h6>header</h6></ul>")
+      end
+
+      it "raises no method error for h method" do
+        unknown_method = -> { menu.h }
+        expect(&unknown_method).to raise_error(NoMethodError)
+      end
+
+      it "raises no method error for h0 method" do
+        unknown_method = -> { menu.h0 }
+        expect(&unknown_method).to raise_error(NoMethodError)
+      end
+
+      it "raises no method error for h7 method" do
+        unknown_method = -> { menu.h7 }
+        expect(&unknown_method).to raise_error(NoMethodError)
+      end
+    end
+
     it "adds ul tag" do
       menu.ul
       expect(menu.render).to eq("<ul><ul></ul></ul>")
