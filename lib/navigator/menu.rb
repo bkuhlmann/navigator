@@ -35,7 +35,7 @@ module Navigator
 
     def method_missing name, *args, &block
       case name.to_s
-        when %r(^(h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
+        when %r(^(section|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
           add(*args.unshift(name), &block)
         else
           template.public_send name, *args
