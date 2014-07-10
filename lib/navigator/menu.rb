@@ -1,6 +1,10 @@
 module Navigator
   # Renders a HTML menu.
   class Menu
+    def self.allowed_methods
+      %r(^(section|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
+    end
+
     def initialize template, tag = "ul", attributes = {}, menu_activator = Navigator::TagActivator.new, &block
       @template = template
       @tag = Tag.new tag, nil, attributes, menu_activator
@@ -34,11 +38,10 @@ module Navigator
     end
 
     def method_missing name, *args, &block
-      case name.to_s
-        when %r(^(section|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
-          add(*args.unshift(name), &block)
-        else
-          template.public_send name, *args
+      if method_allowed?(name.to_s)
+        add(*args.unshift(name), &block)
+      else
+        template.public_send name, *args
       end
     end
 
@@ -49,5 +52,9 @@ module Navigator
     private
 
     attr_accessor :template, :tag, :menu_activator, :items
+
+    def method_allowed? name
+      self.class.allowed_methods === name
+    end
   end
 end
