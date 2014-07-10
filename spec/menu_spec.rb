@@ -84,6 +84,18 @@ describe Navigator::Menu do
 
       expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li><li><a href="/users">Users</a></li></ul>))
     end
+
+    it "adds item where item trumps menu tag activator" do
+      menu_activator = Navigator::TagActivator.new search_value: "/one"
+      item_activator = Navigator::TagActivator.new search_value: "/two"
+
+      menu = Navigator::Menu.new template, "ul", {}, menu_activator
+      menu.item "One", "/one"
+      menu.item "Two", "/two", {}, {}, item_activator
+      menu.item "Three", "/three"
+
+      expect(menu.render).to eq(%(<ul><li class="active"><a href="/one">One</a></li><li class="active"><a href="/two">Two</a></li><li><a href="/three">Three</a></li></ul>))
+    end
   end
 
   describe "#respond_to?" do
