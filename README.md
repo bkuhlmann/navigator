@@ -79,6 +79,22 @@ Result:
       <li><a href="/posts">Posts</a></li>
     </ul>
 
+## Unordered List (with multiple data attributes)
+
+Code:
+
+    navigation do
+      item "Home", "/home", data: {id: 1, type: "public"}
+    end
+
+Result:
+
+    <ul>
+      <li data-id="1" data-type="public"><a href="/home">Home</a></li>
+    </ul>
+
+*TIP: Nested data-* attributes can be applied to any menu item in the same manner as Rails view helpers.*
+
 ## Nav (with links)
 
 Code:
@@ -99,17 +115,55 @@ Result:
 
 Code:
 
-    navigation "ul", class: "left" do
-      item "Home", root_path
-      item "About", about_path
+    navigation "nav", class: "top-bar", "data-topbar" => nil do
+      ul nil, class: "title-area" do
+        li nil, class: "name" do
+          h1 do
+            a "Demo", href: "/home"
+          end
+        end
+      end
+
+      section nil, class: "top-bar-section" do
+        ul nil, class: "left" do
+          item "Home", "/"
+          item "About", "/about"
+        end
+
+        ul nil, class: "right" do
+          item "v1.0.0", '#'
+        end
+
+        ul nil, class: "right" do
+          item "Login", login_path, {}, {class: "button tiny round"}
+        end
+      end
     end
 
 Result:
 
-    <ul class="ul" class: "left">
-      <li class="active"><a href="/home">Home</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
+    <nav class="top-bar" data-topbar="">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/" class="active">Demo</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+
+        <ul class="right">
+          <li><a href="#">v1.0.0</a></li>
+        </ul>
+
+        <ul class="right">
+          <li><a class="button tiny round" href="/login">Login</a></li>
+        </ul>
+      </section>
+    </nav>
 
 ## Bootstrap Dropdown
 

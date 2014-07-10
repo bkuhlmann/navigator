@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    navigator (0.7.0)
+    navigator (0.8.0)
       rails (~> 4.0)
 
 GEM
@@ -76,7 +76,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
-    minitest (5.3.5)
+    minitest (5.4.0)
     multi_json (1.10.1)
     polyglot (0.3.5)
     pry (0.10.0)

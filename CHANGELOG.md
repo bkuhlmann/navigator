@@ -1,3 +1,9 @@
+# v0.8.0
+
+* Added support for HTML h1-h6 tags.
+* Added support for HTML section tags.
+* Added support for nested HTML data attributes.
+
 # v0.7.0
 
 * Removed render_navigation helper method (replaced with navigation).
