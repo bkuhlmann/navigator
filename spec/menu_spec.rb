@@ -194,8 +194,9 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><sup>super-text</sup></ul>")
     end
 
-    it "raises a NoMethodError when calling a non-existent method" do
-      expect{Navigator::Menu.new(template) {achoo "one"}}.to raise_error(NoMethodError)
+    it "raises no method error when calling non-existent method" do
+      unknown_method = -> { Navigator::Menu.new(template) { achoo "one" } }
+      expect(&unknown_method).to raise_error(NoMethodError)
     end
   end
 
