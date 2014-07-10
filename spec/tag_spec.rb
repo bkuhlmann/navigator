@@ -19,6 +19,11 @@ describe Navigator::Tag do
       expect(tag.prefix).to eq('<li class="example">')
     end
 
+    it "answers prefix with expanded data attibutes" do
+      tag = Navigator::Tag.new "li", nil, data: {one: "one", two: "two"}
+      expect(tag.prefix).to eq('<li data-one="one" data-two="two">')
+    end
+
     it "answers prefix with multiple attributes" do
       tag = Navigator::Tag.new "li", nil, class: "tooltip", "data-enabled" => true
       expect(tag.prefix).to eq('<li class="tooltip" data-enabled="true">')

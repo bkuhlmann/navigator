@@ -26,7 +26,15 @@ module Navigator
 
     attr_reader :attributes, :activator
 
+    def expand_data_attributes!
+      if attributes.key? :data
+        attributes[:data].each { |key, value| attributes["data-#{key}"] = value }
+        attributes.delete :data
+      end
+    end
+
     def formatted_attributes
+      expand_data_attributes!
       attrs = activator.activate(attributes).map { |key, value| %(#{key}="#{value}") } * ' '
       attrs.empty? ? nil : " #{attrs}"
     end

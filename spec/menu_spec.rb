@@ -11,6 +11,11 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><li>one</li></ul>")
     end
 
+    it "adds single item with multiple data attributes" do
+      menu.add "li", "one", data: {one: 1, two: 2}
+      expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2">one</li></ul>))
+    end
+
     it "adds multiple items" do
       menu.add "li", "one"
       menu.add "li", "two"
@@ -64,6 +69,11 @@ describe Navigator::Menu do
       it "adds item with item and link attributes" do
         menu.item "Dashboard", "/dashboard", {class: "active"}, {"data-enabled" => true}
         expect(menu.render).to eq(%(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>))
+      end
+
+      it "adds item with multiple data attributes for item and link" do
+        menu.item "Test", "/test", {data: {one: 1, two: 2}}, {data: {a: "A", b: "B"}}
+        expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2"><a href="/test" data-a="A" data-b="B">Test</a></li></ul>))
       end
     end
 
