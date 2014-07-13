@@ -1,13 +1,7 @@
 require "spec_helper"
 
-describe "Navigator::ActionView::InstanceMethods" do
-  include ActionView::Helpers
-  include Navigator::ActionView::InstanceMethods
-
-  let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
-  let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
+describe Navigator::NavigationHelper, type: :helper do
   let(:path) { "/dashboard" }
-
   before { allow(self).to receive(:current_path).and_return(path) }
 
   describe "#navigation" do
@@ -64,8 +58,8 @@ describe "Navigator::ActionView::InstanceMethods" do
     end
 
     it "raises NameError for non-existent method" do
-      nav = -> { navigation(template) { bogus_method "bogus" } }
-      expect(&nav).to raise_error(NameError)
+      nav = -> { navigation { bogus_method "bogus" } }
+      expect(&nav).to raise_error(NameError, /bogus_method/)
     end
   end
 end
