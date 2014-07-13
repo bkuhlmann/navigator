@@ -1,0 +1,10 @@
+body {font-family: Helvetica;}
+nav {background: rgba(141,0,25,1); border: 0.5em solid rgba(0,0,0,1); padding: 0.5em 0;}
+a {
+  color: rgba(256,256,256,1);
+  text-decoration: none;
+  padding: 1em;
+}
+a:hover {color: rgba(23,23,22,1);}
+.active {background: rgba(0,0,0,1);}
+.active:hover {color: rgba(256,256,256,1);}
