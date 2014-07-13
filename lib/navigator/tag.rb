@@ -11,7 +11,7 @@ module Navigator
     end
 
     def prefix
-      ["<#{name}", formatted_attributes, '>'].compact * ''
+      ["<#{name}", format_attributes, '>'].compact * ''
     end
 
     def suffix
@@ -26,16 +26,20 @@ module Navigator
 
     attr_reader :attributes, :activator
 
-    def expand_data_attributes!
-      if attributes.key? :data
-        attributes[:data].each { |key, value| attributes["data-#{key}"] = value }
-        attributes.delete :data
+    def expand_data_attributes! attrs
+      if attrs.key? :data
+        attrs.delete(:data).each { |key, value| attrs["data-#{key}"] = value }
       end
     end
 
-    def formatted_attributes
-      expand_data_attributes!
-      attrs = activator.activate(attributes).map { |key, value| %(#{key}="#{value}") } * ' '
+    def concatenate_attributes attrs
+      activator.activate(attrs).map { |key, value| %(#{key}="#{value}") } * ' '
+    end
+
+    def format_attributes
+      attrs = attributes.clone
+      expand_data_attributes! attrs
+      attrs = concatenate_attributes attrs
       attrs.empty? ? nil : " #{attrs}"
     end
   end
