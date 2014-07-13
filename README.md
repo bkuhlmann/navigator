@@ -23,7 +23,7 @@ Enhances Rails with a DSL for menu navigation.
     * [MRI 2.x.x](http://www.ruby-lang.org)
     * [JRuby 1.x.x](http://jruby.org)
     * [Rubinius 2.x.x](http://rubini.us)
-0. [Ruby on Rails 4.x.x](http://rubyonrails.org).
+0. [Ruby on Rails 4.1.x](http://rubyonrails.org).
 
 # Setup
 
@@ -254,6 +254,11 @@ This customization allows for more sophisticated detection/updating of active HT
 To test, run:
 
     bundle exec rspec spec
+
+To test the dummy application, run:
+
+    cd spec/dummy
+    bin/rails server
 
 # Versioning
 

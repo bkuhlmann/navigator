@@ -1,3 +1,9 @@
+# v0.9.0
+
+* Removed Rails 4.0.x support.
+* Added Rails Engine support.
+* Added stylesheet for Dummy application.
+
 # v0.8.0
 
 * Added support for HTML h1-h6 tags.
