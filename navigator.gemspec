@@ -49,6 +49,5 @@ Gem::Specification.new do |s|
 
   s.files            = Dir["lib/**/*"]
   s.extra_rdoc_files = Dir["README*", "LICENSE*"]
-  s.executables << "rails"
   s.require_paths    = ["lib"]
 end
