@@ -7,14 +7,14 @@ module Navigator
 
     def initialize template, tag = "ul", attributes = {}, menu_activator = Navigator::TagActivator.new, &block
       @template = template
-      @tag = Tag.new tag, nil, attributes, menu_activator
+      @tag = Navigator::Tag.new tag, nil, attributes, menu_activator
       @menu_activator = menu_activator
       @items = []
       instance_eval(&block) if block_given?
     end
 
     def add name, content = nil, attributes = {}, activator = menu_activator, &block
-      tag = Tag.new name, content, attributes, activator
+      tag = Navigator::Tag.new name, content, attributes, activator
       if block_given?
         items << tag.prefix
         items << tag.content

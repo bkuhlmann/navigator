@@ -1,7 +1,7 @@
 module Navigator
   module NavigationHelper
     def navigation tag = "ul", attributes = {}, activator = navigation_activator, &block
-      raw Menu.new(self, tag, attributes, activator, &block).render
+      raw Navigator::Menu.new(self, tag, attributes, activator, &block).render
     end
 
     module_function
