@@ -1,3 +1,15 @@
+# IMPORTANT!
+
+There is a known bug with the current release. Use version 0.8.0 via the following:
+
+    gem install navigator --version 0.8.0
+
+...or install the latest version but update your Gemfile to use the Github master branch:
+
+    gem "navigator", github: "git@github.com:bkuhlmann/navigator.git", branch: "master"
+
+A new release will be issued shortly as soon as a proper fix is found.
+
 # Overview
 
 [![Gem Version](https://badge.fury.io/rb/navigator.png)](http://badge.fury.io/rb/navigator)
