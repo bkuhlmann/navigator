@@ -1,3 +1,7 @@
+# v0.9.1
+
+* Fixed bug with missing "app" folder in gemspec.
+
 # v0.9.0
 
 * Removed Rails 4.0.x support.
