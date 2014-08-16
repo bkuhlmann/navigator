@@ -1,20 +1,20 @@
-# v0.9.1
+# v0.9.1 (2014-07-13)
 
 * Fixed bug with missing "app" folder in gemspec.
 
-# v0.9.0
+# v0.9.0 (2014-07-13)
 
 * Removed Rails 4.0.x support.
 * Added Rails Engine support.
 * Added stylesheet for Dummy application.
 
-# v0.8.0
+# v0.8.0 (2014-07-09)
 
 * Added support for HTML h1-h6 tags.
 * Added support for HTML section tags.
 * Added support for nested HTML data attributes.
 
-# v0.7.0
+# v0.7.0 (2014-07-06)
 
 * Removed render_navigation helper method (replaced with navigation).
 * Added Code Climate test coverage support.
@@ -27,7 +27,7 @@
 * Updated navigation helper to accept default/custom tag activator.
 * Updated navigation helper to automatically configure current path.
 
-# v0.6.0
+# v0.6.0 (2014-04-16)
 
 * Updated to MRI 2.1.1.
 * Updated to Rubinius 2.x.x.
@@ -37,12 +37,12 @@
 * Added Gemnasium support.
 * Added Coveralls support.
 
-# v0.5.0
+# v0.5.0 (2014-02-15)
 
 * Updated gemspec homepage URL to use GitHub project URL.
 * Added JRuby and Rubinius VM support.
 
-# v0.4.0
+# v0.4.0 (2013-12-29)
 
 * Fixed Ruby Gem certificate requirements for package building.
 * Fixed RSpec deprecation warnings for treating metadata symbol keys as true values.
@@ -52,7 +52,7 @@
 * Updated to Ruby 2.1.0.
 * Updated public gem certificate to be referenced from a central server.
 
-# v0.3.0
+# v0.3.0 (2013-08-12)
 
 * Dropped Rails 3.1.x support.
 * Upgraded to Rails 4.0.0.
@@ -69,7 +69,7 @@
 * Switched from the pry-debugger to pry-byebug gem.
 * Ignore the signing of a gem when building in a Travis CI environment.
 
-# v0.2.0
+# v0.2.0 (2013-03-18)
 
 * Added Twitter Bootstrap navigation menu example.
 * Switched gem dependency to Rails 3.x.x range.
@@ -85,6 +85,6 @@
 * Added 'tmp' directory to .gitignore.
 * Cleaned up requirement path syntax.
 
-# v0.1.0
+# v0.1.0 (2012-02-04)
 
 * Initial version.
