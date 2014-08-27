@@ -11,18 +11,18 @@ Enhances Rails with a DSL for menu navigation.
 
 # Features
 
-* Provides a simple DSL for building navigation menus.
-* Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
-* Supports sub-menus, nested tags, HTML attributes, etc.
-* Supports the following HTML tags: nav, section, h1-h6, ul, li, a, b, em, s, small, span, strong, sub, and sup.
-* Provides an "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
+- Provides a simple DSL for building navigation menus.
+- Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
+- Supports sub-menus, nested tags, HTML attributes, etc.
+- Supports the following HTML tags: nav, section, h1-h6, ul, li, a, b, em, s, small, span, strong, sub, and sup.
+- Provides an "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
 
 # Requirements
 
 0. Any of the following Ruby VMs:
-    * [MRI 2.x.x](http://www.ruby-lang.org)
-    * [JRuby 1.x.x](http://jruby.org)
-    * [Rubinius 2.x.x](http://rubini.us)
+    - [MRI 2.x.x](http://www.ruby-lang.org)
+    - [JRuby 1.x.x](http://jruby.org)
+    - [Rubinius 2.x.x](http://rubini.us)
 0. [Ruby on Rails 4.1.x](http://rubyonrails.org).
 
 # Setup
@@ -93,7 +93,7 @@ Result:
       <li data-id="1" data-type="public"><a href="/home">Home</a></li>
     </ul>
 
-*TIP: Nested data-* attributes can be applied to any menu item in the same manner as Rails view helpers.*
+*TIP: Nested data-- attributes can be applied to any menu item in the same manner as Rails view helpers.*
 
 ## Nav (with links)
 
@@ -220,13 +220,13 @@ item URL (in this case "/home") matches the `request.env[“PATH_INFO"]` to indi
 
 `Navigator::TagActivator` instances can be configured as follows:
 
-* search_key = Optional. The HTML tag attribute to search for. Default: :href.
-* search_value = Required. The value to match against the search_key value in order to update the value of the
+- search_key = Optional. The HTML tag attribute to search for. Default: :href.
+- search_value = Required. The value to match against the search_key value in order to update the value of the
   target_key. Default: nil.
-* target_key = Optional. The HTML tag attribute key value to update when the search_value and search_key value match.
+- target_key = Optional. The HTML tag attribute key value to update when the search_value and search_key value match.
   Default:
   :class.
-* target_value = Optional. The value to be applied to the target_key value. If no value exists, then the value is added.
+- target_value = Optional. The value to be applied to the target_key value. If no value exists, then the value is added.
   Otherwise, if a value exists then the value is appended to the existing value. Default: "active".
 
 This customization allows for more sophisticated detection/updating of active HTML tags. For example, the example code
@@ -264,9 +264,9 @@ To test the dummy application, run:
 
 Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
-* Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
-* Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
-* Major (X.y.z) - Incremented for any backwards incompatible public API changes.
+- Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
+- Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
+- Major (X.y.z) - Incremented for any backwards incompatible public API changes.
 
 # Contributions
 
