@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.version               = Navigator::VERSION
   spec.platform              = Gem::Platform::RUBY
   spec.authors               = ["Brooke Kuhlmann"]
-  spec.email                 = ["brooke@redalchemist.com"]
+  spec.email                 = ["bkuhlmann@alchemists.io"]
   spec.homepage              = "https://github.com/bkuhlmann/navigator"
   spec.summary               = "Enhances Rails with a DSL for menu navigation."
   spec.description           = "Enhances Rails with a DSL for menu navigation complete with sub-menus, nested tags, HTML attributes, etc."
