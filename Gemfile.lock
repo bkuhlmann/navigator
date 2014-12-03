@@ -161,6 +161,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    terminal-notifier (1.6.2)
     terminal-notifier-guard (1.6.4)
     thor (0.19.1)
     thread_safe (0.3.4)
@@ -188,4 +189,5 @@ DEPENDENCIES
   rake (~> 10.0)
   rb-fsevent
   rspec-rails
+  terminal-notifier
   terminal-notifier-guard
