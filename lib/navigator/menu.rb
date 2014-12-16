@@ -5,10 +5,10 @@ module Navigator
       %r(^(section|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
     end
 
-    def initialize template, tag: "ul", attributes: {}, menu_activator: Navigator::TagActivator.new, &block
+    def initialize template, tag: "ul", attributes: {}, activator: Navigator::TagActivator.new, &block
       @template = template
-      @tag = Navigator::Tag.new tag, attributes: attributes, activator: menu_activator
-      @menu_activator = menu_activator
+      @tag = Navigator::Tag.new tag, attributes: attributes, activator: activator
+      @menu_activator = activator
       @items = []
       instance_eval(&block) if block_given?
     end

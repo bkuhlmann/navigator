@@ -36,7 +36,7 @@ describe Navigator::Menu do
       path = "/home"
       activator = Navigator::TagActivator.new search_value: path
 
-      menu = Navigator::Menu.new template, tag: "nav", menu_activator: activator
+      menu = Navigator::Menu.new template, tag: "nav", activator: activator
       menu.add "a", "Home", attributes: {href: path}
       menu.add "a", "About", attributes: {href: "/about"}
 
@@ -81,7 +81,7 @@ describe Navigator::Menu do
       it "adds item using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/users"
 
-        menu = Navigator::Menu.new template, menu_activator: activator
+        menu = Navigator::Menu.new template, activator: activator
         menu.item "Dashboard", "/dashboard"
         menu.item "Users", "/users"
 
@@ -102,7 +102,7 @@ describe Navigator::Menu do
         menu_activator = Navigator::TagActivator.new search_value: "/one"
         item_activator = Navigator::TagActivator.new search_value: "/two"
 
-        menu = Navigator::Menu.new template, menu_activator: menu_activator
+        menu = Navigator::Menu.new template, activator: menu_activator
         menu.item "One", "/one"
         menu.item "Two", "/two", activator: item_activator
         menu.item "Three", "/three"
