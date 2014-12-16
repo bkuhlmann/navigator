@@ -41,9 +41,9 @@ module Navigator
       method_allowed?(name) || super(name)
     end
 
-    def method_missing name, *args, **keywords, &block
+    def method_missing name, *args, &block
       if method_allowed?(name.to_s)
-        add(name, *args, **keywords, &block)
+        add(name, *args, &block)
       else
         template.public_send name, *args
       end
