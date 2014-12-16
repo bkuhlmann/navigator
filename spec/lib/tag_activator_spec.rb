@@ -116,7 +116,7 @@ describe Navigator::TagActivator do
       end
     end
 
-    context "with mixed symbol/string keys" do
+    context "with mixed symbol/string values" do
       it "adds target value when search key (symbol) and target key (string) values match" do
         subject = Navigator::TagActivator.new search_value: path
         attributes = subject.activate "href" => path
@@ -126,15 +126,7 @@ describe Navigator::TagActivator do
       end
 
       it "adds target value when search key (string) and target key (symbol) values match" do
-        subject = Navigator::TagActivator.new "search_key" => :href, search_value: path
-        attributes = subject.activate href: path
-        proof = {"href" => path, "class" => "active"}
-
-        expect(attributes).to eq(proof)
-      end
-
-      it "adds target value when search key value (string) and target key (symbol) values match" do
-        subject = Navigator::TagActivator.new "search_key" => "href", search_value: path
+        subject = Navigator::TagActivator.new search_key: "href", search_value: path
         attributes = subject.activate href: path
         proof = {"href" => path, "class" => "active"}
 

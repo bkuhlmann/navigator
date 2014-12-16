@@ -5,16 +5,16 @@ module Navigator
       %r(^(section|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup)$)
     end
 
-    def initialize template, tag = "ul", attributes = {}, menu_activator = Navigator::TagActivator.new, &block
+    def initialize template, tag: "ul", attributes: {}, menu_activator: Navigator::TagActivator.new, &block
       @template = template
-      @tag = Navigator::Tag.new tag, nil, attributes, menu_activator
+      @tag = Navigator::Tag.new tag, attributes: attributes, activator: menu_activator
       @menu_activator = menu_activator
       @items = []
       instance_eval(&block) if block_given?
     end
 
-    def add name, content = nil, attributes = {}, activator = menu_activator, &block
-      tag = Navigator::Tag.new name, content, attributes, activator
+    def add name, content = nil, attributes: {}, activator: menu_activator, &block
+      tag = Navigator::Tag.new name, content, attributes: attributes, activator: activator
       if block_given?
         items << tag.prefix
         items << tag.content
@@ -25,15 +25,15 @@ module Navigator
       end
     end
 
-    def item content, url, item_attributes = {}, link_attributes = {}, activator = menu_activator
+    def item content, url, item_attributes: {}, link_attributes: {}, activator: menu_activator
       link_attributes.reverse_merge! href: url
 
       if link_attributes[:href] == activator.search_value
         item_attributes[activator.target_key] = activator.target_value
       end
 
-      add "li", nil, item_attributes, activator do
-        add "a", content, link_attributes, Navigator::TagActivator.new
+      add "li", attributes: item_attributes, activator: activator do
+        add "a", content, attributes: link_attributes, activator: Navigator::TagActivator.new
       end
     end
 
@@ -41,9 +41,9 @@ module Navigator
       method_allowed?(name) || super(name)
     end
 
-    def method_missing name, *args, &block
+    def method_missing name, *args, **keywords, &block
       if method_allowed?(name.to_s)
-        add(*args.unshift(name), &block)
+        add(name, *args, **keywords, &block)
       else
         template.public_send name, *args
       end

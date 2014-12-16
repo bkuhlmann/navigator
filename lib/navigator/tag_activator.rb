@@ -1,27 +1,13 @@
 module Navigator
   # Conditionally activates a tag.
   class TagActivator
-    def initialize settings = {}
-      @settings = settings.with_indifferent_access.reverse_merge search_key: :href,
-                                                                 search_value: nil,
-                                                                 target_key: :class,
-                                                                 target_value: "active"
-    end
+    attr_reader :search_key, :search_value, :target_key, :target_value
 
-    def search_key
-      settings.fetch :search_key
-    end
-
-    def search_value
-      settings.fetch :search_value
-    end
-
-    def target_key
-      settings.fetch :target_key
-    end
-
-    def target_value
-      settings.fetch :target_value
+    def initialize search_key: :href, search_value: nil, target_key: :class, target_value: "active"
+      @search_key = search_key
+      @search_value = search_value
+      @target_key = target_key
+      @target_value = target_value
     end
 
     def activatable? attributes = {}
@@ -38,9 +24,5 @@ module Navigator
 
       attributes
     end
-
-    private
-
-    attr_reader :settings
   end
 end

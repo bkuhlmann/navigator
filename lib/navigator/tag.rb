@@ -3,7 +3,7 @@ module Navigator
   class Tag
     attr_reader :name, :content
 
-    def initialize name, content = nil, attributes = {}, activator = Navigator::TagActivator.new
+    def initialize name, content = nil, attributes: {}, activator: Navigator::TagActivator.new
       @name = name
       @content = content
       @attributes = attributes.with_indifferent_access

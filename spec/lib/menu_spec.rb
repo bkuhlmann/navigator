@@ -12,7 +12,7 @@ describe Navigator::Menu do
     end
 
     it "adds single item with multiple data attributes" do
-      menu.add "li", "one", data: {one: 1, two: 2}
+      menu.add "li", "one", attributes: {data: {one: 1, two: 2}}
       expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2">one</li></ul>))
     end
 
@@ -36,9 +36,9 @@ describe Navigator::Menu do
       path = "/home"
       activator = Navigator::TagActivator.new search_value: path
 
-      menu = Navigator::Menu.new template, "nav", {}, activator
-      menu.add "a", "Home", href: path
-      menu.add "a", "About", href: "/about"
+      menu = Navigator::Menu.new template, tag: "nav", menu_activator: activator
+      menu.add "a", "Home", attributes: {href: path}
+      menu.add "a", "About", attributes: {href: "/about"}
 
       expect(menu.render).to eq(%(<nav><a href="#{path}" class="active">Home</a><a href="/about">About</a></nav>))
     end
@@ -46,9 +46,9 @@ describe Navigator::Menu do
     it "adds item using custom item tag activator" do
       activator = Navigator::TagActivator.new search_value: "/about"
 
-      menu = Navigator::Menu.new template, "nav", {}
-      menu.add "a", "Home", href: "/home"
-      menu.add "a", "About", {href: "/about"}, activator
+      menu = Navigator::Menu.new template, tag: "nav"
+      menu.add "a", "Home", attributes: {href: "/home"}
+      menu.add "a", "About", attributes: {href: "/about"}, activator: activator
 
       expect(menu.render).to eq(%(<nav><a href="/home">Home</a><a href="/about" class="active">About</a></nav>))
     end
@@ -62,17 +62,17 @@ describe Navigator::Menu do
       end
 
       it "adds item with item attributes" do
-        menu.item "Dashboard", "/dashboard", class: "active"
+        menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"}
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>))
       end
 
       it "adds item with item and link attributes" do
-        menu.item "Dashboard", "/dashboard", {class: "active"}, {"data-enabled" => true}
+        menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"}, link_attributes: {"data-enabled" => true}
         expect(menu.render).to eq(%(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>))
       end
 
       it "adds item with multiple data attributes for item and link" do
-        menu.item "Test", "/test", {data: {one: 1, two: 2}}, {data: {a: "A", b: "B"}}
+        menu.item "Test", "/test", item_attributes: {data: {one: 1, two: 2}}, link_attributes: {data: {a: "A", b: "B"}}
         expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2"><a href="/test" data-a="A" data-b="B">Test</a></li></ul>))
       end
     end
@@ -81,7 +81,7 @@ describe Navigator::Menu do
       it "adds item using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/users"
 
-        menu = Navigator::Menu.new template, "ul", {}, activator
+        menu = Navigator::Menu.new template, menu_activator: activator
         menu.item "Dashboard", "/dashboard"
         menu.item "Users", "/users"
 
@@ -92,7 +92,7 @@ describe Navigator::Menu do
         activator = Navigator::TagActivator.new search_value: "/dashboard"
 
         menu = Navigator::Menu.new template
-        menu.item "Dashboard", "/dashboard", {}, {}, activator
+        menu.item "Dashboard", "/dashboard", activator: activator
         menu.item "Users", "/users"
 
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li><li><a href="/users">Users</a></li></ul>))
@@ -102,9 +102,9 @@ describe Navigator::Menu do
         menu_activator = Navigator::TagActivator.new search_value: "/one"
         item_activator = Navigator::TagActivator.new search_value: "/two"
 
-        menu = Navigator::Menu.new template, "ul", {}, menu_activator
+        menu = Navigator::Menu.new template, menu_activator: menu_activator
         menu.item "One", "/one"
-        menu.item "Two", "/two", {}, {}, item_activator
+        menu.item "Two", "/two", activator: item_activator
         menu.item "Three", "/three"
 
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/one">One</a></li><li class="active"><a href="/two">Two</a></li><li><a href="/three">Three</a></li></ul>))
@@ -186,7 +186,7 @@ describe Navigator::Menu do
     end
 
     it "adds a tag" do
-      menu.a "one", href: "http://www.example.com"
+      menu.a "one", attributes: {href: "http://www.example.com"}
       expect(menu.render).to eq(%(<ul><a href="http://www.example.com">one</a></ul>))
     end
 
@@ -231,7 +231,7 @@ describe Navigator::Menu do
     end
 
     it "raises no method error when calling non-existent method" do
-      unknown_method = -> { Navigator::Menu.new(template) { achoo "one" } }
+      unknown_method = -> { Navigator::Menu.new(template) { achoo content: "one" } }
       expect(&unknown_method).to raise_error(NoMethodError)
     end
   end
@@ -242,11 +242,11 @@ describe Navigator::Menu do
     end
 
     it "renders with a nav tag" do
-      expect(Navigator::Menu.new(template, "nav").render).to eq("<nav></nav>")
+      expect(Navigator::Menu.new(template, tag: "nav").render).to eq("<nav></nav>")
     end
 
     it "renders one attribute with no content" do
-      menu = Navigator::Menu.new template, "ul", class: "test"
+      menu = Navigator::Menu.new template, attributes: {class: "test"}
       expect(menu.render).to eq(%(<ul class="test"></ul>))
     end
   end

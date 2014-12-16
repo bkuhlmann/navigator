@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Navigator::Tag do
-  let(:tag) { Navigator::Tag.new "li", "Example text.", class: "example" }
+  let(:tag) { Navigator::Tag.new "li", "Example text.", attributes: {class: "example"} }
 
   describe "#initialize" do
     it "raises ArgumentError when no name is supplied" do
@@ -20,19 +20,19 @@ describe Navigator::Tag do
     end
 
     it "answers prefix with expanded data attibutes" do
-      tag = Navigator::Tag.new "li", nil, data: {one: "one", two: "two"}
+      tag = Navigator::Tag.new "li", attributes: {data: {one: "one", two: "two"}}
       expect(tag.prefix).to eq('<li data-one="one" data-two="two">')
     end
 
     it "answers prefix with multiple attributes" do
-      tag = Navigator::Tag.new "li", nil, class: "tooltip", "data-enabled" => true
+      tag = Navigator::Tag.new "li", attributes: {class: "tooltip", "data-enabled" => true}
       expect(tag.prefix).to eq('<li class="tooltip" data-enabled="true">')
     end
 
     it "answers prefix with custom activator" do
       path = "/some/path"
       activator = Navigator::TagActivator.new search_value: path
-      tag = Navigator::Tag.new "a", "Example", {href: path}, activator
+      tag = Navigator::Tag.new "a", "Example", attributes: {href: path}, activator: activator
 
       expect(tag.prefix).to eq(%(<a href="#{path}" class="active">))
     end
@@ -51,7 +51,7 @@ describe Navigator::Tag do
     end
 
     it "renders an empty tag with attributes" do
-      tag = Navigator::Tag.new "li", nil, class: "example"
+      tag = Navigator::Tag.new "li", attributes: {class: "example"}
       expect(tag.render).to eq('<li class="example"></li>')
     end
 

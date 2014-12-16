@@ -14,7 +14,7 @@ describe Navigator::NavigationHelper, type: :helper do
     end
 
     it "answers menu with attributes" do
-      nav = navigation "nav", "data-help" => "Main site navigation."
+      nav = navigation "nav", attributes: {"data-help" => "Main site navigation."}
       expect(nav).to eq(%(<nav data-help="Main site navigation."></nav>))
     end
 
@@ -30,7 +30,7 @@ describe Navigator::NavigationHelper, type: :helper do
       url = "http://www.example.com"
       nav = navigation do
         li do
-          a "One", href: url
+          a "One", attributes: {href: url}
         end
       end
 
@@ -49,7 +49,7 @@ describe Navigator::NavigationHelper, type: :helper do
       path = "/one"
       activator = Navigator::TagActivator.new search_value: path
 
-      nav = navigation "ul", {}, activator do
+      nav = navigation "ul", activator: activator do
         item "One", path
         item "Two", "/two"
       end
