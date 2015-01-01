@@ -1,3 +1,17 @@
+# v1.0.0 (2015-01-01)
+
+- Removed Ruby 2.0.0 support.
+- Removed Rubinius support.
+- Updated gemspec to add security keys unless in a CI environment.
+- Updated Code Climate to run only if environment variable is present.
+- Updated spec helper to comment custom config until needed.
+- Updated gemspec to use RUBY_GEM_SECURITY env var for gem certs.
+- Added Ruby 2.2.0 support.
+- Added Rails 4.2.x support.
+- Refactored source code to use keyword arguments.
+- Refactored menu activator keyword argument to be `activator:`.
+- Refactored common RSpec configurations to RSpec support/kit folder.
+
 # v0.9.1 (2014-07-13)
 
 - Fixed bug with missing "app" folder in gemspec.

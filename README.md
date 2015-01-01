@@ -22,7 +22,6 @@ Enhances Rails with a DSL for menu navigation.
 0. Any of the following Ruby VMs:
     - [MRI 2.x.x](http://www.ruby-lang.org)
     - [JRuby 1.x.x](http://jruby.org)
-    - [Rubinius 2.x.x](http://rubini.us)
 0. [Ruby on Rails 4.1.x](http://rubyonrails.org).
 
 # Setup
@@ -67,8 +66,8 @@ Result:
 
 Code:
 
-    navigation "ul", class: "nav" do
-      item "Dashboard", "/dashboard", class: "active"
+    navigation "ul", attributes: {class: "nav"} do
+      item "Dashboard", "/dashboard", item_attributes: {class: "active"}
       item "News", "/posts"
     end
 
@@ -84,7 +83,7 @@ Result:
 Code:
 
     navigation do
-      item "Home", "/home", data: {id: 1, type: "public"}
+      item "Home", "/home", item_attributes: {data: {id: 1, type: "public"}}
     end
 
 Result:
@@ -100,8 +99,8 @@ Result:
 Code:
 
     navigation "nav" do
-      a "Dashboard", href: "/dashboard"
-      a "News", href: "/posts"
+      a "Dashboard", attributes: {href: "/dashboard"}
+      a "News", attributes: {href: "/posts"}
     end
 
 Result:
@@ -115,27 +114,27 @@ Result:
 
 Code:
 
-    navigation "nav", class: "top-bar", "data-topbar" => nil do
-      ul nil, class: "title-area" do
-        li nil, class: "name" do
+    navigation "nav", attributes: {class: "top-bar", "data-topbar" => nil} do
+      ul attributes: {class: "title-area"} do
+        li attributes: {class: "name"} do
           h1 do
-            a "Demo", href: "/home"
+            a "Demo", attributes: {href: "/home"}
           end
         end
       end
 
-      section nil, class: "top-bar-section" do
-        ul nil, class: "left" do
+      section attributes: {class: "top-bar-section"} do
+        ul attributes: {class: "left"} do
           item "Home", "/"
           item "About", "/about"
         end
 
-        ul nil, class: "right" do
+        ul attributes: {class: "right"} do
           item "v1.0.0", '#'
         end
 
-        ul nil, class: "right" do
-          item "Login", "/login", {}, {class: "button tiny round"}
+        ul attributes: {class: "right"} do
+          item "Login", "/login", link_attributes: {class: "button tiny round"}
         end
       end
     end
@@ -171,11 +170,11 @@ Code:
 
     navigation "nav" do
       item "Dashboard", admin_dashboard_path
-      li nil, class: "dropdown" do
-        a "Manage", href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do
-          b nil, class: "caret"
+      li attributes: {class: "dropdown"} do
+        a "Manage", attributes: {href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown"} do
+          b attributes: {class: "caret"}
         end
-        ul nil, class: "dropdown-menu" do
+        ul attributes: {class: "dropdown-menu"} do
           item "Dashboard", admin_dashboard_path
           item "Users", admin_users_path
         end
@@ -204,9 +203,9 @@ The `navigation` view helper can accept an optional `Navigator::TagActivator` in
 
     # Code
     activator = Navigator::TagActivator.new search_value: request.env["PATH_INFO"]
-    navigation "nav", {}, activator do
-      a "Home", href: home_path
-      a "About", href: about_path
+    navigation "nav", activator: activator do
+      a "Home", attributes: {href: home_path}
+      a "About", attributes: {href: about_path}
     end
 
     <!-- Result -->
@@ -224,8 +223,7 @@ item URL (in this case "/home") matches the `request.env[“PATH_INFO"]` to indi
 - search_value = Required. The value to match against the search_key value in order to update the value of the
   target_key. Default: nil.
 - target_key = Optional. The HTML tag attribute key value to update when the search_value and search_key value match.
-  Default:
-  :class.
+  Default: :class.
 - target_value = Optional. The value to be applied to the target_key value. If no value exists, then the value is added.
   Otherwise, if a value exists then the value is appended to the existing value. Default: "active".
 
@@ -238,9 +236,9 @@ This customization allows for more sophisticated detection/updating of active HT
                                             target_key: "data-style"
                                             target_value: "current"
 
-    navigation "nav", {}, activator do
-      a "Home", href: home_path, "data-id" => "123", data-style="info"
-      a "About", href: about_path, "data-id" => "789"
+    navigation "nav", activator: activator do
+      a "Home", attributes: {href: home_path, "data-id" => "123", data-style="info"}
+      a "About", attributes: {href: about_path, "data-id" => "789"}
     end
 
     <!-- Result -->
