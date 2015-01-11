@@ -29,7 +29,7 @@ module Navigator
       add "a", content, attributes: attributes.merge(href: url), activator: activator, &block
     end
 
-    def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator
+    def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator, &block
       link_attributes.reverse_merge! href: url
 
       if link_attributes[:href] == activator.search_value
@@ -37,7 +37,7 @@ module Navigator
       end
 
       add "li", attributes: item_attributes, activator: activator do
-        add "a", content, attributes: link_attributes, activator: Navigator::TagActivator.new
+        add "a", content, attributes: link_attributes, activator: Navigator::TagActivator.new, &block
       end
     end
 

@@ -179,6 +179,18 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/one">One</a></li><li class="active"><a href="/two">Two</a></li><li><a href="/three">Three</a></li></ul>))
       end
     end
+
+    context "blocks" do
+      it "renders a block" do
+        menu.item("/test") { b 'X' }
+        expect(menu.render).to eq(%(<ul><li><a href="/test"><b>X</b></a></li></ul>))
+      end
+
+      it "renders content with a block" do
+        menu.item("Test: ", "/test") { b 'X' }
+        expect(menu.render).to eq(%(<ul><li><a href="/test">Test: <b>X</b></a></li></ul>))
+      end
+    end
   end
 
   describe "#respond_to?" do
