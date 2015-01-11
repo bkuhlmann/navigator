@@ -54,6 +54,53 @@ describe Navigator::Menu do
     end
   end
 
+  describe "#link" do
+    context "attributes" do
+      it "adds link" do
+        menu.link "Example", "/example"
+        expect(menu.render).to eq(%(<ul><a href="/example">Example</a></ul>))
+      end
+
+      it "adds link with attributes" do
+        menu.link "Example", "/example", attributes: {class: "active"}
+        expect(menu.render).to eq(%(<ul><a class="active" href="/example">Example</a></ul>))
+      end
+    end
+
+    context "activators" do
+      it "adds link using default menu tag activator" do
+        activator = Navigator::TagActivator.new search_value: "/examples/1"
+
+        menu = Navigator::Menu.new template, activator: activator
+        menu.link "Example 1", "/examples/1"
+        menu.link "Example 2", "/examples/2"
+
+        expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2">Example 2</a></ul>))
+      end
+
+      it "adds link using custom link tag activator" do
+        activator = Navigator::TagActivator.new search_value: "/examples/2"
+
+        menu = Navigator::Menu.new template
+        menu.link "Example 1", "/examples/1"
+        menu.link "Example 2", "/examples/2", activator: activator
+
+        expect(menu.render).to eq(%(<ul><a href="/examples/1">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
+      end
+
+      it "adds link where link trumps menu tag activator" do
+        menu_activator = Navigator::TagActivator.new search_value: "/examples/1"
+        link_activator = Navigator::TagActivator.new search_value: "/examples/2"
+
+        menu = Navigator::Menu.new template, activator: menu_activator
+        menu.link "Example 1", "/examples/1"
+        menu.link "Example 2", "/examples/2", activator: link_activator
+
+        expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
+      end
+    end
+  end
+
   describe "#item" do
     context "attributes" do
       it "adds item with no item or link attributes" do

@@ -25,6 +25,10 @@ module Navigator
       end
     end
 
+    def link content, url, attributes: {}, activator: menu_activator
+      add "a", content, attributes: attributes.merge(href: url), activator: activator
+    end
+
     def item content, url, item_attributes: {}, link_attributes: {}, activator: menu_activator
       link_attributes.reverse_merge! href: url
 

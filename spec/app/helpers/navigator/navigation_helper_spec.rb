@@ -18,7 +18,7 @@ describe Navigator::NavigationHelper, type: :helper do
       expect(nav).to eq(%(<nav data-help="Main site navigation."></nav>))
     end
 
-    it "answers menu with one item" do
+    it "answers menu with an item" do
       nav = navigation do
         li "one"
       end
@@ -26,7 +26,15 @@ describe Navigator::NavigationHelper, type: :helper do
       expect(nav).to eq("<ul><li>one</li></ul>")
     end
 
-    it "answers menu with one item that contains a link" do
+    it "answers menu with a link" do
+      nav = navigation do
+        link "Example", "/example"
+      end
+
+      expect(nav).to eq(%(<ul><a href="/example">Example</a></ul>))
+    end
+
+    it "answers menu with an item that contains a link" do
       url = "http://www.example.com"
       nav = navigation do
         li do
