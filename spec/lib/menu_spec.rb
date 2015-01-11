@@ -125,6 +125,11 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li></ul>))
       end
 
+      it "adds item with no link content" do
+        menu.item "/dashboard"
+        expect(menu.render).to eq(%(<ul><li><a href="/dashboard"></a></li></ul>))
+      end
+
       it "adds item with item attributes" do
         menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"}
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>))
