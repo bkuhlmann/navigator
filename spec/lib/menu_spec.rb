@@ -103,6 +103,18 @@ describe Navigator::Menu do
 
         expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
       end
+
+      context "blocks" do
+        it "renders a block" do
+          menu.link("/example") { span "Test" }
+          expect(menu.render).to eq(%(<ul><a href="/example"><span>Test</span></a></ul>))
+        end
+
+        it "renders content with a block" do
+          menu.link("Example: ", "/example") { span "Test" }
+          expect(menu.render).to eq(%(<ul><a href="/example">Example: <span>Test</span></a></ul>))
+        end
+      end
     end
   end
 

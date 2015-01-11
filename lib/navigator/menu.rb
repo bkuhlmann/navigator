@@ -25,8 +25,8 @@ module Navigator
       end
     end
 
-    def link content = nil, url, attributes: {}, activator: menu_activator
-      add "a", content, attributes: attributes.merge(href: url), activator: activator
+    def link content = nil, url, attributes: {}, activator: menu_activator, &block
+      add "a", content, attributes: attributes.merge(href: url), activator: activator, &block
     end
 
     def item content, url, item_attributes: {}, link_attributes: {}, activator: menu_activator
