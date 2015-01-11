@@ -61,6 +61,11 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><a href="/example">Example</a></ul>))
       end
 
+      it "adds link with no content" do
+        menu.link "/example"
+        expect(menu.render).to eq(%(<ul><a href="/example"></a></ul>))
+      end
+
       it "adds link with attributes" do
         menu.link "Example", "/example", attributes: {class: "active"}
         expect(menu.render).to eq(%(<ul><a class="active" href="/example">Example</a></ul>))
