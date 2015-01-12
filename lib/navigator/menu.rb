@@ -30,14 +30,12 @@ module Navigator
     end
 
     def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator, &block
-      link_attributes.reverse_merge! href: url
-
-      if link_attributes[:href] == activator.search_value
+      if url == activator.search_value
         item_attributes[activator.target_key] = activator.target_value
       end
 
       add "li", attributes: item_attributes, activator: activator do
-        add "a", content, attributes: link_attributes, activator: Navigator::TagActivator.new, &block
+        link content, url, attributes: link_attributes, activator: Navigator::TagActivator.new, &block
       end
     end
 
