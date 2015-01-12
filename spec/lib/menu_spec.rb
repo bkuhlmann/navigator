@@ -32,6 +32,20 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><li><ul><li>sub</li></ul></li></ul>")
     end
 
+    it "adds tag with nested link" do
+      menu.add "li" do
+        link "One", "/one"
+      end
+      expect(menu.render).to eq(%(<ul><li><a href="/one">One</a></li></ul>))
+    end
+
+    it "adds tag with nested item" do
+      menu.add "section" do
+        item "One", "/one"
+      end
+      expect(menu.render).to eq(%(<ul><section><li><a href="/one">One</a></li></section></ul>))
+    end
+
     it "adds tag using default menu tag activator" do
       path = "/home"
       activator = Navigator::TagActivator.new search_value: path
