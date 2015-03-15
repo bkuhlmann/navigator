@@ -218,12 +218,17 @@ describe Navigator::Menu do
   end
 
   describe "#method_missing" do
-    context "header tags" do
-      it "adds a section tag" do
-        menu.section "section"
-        expect(menu.render).to eq("<ul><section>section</section></ul>")
-      end
+    it "adds a section tag" do
+      menu.section "section"
+      expect(menu.render).to eq("<ul><section>section</section></ul>")
+    end
 
+    it "adds a header tag" do
+      menu.header "header"
+      expect(menu.render).to eq("<ul><header>header</header></ul>")
+    end
+
+    context "header tags" do
       it "adds an h1 tag" do
         menu.h1 "header"
         expect(menu.render).to eq("<ul><h1>header</h1></ul>")
