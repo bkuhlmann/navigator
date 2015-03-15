@@ -3,8 +3,12 @@ module Navigator
   class Tag
     attr_reader :name, :content
 
+    def self.names_without_suffix
+      %w(input)
+    end
+
     def initialize name, content = nil, attributes: {}, activator: Navigator::TagActivator.new
-      @name = name
+      @name = String(name)
       @content = content
       @attributes = attributes.with_indifferent_access
       @activator = activator
@@ -14,12 +18,16 @@ module Navigator
       ["<#{name}", format_attributes, '>'].compact * ''
     end
 
+    def computed_content
+      self.class.names_without_suffix.include?(name) ? nil : content
+    end
+
     def suffix
-      "</#{name}>"
+      self.class.names_without_suffix.include?(name) ? nil : "</#{name}>"
     end
 
     def render
-      [prefix, content, suffix].compact * ''
+      [prefix, computed_content, suffix].compact * ''
     end
 
     private

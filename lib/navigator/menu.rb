@@ -2,7 +2,7 @@ module Navigator
   # Renders a HTML menu.
   class Menu
     def self.allowed_methods
-      %r(^(div|section|header|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup|form)$)
+      %r(^(div|section|header|h[1-6]|ul|li|a|b|em|s|small|span|strong|sub|sup|form|input)$)
     end
 
     def initialize template, tag: "ul", attributes: {}, activator: Navigator::TagActivator.new, &block
