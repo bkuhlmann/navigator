@@ -218,6 +218,11 @@ describe Navigator::Menu do
   end
 
   describe "#method_missing" do
+    it "adds a div tag" do
+      menu.div "div"
+      expect(menu.render).to eq("<ul><div>div</div></ul>")
+    end
+
     it "adds a section tag" do
       menu.section "section"
       expect(menu.render).to eq("<ul><section>section</section></ul>")
