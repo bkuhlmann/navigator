@@ -295,6 +295,13 @@ describe Navigator::Menu do
       expect(menu.render).to eq(%(<ul><a href="http://www.example.com">one</a></ul>))
     end
 
+    it "adds img tag" do
+      url = "http://placehold.it/200x50"
+      menu.img attributes: {src: url}
+
+      expect(menu.render).to eq(%(<ul><img src="#{url}"></ul>))
+    end
+
     it "adds b tag" do
       menu.b "stylistic text"
       expect(menu.render).to eq("<ul><b>stylistic text</b></ul>")
