@@ -345,6 +345,11 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><input></ul>")
     end
 
+    it "adds button tag" do
+      menu.button "button"
+      expect(menu.render).to eq("<ul><button>button</button></ul>")
+    end
+
     it "raises no method error when calling non-existent method" do
       unknown_method = -> { Navigator::Menu.new(template) { achoo content: "one" } }
       expect(&unknown_method).to raise_error(NoMethodError)
