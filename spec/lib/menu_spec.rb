@@ -335,6 +335,11 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><sup>super-text</sup></ul>")
     end
 
+    it "adds form tag" do
+      menu.form "form"
+      expect(menu.render).to eq("<ul><form>form</form></ul>")
+    end
+
     it "raises no method error when calling non-existent method" do
       unknown_method = -> { Navigator::Menu.new(template) { achoo content: "one" } }
       expect(&unknown_method).to raise_error(NoMethodError)
