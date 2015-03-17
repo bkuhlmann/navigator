@@ -280,6 +280,11 @@ describe Navigator::Menu do
       end
     end
 
+    it "adds nav tag" do
+      menu.nav
+      expect(menu.render).to eq("<ul><nav></nav></ul>")
+    end
+
     it "adds ul tag" do
       menu.ul
       expect(menu.render).to eq("<ul><ul></ul></ul>")
