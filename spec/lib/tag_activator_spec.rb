@@ -48,27 +48,39 @@ describe Navigator::TagActivator do
   end
 
   describe "activatable?" do
-    context "with default settings" do
-      it "answers true when search value is found" do
-        subject = Navigator::TagActivator.new
-        result = subject.activatable?
-
-        expect(result).to eq(false)
-      end
-    end
+    let(:search_value) { "/example/path" }
+    subject { Navigator::TagActivator.new search_value: search_value }
 
     context "with search value" do
-      let(:path) { "/example/path" }
-      subject { Navigator::TagActivator.new search_value: path }
-
       it "answers true when search value is found" do
-        result = subject.activatable? "href" => path
+        result = subject.activatable? href: search_value
         expect(result).to eq(true)
       end
 
       it "answers false when search value is not found" do
-        result = subject.activatable? "href" => "/unknown/path"
+        result = subject.activatable? href: "/unknown/path"
         expect(result).to eq(false)
+      end
+    end
+
+    context "without search value" do
+      subject { Navigator::TagActivator.new }
+
+      it "answers false with attributes" do
+        result = subject.activatable? href: search_value
+        expect(result).to eq(false)
+      end
+
+      it "answers false without attributes" do
+        result = subject.activatable?
+        expect(result).to eq(false)
+      end
+    end
+
+    context "with indifferent access" do
+      it "answers true when string attribute key is used" do
+        result = subject.activatable? "href" => search_value
+        expect(result).to eq(true)
       end
     end
   end
