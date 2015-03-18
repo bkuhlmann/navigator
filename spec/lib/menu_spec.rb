@@ -171,6 +171,16 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li><li class="active"><a href="/users">Users</a></li></ul>))
       end
 
+      it "adds item with target value appended" do
+        activator = Navigator::TagActivator.new search_value: "/two"
+
+        menu = Navigator::Menu.new template, activator: activator
+        menu.item "One", "/one"
+        menu.item "Two", "/two", item_attributes: {class: "test"}
+
+        expect(menu.render).to eq(%(<ul><li><a href="/one">One</a></li><li class="test active"><a href="/two">Two</a></li></ul>))
+      end
+
       it "adds item using custom item tag activator" do
         activator = Navigator::TagActivator.new search_value: "/dashboard"
 
@@ -181,7 +191,7 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li><li><a href="/users">Users</a></li></ul>))
       end
 
-      it "adds item where item trumps menu tag activator" do
+      it "adds item where item activator trumps menu tag activator" do
         menu_activator = Navigator::TagActivator.new search_value: "/one"
         item_activator = Navigator::TagActivator.new search_value: "/two"
 

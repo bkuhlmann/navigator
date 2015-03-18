@@ -30,9 +30,7 @@ module Navigator
     end
 
     def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator, &block
-      if url == activator.search_value
-        item_attributes[activator.target_key] = activator.target_value
-      end
+      activate_item_attributes! item_attributes, url, activator
 
       add "li", attributes: item_attributes, activator: activator do
         link content, url, attributes: link_attributes, activator: Navigator::TagActivator.new, &block
@@ -61,6 +59,12 @@ module Navigator
 
     def method_allowed? name
       self.class.allowed_methods === name
+    end
+
+    def activate_item_attributes! attributes, url, activator
+      if url == activator.search_value
+        attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value].compact * ' '
+      end
     end
   end
 end
