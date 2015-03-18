@@ -29,6 +29,13 @@ module Navigator
       add "a", content, attributes: attributes.merge(href: url), activator: activator, &block
     end
 
+    def image url, alt = nil, attributes: {}, activator: menu_activator
+      modified_attributes = attributes.merge src: url, alt: alt
+      modified_attributes = modified_attributes.delete_if { |_, value| !value.present? }
+
+      add "img", attributes: modified_attributes, activator: activator
+    end
+
     def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator, &block
       activate_item_attributes! item_attributes, url, activator
 

@@ -87,7 +87,7 @@ describe Navigator::Menu do
     end
 
     context "with activators" do
-      it "adds link using default menu tag activator" do
+      it "adds link using menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/examples/1"
 
         menu = Navigator::Menu.new template, activator: activator
@@ -97,7 +97,7 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2">Example 2</a></ul>))
       end
 
-      it "adds link using custom link tag activator" do
+      it "adds link using link tag activator" do
         activator = Navigator::TagActivator.new search_value: "/examples/2"
 
         menu = Navigator::Menu.new template
@@ -107,7 +107,7 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><a href="/examples/1">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
       end
 
-      it "adds link where link trumps menu tag activator" do
+      it "adds link where link tag activator trumps menu tag activator" do
         menu_activator = Navigator::TagActivator.new search_value: "/examples/1"
         link_activator = Navigator::TagActivator.new search_value: "/examples/2"
 
@@ -128,6 +128,65 @@ describe Navigator::Menu do
           menu.link("Example: ", "/example") { span "Test" }
           expect(menu.render).to eq(%(<ul><a href="/example">Example: <span>Test</span></a></ul>))
         end
+      end
+    end
+  end
+
+  describe "#image" do
+    context "with attributes" do
+      it "adds image" do
+        menu.image "/example", "Example"
+        expect(menu.render).to eq(%(<ul><img src="/example" alt="Example"></ul>))
+      end
+
+      it "adds image with no alt" do
+        menu.image "/example"
+        expect(menu.render).to eq(%(<ul><img src="/example"></ul>))
+      end
+
+      it "adds image with attributes" do
+        menu.image "/example", attributes: {class: "active"}
+        expect(menu.render).to eq(%(<ul><img class="active" src="/example"></ul>))
+      end
+    end
+
+    context "with activators" do
+      it "adds image using menu tag activator" do
+        activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/1"
+
+        menu = Navigator::Menu.new template, activator: activator
+        menu.image "/examples/1"
+        menu.image "/examples/2"
+
+        expect(menu.render).to eq(%(<ul><img src="/examples/1" class="active"><img src="/examples/2"></ul>))
+      end
+
+      it "adds image using image tag activator" do
+        activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/2"
+
+        menu = Navigator::Menu.new template
+        menu.image "/examples/1"
+        menu.image "/examples/2", activator: activator
+
+        expect(menu.render).to eq(%(<ul><img src="/examples/1"><img src="/examples/2" class="active"></ul>))
+      end
+
+      it "adds image where image tag activator trumps menu tag activator" do
+        menu_activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/1"
+        image_activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/2"
+
+        menu = Navigator::Menu.new template, activator: menu_activator
+        menu.image "/examples/1"
+        menu.image "/examples/2", activator: image_activator
+
+        expect(menu.render).to eq(%(<ul><img src="/examples/1" class="active"><img src="/examples/2" class="active"></ul>))
+      end
+    end
+
+    context "with blocks" do
+      it "ignores block" do
+        menu.image("/example") { "Nothing to see here." }
+        expect(menu.render).to eq(%(<ul><img src="/example"></ul>))
       end
     end
   end
