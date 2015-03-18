@@ -69,7 +69,7 @@ describe Navigator::Menu do
   end
 
   describe "#link" do
-    context "attributes" do
+    context "with attributes" do
       it "adds link" do
         menu.link "Example", "/example"
         expect(menu.render).to eq(%(<ul><a href="/example">Example</a></ul>))
@@ -86,7 +86,7 @@ describe Navigator::Menu do
       end
     end
 
-    context "activators" do
+    context "with activators" do
       it "adds link using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/examples/1"
 
@@ -118,7 +118,7 @@ describe Navigator::Menu do
         expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
       end
 
-      context "blocks" do
+      context "with blocks" do
         it "renders a block" do
           menu.link("/example") { span "Test" }
           expect(menu.render).to eq(%(<ul><a href="/example"><span>Test</span></a></ul>))
@@ -133,7 +133,7 @@ describe Navigator::Menu do
   end
 
   describe "#item" do
-    context "attributes" do
+    context "with attributes" do
       it "adds item with no item or link attributes" do
         menu.item "Dashboard", "/dashboard"
         expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li></ul>))
@@ -160,7 +160,7 @@ describe Navigator::Menu do
       end
     end
 
-    context "activators" do
+    context "with activators" do
       it "adds item using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/users"
 
@@ -204,7 +204,7 @@ describe Navigator::Menu do
       end
     end
 
-    context "blocks" do
+    context "with blocks" do
       it "renders a block" do
         menu.item("/test") { b 'X' }
         expect(menu.render).to eq(%(<ul><li><a href="/test"><b>X</b></a></li></ul>))
