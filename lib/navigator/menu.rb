@@ -37,9 +37,10 @@ module Navigator
     end
 
     def item content = nil, url, item_attributes: {}, link_attributes: {}, activator: menu_activator, &block
-      activate_item_attributes! item_attributes, url, activator
+      modified_item_attributes = item_attributes.clone
+      activate_item_attributes! modified_item_attributes, url, activator
 
-      add "li", attributes: item_attributes, activator: activator do
+      add "li", attributes: modified_item_attributes, activator: activator do
         link content, url, attributes: link_attributes, activator: Navigator::TagActivator.new, &block
       end
     end
@@ -69,9 +70,8 @@ module Navigator
     end
 
     def activate_item_attributes! attributes, url, activator
-      if url == activator.search_value
-        attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value].compact * ' '
-      end
+      return unless url == activator.search_value
+      attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value].compact * ' '
     end
   end
 end
