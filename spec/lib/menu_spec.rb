@@ -426,6 +426,11 @@ describe Navigator::Menu do
       expect(menu.render).to eq("<ul><label>label</label></ul>")
     end
 
+    it "adds select tag" do
+      menu.select
+      expect(menu.render).to eq("<ul><select></select></ul>")
+    end
+
     it "adds input tag" do
       menu.input "input"
       expect(menu.render).to eq("<ul><input></ul>")
