@@ -14,8 +14,31 @@ Enhances Rails with a DSL for menu navigation.
 - Provides a simple DSL for building navigation menus.
 - Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
 - Supports sub-menus, nested tags, HTML attributes, etc.
-- Supports the following HTML tags: nav, section, h1-h6, ul, li, a, b, em, s, small, span, strong, sub, and sup.
-- Provides an "item" convenience method which combines the "li" and "a" HTML tags into a single method for less typing.
+- Supports the following HTML tags:
+    - div
+    - section
+    - header
+    - h1 - h6
+    - nav
+    - ul
+    - li
+    - a
+    - img
+    - b
+    - em
+    - s
+    - small
+    - span
+    - strong
+    - sub
+    - sup
+    - form
+    - label
+    - select
+    - option
+    - input
+    - button
+- Provides `link`, `image`, and `item` convenience methods for succinct ways to build commonly used menu elements.
 
 # Requirements
 
@@ -197,15 +220,61 @@ Result:
       </li>
     </ul>
 
+## Menu Helpers
+
+There are several convenience methods, in addition to the standard HTML tags, that can make for shorter lines of code.
+The following describes each:
+
+When building links, the default is:
+
+      navigation "nav", activator: activator do
+        a "Home", attributes: {href: home_path}
+      end
+
+...but can be written as:
+
+      navigation "nav", activator: activator do
+        link "Home", home_path
+      end
+
+When building images, the default is:
+
+      navigation "nav", activator: activator do
+        img attributes: {src: "http://placehold.it/50x50", alt: "Example"}
+      end
+
+...but can be written as:
+
+      navigation "nav", activator: activator do
+        image "http://placehold.it/50x50", "Example"
+      end
+
+When building menu items, the default is:
+
+      navigation "nav", activator: activator do
+        li do
+          a "Home", attributes: {href: home_path}
+        end
+      end
+
+...but can be written as:
+
+      navigation "nav", activator: activator do
+        item "Home", "/dashboard"
+      end
+
+These are just a few, simple, examples of what can be achieved. See the specs for additional usage and customization.
+
 # Customization
 
 The `navigation` view helper can accept an optional `Navigator::TagActivator` instance. Example:
 
     # Code
     activator = Navigator::TagActivator.new search_value: request.env["PATH_INFO"]
+
     navigation "nav", activator: activator do
-      a "Home", attributes: {href: home_path}
-      a "About", attributes: {href: about_path}
+      link "Home", home_path
+      link "About", about_path
     end
 
     <!-- Result -->
@@ -237,8 +306,8 @@ This customization allows for more sophisticated detection/updating of active HT
                                             target_value: "current"
 
     navigation "nav", activator: activator do
-      a "Home", attributes: {href: home_path, "data-id" => "123", data-style="info"}
-      a "About", attributes: {href: about_path, "data-id" => "789"}
+      link "Home", home_path, attributes: {data: {id: "123", data-style="info"}}
+      link "About", about_path attributes: {data: {id: "789"}}
     end
 
     <!-- Result -->
@@ -287,4 +356,4 @@ Built with [Gemsmith](https://github.com/bkuhlmann/gemsmith).
 
 # Credits
 
-Developed by [Brooke Kuhlmann](https://www.alchemists.io) at [Alchemists](https://www.alchemists.io)
+Developed by [Brooke Kuhlmann](https://www.alchemists.io) at [Alchemists](https://www.alchemists.io).

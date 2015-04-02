@@ -1,3 +1,26 @@
+# v1.1.0 (2015-04-01)
+
+- Fixed bug where menu item would lose original class when active.
+- Added HTML button tag support.
+- Added HTML div tag support.
+- Added HTML form tag support.
+- Added HTML header tag support.
+- Added HTML img tag support.
+- Added HTML input tag support.
+- Added HTML label tag support.
+- Added HTML nav tag support.
+- Added HTML option tag support.
+- Added HTML select tag support.
+- Added `Menu#image` support.
+- Added `Menu#link` support.
+- Added code of conduct documentation.
+- Updated menu items to accept optional content.
+- Updated menu items to render block content.
+- Updated menu links to accept optional content.
+- Updated menu links to render block content.
+- Updated tag prefix shared examples to account for adding and appending target values.
+- Updated to Ruby 2.2.1.
+
 # v1.0.0 (2015-01-01)
 
 - Removed Ruby 2.0.0 support.
