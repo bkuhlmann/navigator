@@ -83,6 +83,25 @@ describe Navigator::TagActivator do
         expect(result).to eq(true)
       end
     end
+
+    context "with regular expression" do
+      subject { Navigator::TagActivator.new search_value: /^admin.+/ }
+
+      it "answers true when search values match" do
+        result = subject.activatable? href: "admin/test/path"
+        expect(result).to eq(true)
+      end
+
+      it "answers false when search values don't match" do
+        result = subject.activatable? href: "/admin/test/path"
+        expect(result).to eq(false)
+      end
+
+      it "answers false when no search value is supplied" do
+        result = subject.activatable?
+        expect(result).to eq(false)
+      end
+    end
   end
 
   describe "#activate" do

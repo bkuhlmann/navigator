@@ -11,17 +11,21 @@ module Navigator
     end
 
     def activatable? attributes = {}
+      return false unless search_value.present?
+
       attributes = attributes.with_indifferent_access
-      search_value.present? && attributes[search_key] == search_value
+      current_search_value = attributes[search_key]
+
+      if current_search_value.is_a?(Regexp) || search_value.is_a?(Regexp)
+        !!(current_search_value =~ search_value)
+      else
+        current_search_value == search_value
+      end
     end
 
     def activate attributes = {}
       attributes = attributes.with_indifferent_access
-
-      if activatable? attributes
-        attributes[target_key] = [attributes[target_key], target_value].compact * ' '
-      end
-
+      attributes[target_key] = [attributes[target_key], target_value].compact.join(' ') if activatable? attributes
       attributes
     end
   end
