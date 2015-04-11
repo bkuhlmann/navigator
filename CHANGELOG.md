@@ -1,3 +1,7 @@
+# v1.2.0 (2015-04-11)
+
+- Added tag activator search value regular expression support.
+
 # v1.1.0 (2015-04-01)
 
 - Fixed bug where menu item would lose original class when active.

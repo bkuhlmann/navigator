@@ -11,7 +11,7 @@ Enhances Rails with a DSL for menu navigation.
 
 # Features
 
-- Provides a simple DSL for building navigation menus.
+- Provides a DSL for building navigation menus.
 - Supports auto-detection/highlighting of active menu items based on current path (customizable for non-path usage too).
 - Supports sub-menus, nested tags, HTML attributes, etc.
 - Supports the following HTML tags:
@@ -315,6 +315,39 @@ This customization allows for more sophisticated detection/updating of active HT
       <a href="/home" data-id="123" data-style="info current">Home</a>
       <a href="/about" data-id="789">About</a>
     </nav>
+
+Lastly, the search value can be a *regular expression* to make things easier when dealing with complicated routes, sub-
+menus, etc. Example:
+
+      # Code
+      profile_activator = Navigator::TagActivator.new search_value: /^profile.+/
+
+      navigation do
+        item "Dashboard", dashboard_path
+        li activator: profile_activator do
+          link "Profile", '#'
+
+          ul do
+            item "Addresses", profile_addresses_path
+            item "Emails", profile_emails_path
+          end
+        end
+      end
+
+      <!-- Result -->
+      <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li class="active">
+          <a href="#">Profile</a>
+          <ul>
+            <li><a href="profile/addresses">Addresses</a></li>
+            <li><a href="profile/emails">Emails</a></li>
+          </ul>
+        </li>
+      </ul>
+
+Assuming either the `Addresses` or `Emails` menu item was clicked, the `Profile` menu item would be active due to the
+regular expression (i.e. `/^profile.+/`) matching one of the the `profile/*` paths.
 
 # Tests
 
