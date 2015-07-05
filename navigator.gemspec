@@ -1,9 +1,9 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "navigator/version"
+require "navigator/identity"
 
 Gem::Specification.new do |spec|
-  spec.name                  = "navigator"
-  spec.version               = Navigator::VERSION
+  spec.name                  = Navigator::Identity.name
+  spec.version               = Navigator::Identity.version
   spec.platform              = Gem::Platform::RUBY
   spec.authors               = ["Brooke Kuhlmann"]
   spec.email                 = ["brooke@alchemists.io"]
