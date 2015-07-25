@@ -1,4 +1,4 @@
-# Overview
+# Navigator
 
 [![Gem Version](https://badge.fury.io/rb/navigator.png)](http://badge.fury.io/rb/navigator)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/navigator.png)](https://codeclimate.com/github/bkuhlmann/navigator)
