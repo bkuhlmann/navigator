@@ -9,6 +9,32 @@
 
 Enhances Rails with a DSL for menu navigation.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [Usage](#usage)
+    - [Unordered List (simple)](#unordered-list-simple)
+    - [Unordered List (with attributes)](#unordered-list-with-attributes)
+    - [Unordered List (with multiple data attributes)](#unordered-list-with-multiple-data-attributes)
+    - [Nav (with links)](#nav-with-links)
+    - [Foundation Menu](#foundation-menu)
+    - [Bootstrap Dropdown](#bootstrap-dropdown)
+    - [Menu Helpers](#menu-helpers)
+- [Customization](#customization)
+- [Tests](#tests)
+- [Versioning](#versioning)
+- [Code of Conduct](#code-of-conduct)
+- [Contributions](#contributions)
+- [License](#license)
+- [History](#history)
+- [Credits](#credits)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Features
 
 - Provides a DSL for building navigation menus.
