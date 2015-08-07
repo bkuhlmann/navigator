@@ -1,6 +1,6 @@
 # Navigator
 
-[![Gem Version](https://badge.fury.io/rb/navigator.png)](http://badge.fury.io/rb/navigator)
+[![Gem Version](https://badge.fury.io/rb/navigator.svg)](http://badge.fury.io/rb/navigator)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/navigator.png)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/navigator/coverage.png)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/navigator.png)](https://gemnasium.com/bkuhlmann/navigator)
