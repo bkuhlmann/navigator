@@ -5,7 +5,6 @@
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/navigator/coverage.svg)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/navigator.svg)](https://gemnasium.com/bkuhlmann/navigator)
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/navigator.svg)](http://travis-ci.org/bkuhlmann/navigator)
-[![Gittip](http://img.shields.io/gittip/bkuhlmann.svg)](https://www.gittip.com/bkuhlmann)
 
 Enhances Rails with a DSL for menu navigation.
 
