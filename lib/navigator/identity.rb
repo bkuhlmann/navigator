@@ -1,4 +1,5 @@
 module Navigator
+  # Gem identity information.
   module Identity
     def self.name
       "navigator"
