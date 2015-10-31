@@ -17,7 +17,7 @@ describe Navigator::Tag do
     end
 
     context "with suffix" do
-      it_behaves_like "a tag prefix", 'a'
+      it_behaves_like "a tag prefix", "a"
     end
 
     context "without suffix" do

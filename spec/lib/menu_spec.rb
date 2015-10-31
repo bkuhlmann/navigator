@@ -265,12 +265,12 @@ describe Navigator::Menu do
 
     context "with blocks" do
       it "renders a block" do
-        menu.item("/test") { b 'X' }
+        menu.item("/test") { b "X" }
         expect(menu.render).to eq(%(<ul><li><a href="/test"><b>X</b></a></li></ul>))
       end
 
       it "renders content with a block" do
-        menu.item("Test: ", "/test") { b 'X' }
+        menu.item("Test: ", "/test") { b "X" }
         expect(menu.render).to eq(%(<ul><li><a href="/test">Test: <b>X</b></a></li></ul>))
       end
     end

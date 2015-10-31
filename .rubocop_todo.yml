@@ -1,0 +1,15 @@
+Metrics/AbcSize:
+  Exclude:
+    - "lib/navigator/menu.rb"
+Metrics/ParameterLists:
+  Exclude:
+    - "lib/navigator/menu.rb"
+Style/CaseEquality:
+  Exclude:
+    - "lib/navigator/menu.rb"
+Style/DoubleNegation:
+  Exclude:
+    - "lib/navigator/tag_activator.rb"
+Style/OptionalArguments:
+  Exclude:
+    - "lib/navigator/menu.rb"

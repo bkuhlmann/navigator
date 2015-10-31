@@ -2,7 +2,7 @@ module Navigator
   # Renders a HTML menu.
   class Menu
     def self.allowed_methods
-      %r(^(div|section|header|h[1-6]|nav|ul|li|a|img|b|em|s|small|span|strong|sub|sup|form|label|select|option|input|button)$)
+      /^(div|section|header|h[1-6]|nav|ul|li|a|img|b|em|s|small|span|strong|sub|sup|form|label|select|option|input|button)$/
     end
 
     def initialize template, tag: "ul", attributes: {}, activator: Navigator::TagActivator.new, &block
@@ -15,14 +15,12 @@ module Navigator
 
     def add name, content = nil, attributes: {}, activator: menu_activator, &block
       tag = Navigator::Tag.new name, content, attributes: attributes, activator: activator
-      if block_given?
-        items << tag.prefix
-        items << tag.content
-        instance_eval(&block)
-        items << tag.suffix
-      else
-        items << tag.render
-      end
+      return items << tag.render unless block_given?
+
+      items << tag.prefix
+      items << tag.content
+      instance_eval(&block)
+      items << tag.suffix
     end
 
     def link content = nil, url, attributes: {}, activator: menu_activator, &block
@@ -58,7 +56,7 @@ module Navigator
     end
 
     def render
-      [tag.prefix, tag.content, items.compact.join(''), tag.suffix].compact * ''
+      [tag.prefix, tag.content, items.compact.join(""), tag.suffix].compact * ""
     end
 
     private
@@ -71,7 +69,7 @@ module Navigator
 
     def activate_item_attributes! attributes, url, activator
       return unless url == activator.search_value
-      attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value].compact * ' '
+      attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value].compact * " "
     end
   end
 end

@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
 # Pick the frameworks you want:
 require "action_controller/railtie"
@@ -13,4 +13,3 @@ module Dummy
   class Application < Rails::Application
   end
 end
-

@@ -1,4 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 require "navigator/identity"
 
 Gem::Specification.new do |spec|
@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email                 = ["brooke@alchemists.io"]
   spec.homepage              = "https://github.com/bkuhlmann/navigator"
   spec.summary               = "Enhances Rails with a DSL for menu navigation."
-  spec.description           = "Enhances Rails with a DSL for menu navigation complete with sub-menus, nested tags, HTML attributes, etc."
+  spec.description           = "Enhances Rails with a DSL for menu navigation."
   spec.license               = "MIT"
 
   if ENV["RUBY_GEM_SECURITY"] == "enabled"
@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "terminal-notifier"
   spec.add_development_dependency "terminal-notifier-guard"
+  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "codeclimate-test-reporter"
 
   spec.files            = Dir["app/**/*", "lib/**/*"]

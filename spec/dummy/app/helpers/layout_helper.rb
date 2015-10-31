@@ -1,3 +1,4 @@
+# Layout helpers for the view layer.
 module LayoutHelper
   def render_public_navigation
     navigation "nav" do

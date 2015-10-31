@@ -5,5 +5,3 @@ Rails.application.routes.draw do
   resources :posts, only: :index
   resources :pages, only: :index
 end
-
-
