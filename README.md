@@ -9,21 +9,21 @@
 
 Enhances Rails with a DSL for menu navigation.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- Tocer[start]: Auto-generated, don't remove. -->
+
 # Table of Contents
 
 - [Features](#features)
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
-    - [Unordered List (simple)](#unordered-list-simple)
-    - [Unordered List (with attributes)](#unordered-list-with-attributes)
-    - [Unordered List (with multiple data attributes)](#unordered-list-with-multiple-data-attributes)
-    - [Nav (with links)](#nav-with-links)
-    - [Foundation Menu](#foundation-menu)
-    - [Bootstrap Dropdown](#bootstrap-dropdown)
-    - [Menu Helpers](#menu-helpers)
+  - [Unordered List (simple)](#unordered-list-simple)
+  - [Unordered List (with attributes)](#unordered-list-with-attributes)
+  - [Unordered List (with multiple data attributes)](#unordered-list-with-multiple-data-attributes)
+  - [Nav (with links)](#nav-with-links)
+  - [Foundation Menu](#foundation-menu)
+  - [Bootstrap Dropdown](#bootstrap-dropdown)
+  - [Menu Helpers](#menu-helpers)
 - [Customization](#customization)
 - [Tests](#tests)
 - [Versioning](#versioning)
@@ -33,7 +33,7 @@ Enhances Rails with a DSL for menu navigation.
 - [History](#history)
 - [Credits](#credits)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- Tocer[finish]: Auto-generated, don't remove. -->
 
 # Features
 
