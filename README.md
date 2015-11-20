@@ -377,7 +377,7 @@ regular expression (i.e. `/^profile.+/`) matching one of the the `profile/*` pat
 
 To test, run:
 
-    bundle exec rspec spec
+    bundle exec rake
 
 To test the dummy application, run:
 
