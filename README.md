@@ -4,7 +4,7 @@
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/navigator.svg)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/navigator/coverage.svg)](https://codeclimate.com/github/bkuhlmann/navigator)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/navigator.svg)](https://gemnasium.com/bkuhlmann/navigator)
-[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/navigator.svg)](http://travis-ci.org/bkuhlmann/navigator)
+[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/navigator.svg)](https://travis-ci.org/bkuhlmann/navigator)
 [![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 Enhances Rails with a DSL for menu navigation.
@@ -68,7 +68,7 @@ Enhances Rails with a DSL for menu navigation.
 
 # Requirements
 
-0. [MRI 2.x.x](http://www.ruby-lang.org).
+0. [MRI 2.x.x](https://www.ruby-lang.org).
 0. [Ruby on Rails 4.1.x](http://rubyonrails.org).
 
 # Setup
@@ -264,13 +264,13 @@ When building links, the default is:
 When building images, the default is:
 
       navigation "nav", activator: activator do
-        img attributes: {src: "http://placehold.it/50x50", alt: "Example"}
+        img attributes: {src: "https://placehold.it/50x50", alt: "Example"}
       end
 
 ...but can be written as:
 
       navigation "nav", activator: activator do
-        image "http://placehold.it/50x50", "Example"
+        image "https://placehold.it/50x50", "Example"
       end
 
 When building menu items, the default is:
