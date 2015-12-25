@@ -4,8 +4,6 @@ env:
   global:
     - secure: sB6onI4V01nU35LuhJ1+WUDm6/V/FPCHYAdhPF2SvQTfF3Ch/CmFSThdtl81s/nNS9JFBQdRKsAai//Of3XFSWfuPLIbwKlbJ6st7kAoYEV64+gvr9tLDEnGOyBzH5Q9ugKf4lb5E0f9vYJEedquoYLgZTLk2N/8uDidkKIpb40=
 rvm:
-- 2.1.0
-- 2.2.0
 - 2.3.0
 gemfile:
 - gemfiles/rails-4.1.x.gemfile
