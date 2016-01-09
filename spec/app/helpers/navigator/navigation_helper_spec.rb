@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Navigator::NavigationHelper, type: :helper do
+RSpec.describe Navigator::NavigationHelper, type: :helper do
   let(:path) { "/dashboard" }
   before { allow(self).to receive(:current_path).and_return(path) }
 

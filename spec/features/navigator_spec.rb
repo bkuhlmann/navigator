@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "Site Navigation" do
+RSpec.feature "Site Navigation" do
   scenario "As a visitor, I want a visual indication of which tab is active" do
     visit root_path
     expect(all(".active").count).to eq(1)

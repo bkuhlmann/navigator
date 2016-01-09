@@ -1,4 +1,4 @@
-shared_examples_for "a tag prefix" do |name|
+RSpec.shared_examples_for "a tag prefix" do |name|
   it "answers prefix with no attributes" do
     tag = Navigator::Tag.new name
     expect(tag.prefix).to eq("<#{name}>")

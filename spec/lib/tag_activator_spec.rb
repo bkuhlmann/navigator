@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Navigator::TagActivator do
+RSpec.describe Navigator::TagActivator do
   subject { Navigator::TagActivator.new }
 
   describe "#search_key" do

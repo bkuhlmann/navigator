@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Navigator::Menu do
+RSpec.describe Navigator::Menu do
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
   let(:menu) { Navigator::Menu.new template }

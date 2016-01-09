@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Navigator::Tag do
+RSpec.describe Navigator::Tag do
   let(:tag) { Navigator::Tag.new "li", "Example text.", attributes: {class: "example"} }
 
   describe "#initialize" do
