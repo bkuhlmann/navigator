@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Navigator
   # The main engine.
   class Engine < ::Rails::Engine

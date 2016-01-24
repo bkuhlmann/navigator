@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Navigator
   # Navigation helper methods for the view layer.
   module NavigationHelper

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples_for "a tag prefix" do |name|
   it "answers prefix with no attributes" do
     tag = Navigator::Tag.new name
@@ -10,12 +12,12 @@ RSpec.shared_examples_for "a tag prefix" do |name|
   end
 
   it "answers prefix with expanded data attibutes" do
-    tag = Navigator::Tag.new "#{name}", attributes: {data: {one: "one", two: "two"}}
+    tag = Navigator::Tag.new name, attributes: {data: {one: "one", two: "two"}}
     expect(tag.prefix).to eq(%(<#{name} data-one="one" data-two="two">))
   end
 
   it "answers prefix with multiple attributes" do
-    tag = Navigator::Tag.new "#{name}", attributes: {class: "tooltip", "data-enabled" => true}
+    tag = Navigator::Tag.new name, attributes: {class: "tooltip", "data-enabled" => true}
     expect(tag.prefix).to eq(%(<#{name} class="tooltip" data-enabled="true">))
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 RSpec.describe Navigator::Menu do
@@ -278,11 +280,11 @@ RSpec.describe Navigator::Menu do
 
   describe "#respond_to?" do
     it "answers true for a valid tag" do
-      expect(menu.respond_to? "section").to eq(true)
+      expect(menu.respond_to?("section")).to eq(true)
     end
 
     it "answers false for an invalid tag" do
-      expect(menu.respond_to? "bogus").to eq(false)
+      expect(menu.respond_to?("bogus")).to eq(false)
     end
   end
 

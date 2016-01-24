@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Navigator
   # Renders a HTML menu.
   class Menu
