@@ -15,7 +15,7 @@ module Navigator
       "1.4.0"
     end
 
-    def self.label_version
+    def self.version_label
       "#{label} #{version}"
     end
   end
