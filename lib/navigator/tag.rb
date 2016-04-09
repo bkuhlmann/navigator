@@ -6,7 +6,7 @@ module Navigator
     attr_reader :name, :content
 
     def self.names_without_suffix
-      %w(img input)
+      %w[img input]
     end
 
     def initialize name, content = nil, attributes: {}, activator: Navigator::TagActivator.new
