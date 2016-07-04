@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Navigator::Tag do
   let(:tag) { Navigator::Tag.new "li", "Example text.", attributes: {class: "example"} }

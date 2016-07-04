@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 RSpec.feature "Site Navigation" do
   scenario "As a visitor, I want a visual indication of which tab is active" do

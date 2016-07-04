@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Navigator::Menu do
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
