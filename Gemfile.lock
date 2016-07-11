@@ -65,7 +65,7 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
-    ffi (1.9.13)
+    ffi (1.9.14)
     formatador (0.2.5)
     gemsmith (7.7.0)
       milestoner (~> 3.0)
@@ -123,9 +123,10 @@ GEM
     paint (1.0.1)
     parser (2.3.1.2)
       ast (~> 2.2)
+    pg (0.18.4)
     pkg-config (1.1.7)
     powerpack (0.1.1)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -243,6 +244,7 @@ DEPENDENCIES
   guard-rspec
   hirb
   navigator!
+  pg
   pry
   pry-byebug
   pry-state
