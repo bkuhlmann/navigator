@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 ENV["RAILS_ENV"] ||= "test"
-require File.expand_path "../dummy/config/environment", __FILE__
+require File.expand_path "../support/dummy/config/environment", __FILE__
 ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "/dummy"
 
 require "spec_helper"
 require "rspec/rails"
 require "capybara/rails"
+require "sass"
+require "slim"
 
 RSpec.configure do |config|
   config.include AbstractController::Translation

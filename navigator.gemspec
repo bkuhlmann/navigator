@@ -21,6 +21,9 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = "~> 2.3"
   spec.add_dependency "rails", "~> 5.0"
+
+  spec.add_development_dependency "slim"
+  spec.add_development_dependency "sass"
   spec.add_development_dependency "rake", "~> 11.0"
   spec.add_development_dependency "pg"
   spec.add_development_dependency "gemsmith", "~> 7.7"
