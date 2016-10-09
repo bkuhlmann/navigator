@@ -68,7 +68,7 @@ Enhances Rails with a DSL for menu navigation.
 
 # Requirements
 
-0. [MRI 2.x.x](https://www.ruby-lang.org).
+0. [Ruby 2.x.x](https://www.ruby-lang.org).
 0. [Ruby on Rails 4.1.x](http://rubyonrails.org).
 
 # Setup
