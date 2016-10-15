@@ -213,8 +213,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.7.7)
-    terminal-notifier (1.7.1)
-    terminal-notifier-guard (1.7.0)
     thor (0.19.1)
     thor_plus (3.1.0)
       thor (~> 0.19)
@@ -258,8 +256,6 @@ DEPENDENCIES
   rubocop (~> 0.44)
   sass
   slim
-  terminal-notifier
-  terminal-notifier-guard
   wirb
 
 BUNDLED WITH
