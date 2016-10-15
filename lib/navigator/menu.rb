@@ -49,6 +49,7 @@ module Navigator
       method_allowed?(name) || super(name)
     end
 
+    # rubocop:disable Style/MethodMissing
     def method_missing name, *args, &block
       if method_allowed?(name.to_s)
         add(name, *args, &block)
