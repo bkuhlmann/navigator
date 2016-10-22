@@ -11,7 +11,6 @@ Gem::Specification.new do |spec|
   spec.email                 = ["brooke@alchemists.io"]
   spec.homepage              = "https://github.com/bkuhlmann/navigator"
   spec.summary               = "Enhances Rails with a DSL for menu navigation."
-  spec.description           = "Enhances Rails with a DSL for menu navigation."
   spec.license               = "MIT"
 
   if File.exist?(Gem.default_key_path) && File.exist?(Gem.default_cert_path)
