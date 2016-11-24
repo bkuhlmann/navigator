@@ -3,11 +3,9 @@ language: ruby
 env:
   global:
     - secure: sB6onI4V01nU35LuhJ1+WUDm6/V/FPCHYAdhPF2SvQTfF3Ch/CmFSThdtl81s/nNS9JFBQdRKsAai//Of3XFSWfuPLIbwKlbJ6st7kAoYEV64+gvr9tLDEnGOyBzH5Q9ugKf4lb5E0f9vYJEedquoYLgZTLk2N/8uDidkKIpb40=
-rvm: 2.3.0
 gemfile: gemfiles/rails-5.0.x.gemfile
 services: postgresql
 before_script: psql -c "create database dummy_test;" -U postgres
-script: bundle exec rake
 after_script: bundle exec codeclimate-test-reporter
 notifications:
   email: false
