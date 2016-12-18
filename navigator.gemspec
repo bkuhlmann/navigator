@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 5.0"
   spec.add_development_dependency "slim", "~> 3.0"
   spec.add_development_dependency "sass", "~> 3.4"
-  spec.add_development_dependency "rake", "~> 11.0"
+  spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "pg", "~> 0.19"
   spec.add_development_dependency "gemsmith", "~> 8.1"
   spec.add_development_dependency "pry", "~> 0.10"
