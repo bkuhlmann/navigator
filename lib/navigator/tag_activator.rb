@@ -5,6 +5,7 @@ module Navigator
   class TagActivator
     attr_reader :search_key, :search_value, :target_key, :target_value
 
+    # rubocop:disable Metrics/ParameterLists
     def initialize search_key: :href, search_value: nil, target_key: :class, target_value: "active"
       @search_key = search_key
       @search_value = search_value

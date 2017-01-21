@@ -9,6 +9,7 @@ module Navigator
       %w[img input]
     end
 
+    # rubocop:disable Metrics/ParameterLists
     def initialize name, content = nil, attributes: {}, activator: Navigator::TagActivator.new
       @name = String(name)
       @content = content

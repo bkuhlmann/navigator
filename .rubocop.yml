@@ -43,3 +43,5 @@ Metrics/LineLength:
   Exclude:
     - "lib/navigator/menu.rb"
     - "spec/lib/menu_spec.rb"
+Metrics/ParameterLists:
+  Max: 3
