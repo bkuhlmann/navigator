@@ -39,7 +39,7 @@ Metrics/BlockLength:
     - "**/*.gemspec"
     - "spec/**/*"
 Metrics/LineLength:
-  Max: 120
+  Max: 100
   Exclude:
     - "lib/navigator/menu.rb"
     - "spec/lib/menu_spec.rb"

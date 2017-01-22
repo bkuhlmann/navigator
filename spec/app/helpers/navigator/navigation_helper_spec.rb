@@ -64,7 +64,9 @@ RSpec.describe Navigator::NavigationHelper, type: :helper do
         item "Two", "/two"
       end
 
-      expect(nav).to eq(%(<ul><li class="active"><a href="#{path}">One</a></li><li><a href="/two">Two</a></li></ul>))
+      expect(nav).to eq(
+        %(<ul><li class="active"><a href="#{path}">One</a></li><li><a href="/two">Two</a></li></ul>)
+      )
     end
 
     it "raises NameError for non-existent method" do

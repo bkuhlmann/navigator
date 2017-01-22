@@ -4,6 +4,7 @@ module Navigator
   # Navigation helper methods for the view layer.
   module NavigationHelper
     # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable Metrics/LineLength
     def navigation tag = "ul", attributes: {}, activator: navigation_activator, &block
       raw Navigator::Menu.new(self, tag: tag, attributes: attributes, activator: activator, &block).render
     end
