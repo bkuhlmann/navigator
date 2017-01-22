@@ -70,7 +70,7 @@ Enhances Rails with a DSL for menu navigation.
 
 # Requirements
 
-0. [Ruby 2.x.x](https://www.ruby-lang.org).
+0. [Ruby 2.4.x](https://www.ruby-lang.org).
 0. [Ruby on Rails 5.x.x](http://rubyonrails.org).
 
 # Setup
