@@ -2,6 +2,7 @@
 
 require "rails_helper"
 
+# rubocop:disable Metrics/LineLength
 RSpec.describe Navigator::Menu do
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
