@@ -13,6 +13,7 @@ module Navigator
       @target_value = target_value
     end
 
+    # :reek:TooManyStatements
     def activatable? attributes = {}
       return false unless search_value.present?
 
@@ -20,7 +21,8 @@ module Navigator
       current_search_value = attributes[search_key]
 
       if current_search_value.is_a?(Regexp) || search_value.is_a?(Regexp)
-        !!(current_search_value =~ search_value)
+        return false if current_search_value.blank?
+        current_search_value.match? search_value
       else
         current_search_value == search_value
       end
