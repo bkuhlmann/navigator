@@ -11,31 +11,31 @@ Enhances Rails with a DSL for menu navigation.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
-# Table of Contents
+## Table of Contents
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Unordered List (simple)](#unordered-list-simple)
-  - [Unordered List (with attributes)](#unordered-list-with-attributes)
-  - [Unordered List (with multiple data attributes)](#unordered-list-with-multiple-data-attributes)
-  - [Nav (with links)](#nav-with-links)
-  - [Foundation Menu](#foundation-menu)
-  - [Bootstrap Dropdown](#bootstrap-dropdown)
-  - [Menu Helpers](#menu-helpers)
-- [Customization](#customization)
-- [Tests](#tests)
-- [Versioning](#versioning)
-- [Code of Conduct](#code-of-conduct)
-- [Contributions](#contributions)
-- [License](#license)
-- [History](#history)
-- [Credits](#credits)
+  - [Features](#features)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Usage](#usage)
+    - [Unordered List (simple)](#unordered-list-simple)
+    - [Unordered List (with attributes)](#unordered-list-with-attributes)
+    - [Unordered List (with multiple data attributes)](#unordered-list-with-multiple-data-attributes)
+    - [Nav (with links)](#nav-with-links)
+    - [Foundation Menu](#foundation-menu)
+    - [Bootstrap Dropdown](#bootstrap-dropdown)
+    - [Menu Helpers](#menu-helpers)
+  - [Customization](#customization)
+  - [Tests](#tests)
+  - [Versioning](#versioning)
+  - [Code of Conduct](#code-of-conduct)
+  - [Contributions](#contributions)
+  - [License](#license)
+  - [History](#history)
+  - [Credits](#credits)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
 
-# Features
+## Features
 
 - Provides a DSL for building navigation menus.
 - Supports auto-detection/highlighting of active menu items based on current path (customizable for
@@ -68,12 +68,12 @@ Enhances Rails with a DSL for menu navigation.
 - Provides `link`, `image`, and `item` convenience methods for succinct ways to build commonly used
   menu elements.
 
-# Requirements
+## Requirements
 
 0. [Ruby 2.4.x](https://www.ruby-lang.org).
 0. [Ruby on Rails 5.x.x](http://rubyonrails.org).
 
-# Setup
+## Setup
 
 For a secure install, type the following from the command line (recommended):
 
@@ -92,11 +92,11 @@ Add the following to your Gemfile:
 
     gem "navigator"
 
-# Usage
+## Usage
 
 The following are examples using the navigation view helper:
 
-## Unordered List (simple)
+### Unordered List (simple)
 
 Code:
 
@@ -112,7 +112,7 @@ Result:
       <li><a href="/posts">Posts</a></li>
     </ul>
 
-## Unordered List (with attributes)
+### Unordered List (with attributes)
 
 Code:
 
@@ -128,7 +128,7 @@ Result:
       <li><a href="/posts">Posts</a></li>
     </ul>
 
-## Unordered List (with multiple data attributes)
+### Unordered List (with multiple data attributes)
 
 Code:
 
@@ -145,7 +145,7 @@ Result:
 *TIP: Nested data-- attributes can be applied to any menu item in the same manner as Rails view
 helpers.*
 
-## Nav (with links)
+### Nav (with links)
 
 Code:
 
@@ -161,7 +161,7 @@ Result:
       <a href="/posts">Posts</a>
     </nav>
 
-## Foundation Menu
+### Foundation Menu
 
 Code:
 
@@ -215,7 +215,7 @@ Result:
       </section>
     </nav>
 
-## Bootstrap Dropdown
+### Bootstrap Dropdown
 
 Code:
 
@@ -248,7 +248,7 @@ Result:
       </li>
     </ul>
 
-## Menu Helpers
+### Menu Helpers
 
 There are several convenience methods, in addition to the standard HTML tags, that can make for
 shorter lines of code. The following describes each:
@@ -294,7 +294,7 @@ When building menu items, the default is:
 These are just a few, simple, examples of what can be achieved. See the specs for additional usage
 and customization.
 
-# Customization
+## Customization
 
 The `navigation` view helper can accept an optional `Navigator::TagActivator` instance. Example:
 
@@ -382,7 +382,7 @@ Assuming either the `Addresses` or `Emails` menu item was clicked, the `Profile`
 active due to the regular expression (i.e. `/^profile.+/`) matching one of the the `profile/*`
 paths.
 
-# Tests
+## Tests
 
 To test, run:
 
@@ -393,7 +393,7 @@ To test the dummy application, run:
     cd spec/dummy
     bin/rails server
 
-# Versioning
+## Versioning
 
 Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
@@ -401,26 +401,26 @@ Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 - Minor (x.Y.z) - Incremented for new, backwards compatible, public API enhancements/fixes.
 - Patch (x.y.Z) - Incremented for small, backwards compatible, bug fixes.
 
-# Code of Conduct
+## Code of Conduct
 
 Please note that this project is released with a [CODE OF CONDUCT](CODE_OF_CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 
-# Contributions
+## Contributions
 
 Read [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-# License
+## License
 
 Copyright (c) 2012 [Alchemists](https://www.alchemists.io).
 Read [LICENSE](LICENSE.md) for details.
 
-# History
+## History
 
 Read [CHANGES](CHANGES.md) for details.
 Built with [Gemsmith](https://github.com/bkuhlmann/gemsmith).
 
-# Credits
+## Credits
 
 Developed by [Brooke Kuhlmann](https://www.alchemists.io) at
 [Alchemists](https://www.alchemists.io).
