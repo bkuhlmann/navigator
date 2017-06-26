@@ -1,3 +1,28 @@
+# v2.3.0 (2017-06-25)
+
+- Fixed Rubocop Style/InverseMethods issue.
+- Fixed Rubocop Style/MixinGrouping issues.
+- Fixed Travis CI configuration to not update gems.
+- Added Circle CI support.
+- Added Git Cop code quality task.
+- Added Rails 5.1.0 support.
+- Added code quality Rake task.
+- Updated CONTRIBUTING documentation.
+- Updated Guardfile to always run RSpec with documentation format.
+- Updated README headers.
+- Updated README semantic versioning order.
+- Updated RSpec configuration to output documentation when running.
+- Updated RSpec spec helper to enable color output.
+- Updated Rubocop configuration.
+- Updated Rubocop to import from global configuration.
+- Updated contributing documentation.
+- Updated gem dependencies.
+- Updated to Gemsmith 10.0.0.
+- Updated to Ruby 2.4.1.
+- Removed Code Climate code comment checks.
+- Removed Travis CI support.
+- Removed `.bundle` directory from `.gitignore`.
+
 # v2.2.0 (2017-01-22)
 
 - Updated Rubocop Metrics/LineLength to 100 characters.
