@@ -27,6 +27,4 @@ UtilityFunction:
   - Navigator::Menu#activate_item_attributes!
   - Navigator::Tag#expand_data_attributes!
 IrresponsibleModule:
-  exclude:
-  - ApplicationCable::Channel
-  - ApplicationCable::Connection
+  enabled: false
