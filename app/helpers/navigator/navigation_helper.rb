@@ -8,6 +8,8 @@ module Navigator
     def navigation tag = "ul", attributes: {}, activator: navigation_activator, &block
       raw Navigator::Menu.new(self, tag: tag, attributes: attributes, activator: activator, &block).render
     end
+    # rubocop:enable Metrics/ParameterLists
+    # rubocop:enable Metrics/LineLength
 
     module_function
 

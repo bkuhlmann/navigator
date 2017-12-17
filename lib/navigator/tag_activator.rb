@@ -12,6 +12,7 @@ module Navigator
       @target_key = target_key
       @target_value = target_value
     end
+    # rubocop:enable Metrics/ParameterLists
 
     # :reek:TooManyStatements
     def activatable? attributes = {}
@@ -34,5 +35,6 @@ module Navigator
       attributes[target_key] = [attributes[target_key], target_value].compact.join(" ") if activatable? attributes
       attributes
     end
+    # rubocop:enable Metrics/LineLength
   end
 end

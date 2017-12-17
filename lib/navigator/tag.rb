@@ -16,6 +16,7 @@ module Navigator
       @attributes = attributes.with_indifferent_access
       @activator = activator
     end
+    # rubocop:enable Metrics/ParameterLists
 
     def prefix
       ["<#{name}", format_attributes, ">"].compact * ""

@@ -7,6 +7,7 @@ module Navigator
     def self.allowed_methods
       /^(div|section|header|h[1-6]|nav|ul|li|a|img|b|em|s|small|span|strong|sub|sup|form|label|select|option|input|button)$/
     end
+    # rubocop:enable Metrics/LineLength
 
     def initialize template,
                    tag: "ul",
@@ -73,6 +74,7 @@ module Navigator
         template.public_send name, *args
       end
     end
+    # rubocop:enable Style/MethodMissing
 
     def render
       [tag.prefix, tag.content, items.compact.join(""), tag.suffix].compact * ""

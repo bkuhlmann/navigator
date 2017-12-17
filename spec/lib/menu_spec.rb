@@ -2,7 +2,6 @@
 
 require "rails_helper"
 
-# rubocop:disable Metrics/LineLength
 RSpec.describe Navigator::Menu do
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
@@ -57,7 +56,9 @@ RSpec.describe Navigator::Menu do
       menu.add "a", "Home", attributes: {href: path}
       menu.add "a", "About", attributes: {href: "/about"}
 
-      expect(menu.render).to eq(%(<nav><a href="#{path}" class="active">Home</a><a href="/about">About</a></nav>))
+      expect(menu.render).to eq(
+        %(<nav><a href="#{path}" class="active">Home</a><a href="/about">About</a></nav>)
+      )
     end
 
     it "adds tag using custom item tag activator" do
@@ -67,7 +68,9 @@ RSpec.describe Navigator::Menu do
       menu.add "a", "Home", attributes: {href: "/home"}
       menu.add "a", "About", attributes: {href: "/about"}, activator: activator
 
-      expect(menu.render).to eq(%(<nav><a href="/home">Home</a><a href="/about" class="active">About</a></nav>))
+      expect(menu.render).to eq(
+        %(<nav><a href="/home">Home</a><a href="/about" class="active">About</a></nav>)
+      )
     end
   end
 
@@ -97,28 +100,36 @@ RSpec.describe Navigator::Menu do
         menu.link "Example 1", "/examples/1"
         menu.link "Example 2", "/examples/2"
 
-        expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2">Example 2</a></ul>))
+        link_1 = %(<a href="/examples/1" class="active">Example 1</a>)
+        link_2 = %(<a href="/examples/2">Example 2</a>)
+
+        expect(menu.render).to eq(%(<ul>#{link_1}#{link_2}</ul>))
       end
 
       it "adds link using link tag activator" do
-        activator = Navigator::TagActivator.new search_value: "/examples/2"
+        activator = Navigator::TagActivator.new search_value: "/test/2"
 
         menu = Navigator::Menu.new template
-        menu.link "Example 1", "/examples/1"
-        menu.link "Example 2", "/examples/2", activator: activator
+        menu.link "Test 1", "/test/1"
+        menu.link "Test 2", "/test/2", activator: activator
 
-        expect(menu.render).to eq(%(<ul><a href="/examples/1">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
+        expect(menu.render).to eq(
+          %(<ul><a href="/test/1">Test 1</a><a href="/test/2" class="active">Test 2</a></ul>)
+        )
       end
 
       it "adds link where link tag activator trumps menu tag activator" do
-        menu_activator = Navigator::TagActivator.new search_value: "/examples/1"
-        link_activator = Navigator::TagActivator.new search_value: "/examples/2"
+        menu_activator = Navigator::TagActivator.new search_value: "/test/1"
+        link_activator = Navigator::TagActivator.new search_value: "/test/2"
 
         menu = Navigator::Menu.new template, activator: menu_activator
-        menu.link "Example 1", "/examples/1"
-        menu.link "Example 2", "/examples/2", activator: link_activator
+        menu.link "Test 1", "/test/1"
+        menu.link "Test 2", "/test/2", activator: link_activator
 
-        expect(menu.render).to eq(%(<ul><a href="/examples/1" class="active">Example 1</a><a href="/examples/2" class="active">Example 2</a></ul>))
+        link_1 = %(<a href="/test/1" class="active">Test 1</a>)
+        link_2 = %(<a href="/test/2" class="active">Test 2</a>)
+
+        expect(menu.render).to eq(%(<ul>#{link_1}#{link_2}</ul>))
       end
 
       context "with blocks" do
@@ -161,7 +172,9 @@ RSpec.describe Navigator::Menu do
         menu.image "/examples/1"
         menu.image "/examples/2"
 
-        expect(menu.render).to eq(%(<ul><img src="/examples/1" class="active"><img src="/examples/2"></ul>))
+        expect(menu.render).to eq(
+          %(<ul><img src="/examples/1" class="active"><img src="/examples/2"></ul>)
+        )
       end
 
       it "adds image using image tag activator" do
@@ -171,7 +184,9 @@ RSpec.describe Navigator::Menu do
         menu.image "/examples/1"
         menu.image "/examples/2", activator: activator
 
-        expect(menu.render).to eq(%(<ul><img src="/examples/1"><img src="/examples/2" class="active"></ul>))
+        expect(menu.render).to eq(
+          %(<ul><img src="/examples/1"><img src="/examples/2" class="active"></ul>)
+        )
       end
 
       it "adds image where image tag activator trumps menu tag activator" do
@@ -182,7 +197,9 @@ RSpec.describe Navigator::Menu do
         menu.image "/examples/1"
         menu.image "/examples/2", activator: image_activator
 
-        expect(menu.render).to eq(%(<ul><img src="/examples/1" class="active"><img src="/examples/2" class="active"></ul>))
+        expect(menu.render).to eq(
+          %(<ul><img src="/examples/1" class="active"><img src="/examples/2" class="active"></ul>)
+        )
       end
     end
 
@@ -208,17 +225,27 @@ RSpec.describe Navigator::Menu do
 
       it "adds item with item attributes" do
         menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"}
-        expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>))
+
+        expect(menu.render).to eq(
+          %(<ul><li class="active"><a href="/dashboard">Dashboard</a></li></ul>)
+        )
       end
 
       it "adds item with item and link attributes" do
-        menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"}, link_attributes: {"data-enabled" => true}
-        expect(menu.render).to eq(%(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>))
+        menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"},
+                                             link_attributes: {"data-enabled" => true}
+
+        expect(menu.render).to eq(
+          %(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>)
+        )
       end
 
       it "adds item with multiple data attributes for item and link" do
-        menu.item "Test", "/test", item_attributes: {data: {one: 1, two: 2}}, link_attributes: {data: {a: "A", b: "B"}}
-        expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2"><a href="/test" data-a="A" data-b="B">Test</a></li></ul>))
+        menu.item "Test", "/test", item_attributes: {data: {one: 1, two: 2}},
+                                   link_attributes: {data: {a: "A", b: "B"}}
+        link = %(<a href="/test" data-a="A" data-b="B">Test</a>)
+
+        expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2">#{link}</li></ul>))
       end
     end
 
@@ -230,7 +257,10 @@ RSpec.describe Navigator::Menu do
         menu.item "Dashboard", "/dashboard"
         menu.item "Users", "/users"
 
-        expect(menu.render).to eq(%(<ul><li><a href="/dashboard">Dashboard</a></li><li class="active"><a href="/users">Users</a></li></ul>))
+        item_1 = %(<li><a href="/dashboard">Dashboard</a></li>)
+        item_2 = %(<li class="active"><a href="/users">Users</a></li>)
+
+        expect(menu.render).to eq(%(<ul>#{item_1}#{item_2}</ul>))
       end
 
       it "adds item with target value appended" do
@@ -240,7 +270,10 @@ RSpec.describe Navigator::Menu do
         menu.item "One", "/one"
         menu.item "Two", "/two", item_attributes: {class: "test"}
 
-        expect(menu.render).to eq(%(<ul><li><a href="/one">One</a></li><li class="test active"><a href="/two">Two</a></li></ul>))
+        item_1 = %(<li><a href="/one">One</a></li>)
+        item_2 = %(<li class="test active"><a href="/two">Two</a></li>)
+
+        expect(menu.render).to eq(%(<ul>#{item_1}#{item_2}</ul>))
       end
 
       it "adds item using custom item tag activator" do
@@ -250,7 +283,10 @@ RSpec.describe Navigator::Menu do
         menu.item "Dashboard", "/dashboard", activator: activator
         menu.item "Users", "/users"
 
-        expect(menu.render).to eq(%(<ul><li class="active"><a href="/dashboard">Dashboard</a></li><li><a href="/users">Users</a></li></ul>))
+        item_1 = %(<li class="active"><a href="/dashboard">Dashboard</a></li>)
+        item_2 = %(<li><a href="/users">Users</a></li>)
+
+        expect(menu.render).to eq(%(<ul>#{item_1}#{item_2}</ul>))
       end
 
       it "adds item where item activator trumps menu tag activator" do
@@ -262,7 +298,11 @@ RSpec.describe Navigator::Menu do
         menu.item "Two", "/two", activator: item_activator
         menu.item "Three", "/three"
 
-        expect(menu.render).to eq(%(<ul><li class="active"><a href="/one">One</a></li><li class="active"><a href="/two">Two</a></li><li><a href="/three">Three</a></li></ul>))
+        item_1 = %(<li class="active"><a href="/one">One</a></li>)
+        item_2 = %(<li class="active"><a href="/two">Two</a></li>)
+        item_3 = %(<li><a href="/three">Three</a></li>)
+
+        expect(menu.render).to eq(%(<ul>#{item_1}#{item_2}#{item_3}</ul>))
       end
     end
 
