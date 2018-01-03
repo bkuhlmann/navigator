@@ -5,7 +5,6 @@
 [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/2f8632ec1f734ea9561a/test_coverage)](https://codeclimate.com/github/bkuhlmann/navigator/test_coverage)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/navigator.svg)](https://gemnasium.com/bkuhlmann/navigator)
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/navigator.svg?style=svg)](https://circleci.com/gh/bkuhlmann/navigator)
-[![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 Enhances Rails with a DSL for menu navigation.
 
