@@ -13,6 +13,12 @@ Gem::Specification.new do |spec|
   spec.summary = "Enhances Rails with a DSL for menu navigation."
   spec.license = "Apache-2.0"
 
+  spec.metadata = {
+    "source_code_uri" => "https://github.com/bkuhlmann/navigator",
+    "changelog_uri" => "https://github.com/bkuhlmann/navigator/blob/master/CHANGES.md",
+    "bug_tracker_uri" => "https://github.com/bkuhlmann/navigator/issues"
+  }
+
   spec.signing_key = Gem.default_key_path
   spec.cert_chain = [Gem.default_cert_path]
 
@@ -33,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.3"
   spec.add_development_dependency "reek", "~> 4.8"
   spec.add_development_dependency "rspec-rails", "~> 3.7"
-  spec.add_development_dependency "rubocop", "~> 0.53"
+  spec.add_development_dependency "rubocop", "~> 0.54"
   spec.add_development_dependency "sass", "~> 3.5"
   spec.add_development_dependency "slim", "~> 3.0"
   spec.add_development_dependency "wirb", "~> 2.1"
