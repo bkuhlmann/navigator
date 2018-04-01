@@ -1,4 +1,4 @@
-# v3.1.0 (2018-04-01)
+# 3.1.0 (2018-04-01)
 
 - Fixed Rubocop Style/MissingElse issues.
 - Fixed gemspec issues with missing gem signing key/certificate.
@@ -17,7 +17,7 @@
 - Removed Patreon badge from README.
 - Refactored temp dir shared context as a pathname.
 
-# v3.0.0 (2018-01-01)
+# 3.0.0 (2018-01-01)
 
 - Updated Code Climate badges.
 - Updated Code Climate configuration to Version 2.0.0.
@@ -31,12 +31,12 @@
 - Refactored code to use Ruby 2.5.0 `Array#append` syntax.
 - Refactored code to use Ruby 2.5.0 `Array#prepend` syntax.
 
-# v2.4.1 (2017-11-19)
+# 2.4.1 (2017-11-19)
 
 - Updated to Git Cop 1.7.0.
 - Updated to Rake 12.3.0.
 
-# v2.4.0 (2017-10-29)
+# 2.4.0 (2017-10-29)
 
 - Added Bundler Audit gem.
 - Added dynamic formatting of RSpec output.
@@ -47,7 +47,7 @@
 - Updated to Ruby 2.4.2.
 - Removed Pry State gem.
 
-# v2.3.0 (2017-06-25)
+# 2.3.0 (2017-06-25)
 
 - Fixed Rubocop Style/InverseMethods issue.
 - Fixed Rubocop Style/MixinGrouping issues.
@@ -72,7 +72,7 @@
 - Removed Travis CI support.
 - Removed `.bundle` directory from `.gitignore`.
 
-# v2.2.0 (2017-01-22)
+# 2.2.0 (2017-01-22)
 
 - Updated Rubocop Metrics/LineLength to 100 characters.
 - Updated Rubocop Metrics/ParameterLists max to three.
@@ -82,7 +82,7 @@
 - Updated to Ruby 2.4.0.
 - Removed Rubocop Style/Documentation check.
 
-# v2.1.0 (2016-12-18)
+# 2.1.0 (2016-12-18)
 
 - Fixed Rakefile support for RSpec, Reek, Rubocop, and SCSS Lint.
 - Updated Travis CI configuration to use defaults.
@@ -92,7 +92,7 @@
 - Updated to Ruby 2.3.2.
 - Updated to Ruby 2.3.3.
 
-# v2.0.0 (2016-11-14)
+# 2.0.0 (2016-11-14)
 
 - Fixed Rakefile to safely load Gemsmith tasks.
 - Fixed contributing guideline links.
@@ -137,7 +137,7 @@
 - Refactored gemspec to use default security keys.
 - Refactored version label method name.
 
-# v1.4.0 (2015-12-02)
+# 1.4.0 (2015-12-02)
 
 - Fixed README URLs to use HTTPS schemes where possible.
 - Fixed README test command instructions.
@@ -157,17 +157,17 @@
 - Removed GitTip badge from README.
 - Removed unnecessary exclusions from .gitignore.
 
-# v1.3.0 (2015-07-05)
+# 1.3.0 (2015-07-05)
 
 - Removed JRuby support (no longer officially supported).
 - Fixed secure gem installs (new cert has 10 year lifespan).
 - Updated to Ruby 2.2.2.
 
-# v1.2.0 (2015-04-11)
+# 1.2.0 (2015-04-11)
 
 - Added tag activator search value regular expression support.
 
-# v1.1.0 (2015-04-01)
+# 1.1.0 (2015-04-01)
 
 - Fixed bug where menu item would lose original class when active.
 - Added HTML button tag support.
@@ -190,7 +190,7 @@
 - Updated tag prefix shared examples to account for adding and appending target values.
 - Updated to Ruby 2.2.1.
 
-# v1.0.0 (2015-01-01)
+# 1.0.0 (2015-01-01)
 
 - Removed Ruby 2.0.0 support.
 - Removed Rubinius support.
@@ -204,23 +204,23 @@
 - Refactored menu activator keyword argument to be `activator:`.
 - Refactored common RSpec configurations to RSpec support/kit folder.
 
-# v0.9.1 (2014-07-13)
+# 0.9.1 (2014-07-13)
 
 - Fixed bug with missing "app" folder in gemspec.
 
-# v0.9.0 (2014-07-13)
+# 0.9.0 (2014-07-13)
 
 - Removed Rails 4.0.x support.
 - Added Rails Engine support.
 - Added stylesheet for Dummy application.
 
-# v0.8.0 (2014-07-09)
+# 0.8.0 (2014-07-09)
 
 - Added support for HTML h1-h6 tags.
 - Added support for HTML section tags.
 - Added support for nested HTML data attributes.
 
-# v0.7.0 (2014-07-06)
+# 0.7.0 (2014-07-06)
 
 - Removed render_navigation helper method (replaced with navigation).
 - Added Code Climate test coverage support.
@@ -233,7 +233,7 @@
 - Updated navigation helper to accept default/custom tag activator.
 - Updated navigation helper to automatically configure current path.
 
-# v0.6.0 (2014-04-16)
+# 0.6.0 (2014-04-16)
 
 - Updated to MRI 2.1.1.
 - Updated to Rubinius 2.x.x.
@@ -243,12 +243,12 @@
 - Added Gemnasium support.
 - Added Coveralls support.
 
-# v0.5.0 (2014-02-15)
+# 0.5.0 (2014-02-15)
 
 - Updated gemspec homepage URL to use GitHub project URL.
 - Added JRuby and Rubinius VM support.
 
-# v0.4.0 (2013-12-29)
+# 0.4.0 (2013-12-29)
 
 - Fixed Ruby Gem certificate requirements for package building.
 - Fixed RSpec deprecation warnings for treating metadata symbol keys as true values.
@@ -258,7 +258,7 @@
 - Updated to Ruby 2.1.0.
 - Updated public gem certificate to be referenced from a central server.
 
-# v0.3.0 (2013-08-12)
+# 0.3.0 (2013-08-12)
 
 - Dropped Rails 3.1.x support.
 - Upgraded to Rails 4.0.0.
@@ -275,7 +275,7 @@
 - Switched from the pry-debugger to pry-byebug gem.
 - Ignore the signing of a gem when building in a Travis CI environment.
 
-# v0.2.0 (2013-03-18)
+# 0.2.0 (2013-03-18)
 
 - Added Twitter Bootstrap navigation menu example.
 - Switched gem dependency to Rails 3.x.x range.
@@ -291,6 +291,6 @@
 - Added 'tmp' directory to .gitignore.
 - Cleaned up requirement path syntax.
 
-# v0.1.0 (2012-02-04)
+# 0.1.0 (2012-02-04)
 
 - Initial version.
