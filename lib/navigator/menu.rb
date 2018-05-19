@@ -62,19 +62,13 @@ module Navigator
       end
     end
 
-    def respond_to? name
-      method_allowed?(name) || super(name)
-    end
-
-    # rubocop:disable Style/MethodMissing
     def method_missing name, *args, &block
-      if method_allowed?(name.to_s)
+      if respond_to_missing?(name)
         add(name, *args, &block)
       else
-        template.public_send name, *args
+        template.public_send(name, *args) || super
       end
     end
-    # rubocop:enable Style/MethodMissing
 
     def render
       [tag.prefix, tag.content, items.compact.join(""), tag.suffix].compact * ""
@@ -84,8 +78,8 @@ module Navigator
 
     attr_accessor :template, :tag, :menu_activator, :items
 
-    def method_allowed? name
-      self.class.allowed_methods === name
+    def respond_to_missing? name, include_private = false
+      self.class.allowed_methods.match?(name) || super
     end
 
     def activate_item_attributes! attributes, url, activator

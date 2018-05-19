@@ -1,4 +1,7 @@
 ---
+BooleanParameter:
+  exclude:
+    - "#respond_to_missing?"
 ControlParameter:
   exclude:
   - Navigator::Menu#activate_item_attributes!
