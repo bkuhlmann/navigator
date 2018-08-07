@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.3"
   spec.add_development_dependency "reek", "~> 5.0"
   spec.add_development_dependency "rspec-rails", "~> 3.8"
-  spec.add_development_dependency "rubocop", "~> 0.57"
+  spec.add_development_dependency "rubocop", "~> 0.58"
   spec.add_development_dependency "sass", "~> 3.5"
   spec.add_development_dependency "slim", "~> 3.0"
   spec.add_development_dependency "wirb", "~> 2.1"
