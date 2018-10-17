@@ -40,6 +40,7 @@ module Navigator
 
     def expand_data_attributes! attrs
       return unless attrs.key? :data
+
       attrs.delete(:data).each { |key, value| attrs["data-#{key}"] = value }
     end
 

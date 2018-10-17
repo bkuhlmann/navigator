@@ -23,6 +23,7 @@ module Navigator
 
       if current_search_value.is_a?(Regexp) || search_value.is_a?(Regexp)
         return false if current_search_value.blank?
+
         current_search_value.match? search_value
       else
         current_search_value == search_value
