@@ -441,10 +441,12 @@ RSpec.describe Navigator::Menu do
       expect(menu.render).to eq("<ul><strong>bold</strong></ul>")
     end
 
+    # rubocop:disable Lint/Void
     it "adds sub tag" do
       menu.sub "sub-text"
       expect(menu.render).to eq("<ul><sub>sub-text</sub></ul>")
     end
+    # rubocop:enable Lint/Void
 
     it "adds sup tag" do
       menu.sup "super-text"
@@ -461,10 +463,12 @@ RSpec.describe Navigator::Menu do
       expect(menu.render).to eq("<ul><label>label</label></ul>")
     end
 
+    # rubocop:disable Lint/Void
     it "adds select tag" do
       menu.select
       expect(menu.render).to eq("<ul><select></select></ul>")
     end
+    # rubocop:enable Lint/Void
 
     it "adds option tag" do
       menu.option
