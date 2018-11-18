@@ -4,6 +4,7 @@ require "rails_helper"
 
 RSpec.describe Navigator::NavigationHelper, type: :helper do
   let(:path) { "/dashboard" }
+
   before { allow(self).to receive(:current_path).and_return(path) }
 
   describe "#navigation" do

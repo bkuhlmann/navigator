@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Navigator::TagActivator do
-  subject { Navigator::TagActivator.new }
+  subject { described_class.new }
 
   describe "#search_key" do
     it "answers default key" do
@@ -11,7 +11,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     it "answers custom key" do
-      subject = Navigator::TagActivator.new search_key: "data-url"
+      subject = described_class.new search_key: "data-url"
       expect(subject.search_key).to eq("data-url")
     end
   end
@@ -22,7 +22,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     it "answers custom value" do
-      subject = Navigator::TagActivator.new search_value: "custom"
+      subject = described_class.new search_value: "custom"
       expect(subject.search_value).to eq("custom")
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     it "answers custom key" do
-      subject = Navigator::TagActivator.new target_key: "data-url"
+      subject = described_class.new target_key: "data-url"
       expect(subject.target_key).to eq("data-url")
     end
   end
@@ -44,14 +44,15 @@ RSpec.describe Navigator::TagActivator do
     end
 
     it "answers custom value" do
-      subject = Navigator::TagActivator.new target_value: "custom"
+      subject = described_class.new target_value: "custom"
       expect(subject.target_value).to eq("custom")
     end
   end
 
   describe "activatable?" do
+    subject { described_class.new search_value: search_value }
+
     let(:search_value) { "/example/path" }
-    subject { Navigator::TagActivator.new search_value: search_value }
 
     context "with search value" do
       it "answers true when search value is found" do
@@ -66,7 +67,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     context "without search value" do
-      subject { Navigator::TagActivator.new }
+      subject { described_class.new }
 
       it "answers false with attributes" do
         result = subject.activatable? href: search_value
@@ -87,7 +88,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     context "with regular expression" do
-      subject { Navigator::TagActivator.new search_value: /^admin.+/ }
+      subject { described_class.new search_value: /^admin.+/ }
 
       it "answers true when search values match" do
         result = subject.activatable? href: "admin/test/path"
@@ -110,7 +111,7 @@ RSpec.describe Navigator::TagActivator do
     let(:path) { "/some/path" }
 
     context "with default settings" do
-      subject { Navigator::TagActivator.new }
+      subject { described_class.new }
 
       it "answers empty hash for empty parameters" do
         expect(subject.activate).to eq({})
@@ -125,7 +126,7 @@ RSpec.describe Navigator::TagActivator do
     end
 
     context "with search value" do
-      subject { Navigator::TagActivator.new search_value: path }
+      subject { described_class.new search_value: path }
 
       it "adds target value when search and target values match" do
         attributes = subject.activate href: path
@@ -151,7 +152,7 @@ RSpec.describe Navigator::TagActivator do
 
     context "with mixed symbol/string values" do
       it "adds target value when search key (symbol) and target key (string) values match" do
-        subject = Navigator::TagActivator.new search_value: path
+        subject = described_class.new search_value: path
         attributes = subject.activate "href" => path
         proof = {"href" => path, "class" => "active"}
 
@@ -159,7 +160,7 @@ RSpec.describe Navigator::TagActivator do
       end
 
       it "adds target value when search key (string) and target key (symbol) values match" do
-        subject = Navigator::TagActivator.new search_key: "href", search_value: path
+        subject = described_class.new search_key: "href", search_value: path
         attributes = subject.activate href: path
         proof = {"href" => path, "class" => "active"}
 
@@ -169,7 +170,7 @@ RSpec.describe Navigator::TagActivator do
 
     context "with custom settings" do
       it "adds target value for custom search key" do
-        subject = Navigator::TagActivator.new search_key: "data-url", search_value: path
+        subject = described_class.new search_key: "data-url", search_value: path
         attributes = subject.activate "data-url" => path
         proof = {"data-url" => path, "class" => "active"}
 
@@ -177,7 +178,7 @@ RSpec.describe Navigator::TagActivator do
       end
 
       it "adds target value for custom target key" do
-        subject = Navigator::TagActivator.new search_value: path, target_key: "data-class"
+        subject = described_class.new search_value: path, target_key: "data-class"
         attributes = subject.activate href: path
         proof = {"href" => path, "data-class" => "active"}
 
@@ -185,7 +186,7 @@ RSpec.describe Navigator::TagActivator do
       end
 
       it "adds target value for custom target value" do
-        subject = Navigator::TagActivator.new search_value: path, target_value: "custom"
+        subject = described_class.new search_value: path, target_value: "custom"
         attributes = subject.activate href: path
         proof = {"href" => path, "class" => "custom"}
 

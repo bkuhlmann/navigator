@@ -3,18 +3,18 @@
 require "rails_helper"
 
 RSpec.describe Navigator::Tag do
-  let(:tag) { Navigator::Tag.new "li", "Example text.", attributes: {class: "example"} }
+  let(:tag) { described_class.new "li", "Example text.", attributes: {class: "example"} }
 
   describe "#initialize" do
     it "raises ArgumentError when no name is supplied" do
-      result = -> { Navigator::Tag.new }
+      result = -> { described_class.new }
       expect(&result).to raise_error(ArgumentError)
     end
   end
 
   describe "#prefix" do
     it "answers prefix as string" do
-      tag = Navigator::Tag.new :li
+      tag = described_class.new :li
       expect(tag.prefix).to eq("<li>")
     end
 
@@ -39,7 +39,7 @@ RSpec.describe Navigator::Tag do
     context "without suffix" do
       it "answers nil" do
         described_class.names_without_suffix.each do |name|
-          tag = Navigator::Tag.new name, "Example text."
+          tag = described_class.new name, "Example text."
           expect(tag.computed_content).to eq(nil)
         end
       end
@@ -48,7 +48,7 @@ RSpec.describe Navigator::Tag do
 
   describe "#suffix" do
     it "answers suffix as string" do
-      tag = Navigator::Tag.new :li
+      tag = described_class.new :li
       expect(tag.suffix).to eq("</li>")
     end
 
@@ -61,7 +61,7 @@ RSpec.describe Navigator::Tag do
     context "without suffix" do
       it "excludes suffix" do
         described_class.names_without_suffix.each do |name|
-          tag = Navigator::Tag.new name
+          tag = described_class.new name
           expect(tag.suffix).to eq(nil)
         end
       end
@@ -70,18 +70,18 @@ RSpec.describe Navigator::Tag do
 
   describe "#render" do
     it "renders tag as string" do
-      tag = Navigator::Tag.new :li
+      tag = described_class.new :li
       expect(tag.render).to eq("<li></li>")
     end
 
     context "with suffix" do
       it "renders empty tag" do
-        tag = Navigator::Tag.new "li"
+        tag = described_class.new "li"
         expect(tag.render).to eq("<li></li>")
       end
 
       it "renders empty tag with attributes" do
-        tag = Navigator::Tag.new "li", attributes: {class: "example"}
+        tag = described_class.new "li", attributes: {class: "example"}
         expect(tag.render).to eq('<li class="example"></li>')
       end
 
@@ -93,17 +93,17 @@ RSpec.describe Navigator::Tag do
     context "without suffix" do
       described_class.names_without_suffix.each do |name|
         it "renders prefix" do
-          tag = Navigator::Tag.new name
+          tag = described_class.new name
           expect(tag.render).to eq("<#{name}>")
         end
 
         it "renders prefix with attributes" do
-          tag = Navigator::Tag.new name, attributes: {class: "example"}
+          tag = described_class.new name, attributes: {class: "example"}
           expect(tag.render).to eq(%(<#{name} class="example">))
         end
 
         it "renders prefix without content" do
-          tag = Navigator::Tag.new name, "Test"
+          tag = described_class.new name, "Test"
           expect(tag.render).to eq("<#{name}>")
         end
       end

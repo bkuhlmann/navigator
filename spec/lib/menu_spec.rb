@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Navigator::Menu do
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
-  let(:menu) { Navigator::Menu.new template }
+  let(:menu) { described_class.new template }
 
   describe "#add" do
     it "adds single tag" do
@@ -52,7 +52,7 @@ RSpec.describe Navigator::Menu do
       path = "/home"
       activator = Navigator::TagActivator.new search_value: path
 
-      menu = Navigator::Menu.new template, tag: "nav", activator: activator
+      menu = described_class.new template, tag: "nav", activator: activator
       menu.add "a", "Home", attributes: {href: path}
       menu.add "a", "About", attributes: {href: "/about"}
 
@@ -64,7 +64,7 @@ RSpec.describe Navigator::Menu do
     it "adds tag using custom item tag activator" do
       activator = Navigator::TagActivator.new search_value: "/about"
 
-      menu = Navigator::Menu.new template, tag: "nav"
+      menu = described_class.new template, tag: "nav"
       menu.add "a", "Home", attributes: {href: "/home"}
       menu.add "a", "About", attributes: {href: "/about"}, activator: activator
 
@@ -96,7 +96,7 @@ RSpec.describe Navigator::Menu do
       it "adds link using menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/examples/1"
 
-        menu = Navigator::Menu.new template, activator: activator
+        menu = described_class.new template, activator: activator
         menu.link "Example 1", "/examples/1"
         menu.link "Example 2", "/examples/2"
 
@@ -109,7 +109,7 @@ RSpec.describe Navigator::Menu do
       it "adds link using link tag activator" do
         activator = Navigator::TagActivator.new search_value: "/test/2"
 
-        menu = Navigator::Menu.new template
+        menu = described_class.new template
         menu.link "Test 1", "/test/1"
         menu.link "Test 2", "/test/2", activator: activator
 
@@ -122,7 +122,7 @@ RSpec.describe Navigator::Menu do
         menu_activator = Navigator::TagActivator.new search_value: "/test/1"
         link_activator = Navigator::TagActivator.new search_value: "/test/2"
 
-        menu = Navigator::Menu.new template, activator: menu_activator
+        menu = described_class.new template, activator: menu_activator
         menu.link "Test 1", "/test/1"
         menu.link "Test 2", "/test/2", activator: link_activator
 
@@ -168,7 +168,7 @@ RSpec.describe Navigator::Menu do
       it "adds image using menu tag activator" do
         activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/1"
 
-        menu = Navigator::Menu.new template, activator: activator
+        menu = described_class.new template, activator: activator
         menu.image "/examples/1"
         menu.image "/examples/2"
 
@@ -180,7 +180,7 @@ RSpec.describe Navigator::Menu do
       it "adds image using image tag activator" do
         activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/2"
 
-        menu = Navigator::Menu.new template
+        menu = described_class.new template
         menu.image "/examples/1"
         menu.image "/examples/2", activator: activator
 
@@ -193,7 +193,7 @@ RSpec.describe Navigator::Menu do
         menu_activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/1"
         image_activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/2"
 
-        menu = Navigator::Menu.new template, activator: menu_activator
+        menu = described_class.new template, activator: menu_activator
         menu.image "/examples/1"
         menu.image "/examples/2", activator: image_activator
 
@@ -253,7 +253,7 @@ RSpec.describe Navigator::Menu do
       it "adds item using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/users"
 
-        menu = Navigator::Menu.new template, activator: activator
+        menu = described_class.new template, activator: activator
         menu.item "Dashboard", "/dashboard"
         menu.item "Users", "/users"
 
@@ -266,7 +266,7 @@ RSpec.describe Navigator::Menu do
       it "adds item with target value appended" do
         activator = Navigator::TagActivator.new search_value: "/two"
 
-        menu = Navigator::Menu.new template, activator: activator
+        menu = described_class.new template, activator: activator
         menu.item "One", "/one"
         menu.item "Two", "/two", item_attributes: {class: "test"}
 
@@ -279,7 +279,7 @@ RSpec.describe Navigator::Menu do
       it "adds item using custom item tag activator" do
         activator = Navigator::TagActivator.new search_value: "/dashboard"
 
-        menu = Navigator::Menu.new template
+        menu = described_class.new template
         menu.item "Dashboard", "/dashboard", activator: activator
         menu.item "Users", "/users"
 
@@ -293,7 +293,7 @@ RSpec.describe Navigator::Menu do
         menu_activator = Navigator::TagActivator.new search_value: "/one"
         item_activator = Navigator::TagActivator.new search_value: "/two"
 
-        menu = Navigator::Menu.new template, activator: menu_activator
+        menu = described_class.new template, activator: menu_activator
         menu.item "One", "/one"
         menu.item "Two", "/two", activator: item_activator
         menu.item "Three", "/three"
@@ -480,7 +480,7 @@ RSpec.describe Navigator::Menu do
     end
 
     it "raises no method error when calling non-existent method" do
-      unknown_method = -> { Navigator::Menu.new(template) { achoo content: "one" } }
+      unknown_method = -> { described_class.new(template) { achoo content: "one" } }
       expect(&unknown_method).to raise_error(NoMethodError)
     end
   end
@@ -491,11 +491,11 @@ RSpec.describe Navigator::Menu do
     end
 
     it "renders with a nav tag" do
-      expect(Navigator::Menu.new(template, tag: "nav").render).to eq("<nav></nav>")
+      expect(described_class.new(template, tag: "nav").render).to eq("<nav></nav>")
     end
 
     it "renders one attribute with no content" do
-      menu = Navigator::Menu.new template, attributes: {class: "test"}
+      menu = described_class.new template, attributes: {class: "test"}
       expect(menu.render).to eq(%(<ul class="test"></ul>))
     end
   end
