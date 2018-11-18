@@ -3,105 +3,105 @@
 require "spec_helper"
 
 RSpec.describe Navigator::TagActivator do
-  subject { described_class.new }
+  subject(:activator) { described_class.new }
 
   describe "#search_key" do
     it "answers default key" do
-      expect(subject.search_key).to eq(:href)
+      expect(activator.search_key).to eq(:href)
     end
 
     it "answers custom key" do
-      subject = described_class.new search_key: "data-url"
-      expect(subject.search_key).to eq("data-url")
+      activator = described_class.new search_key: "data-url"
+      expect(activator.search_key).to eq("data-url")
     end
   end
 
   describe "#search_value" do
     it "answers default value" do
-      expect(subject.search_value).to eq(nil)
+      expect(activator.search_value).to eq(nil)
     end
 
     it "answers custom value" do
-      subject = described_class.new search_value: "custom"
-      expect(subject.search_value).to eq("custom")
+      activator = described_class.new search_value: "custom"
+      expect(activator.search_value).to eq("custom")
     end
   end
 
   describe "#target_key" do
     it "answers default key" do
-      expect(subject.target_key).to eq(:class)
+      expect(activator.target_key).to eq(:class)
     end
 
     it "answers custom key" do
-      subject = described_class.new target_key: "data-url"
-      expect(subject.target_key).to eq("data-url")
+      activator = described_class.new target_key: "data-url"
+      expect(activator.target_key).to eq("data-url")
     end
   end
 
   describe "#target_value" do
     it "answers default value" do
-      expect(subject.target_value).to eq("active")
+      expect(activator.target_value).to eq("active")
     end
 
     it "answers custom value" do
-      subject = described_class.new target_value: "custom"
-      expect(subject.target_value).to eq("custom")
+      activator = described_class.new target_value: "custom"
+      expect(activator.target_value).to eq("custom")
     end
   end
 
   describe "activatable?" do
-    subject { described_class.new search_value: search_value }
+    subject(:activator) { described_class.new search_value: search_value }
 
     let(:search_value) { "/example/path" }
 
     context "with search value" do
       it "answers true when search value is found" do
-        result = subject.activatable? href: search_value
+        result = activator.activatable? href: search_value
         expect(result).to eq(true)
       end
 
       it "answers false when search value is not found" do
-        result = subject.activatable? href: "/unknown/path"
+        result = activator.activatable? href: "/unknown/path"
         expect(result).to eq(false)
       end
     end
 
     context "without search value" do
-      subject { described_class.new }
+      subject(:activator) { described_class.new }
 
       it "answers false with attributes" do
-        result = subject.activatable? href: search_value
+        result = activator.activatable? href: search_value
         expect(result).to eq(false)
       end
 
       it "answers false without attributes" do
-        result = subject.activatable?
+        result = activator.activatable?
         expect(result).to eq(false)
       end
     end
 
     context "with indifferent access" do
       it "answers true when string attribute key is used" do
-        result = subject.activatable? "href" => search_value
+        result = activator.activatable? "href" => search_value
         expect(result).to eq(true)
       end
     end
 
     context "with regular expression" do
-      subject { described_class.new search_value: /^admin.+/ }
+      subject(:activator) { described_class.new search_value: /^admin.+/ }
 
       it "answers true when search values match" do
-        result = subject.activatable? href: "admin/test/path"
+        result = activator.activatable? href: "admin/test/path"
         expect(result).to eq(true)
       end
 
       it "answers false when search values don't match" do
-        result = subject.activatable? href: "/admin/test/path"
+        result = activator.activatable? href: "/admin/test/path"
         expect(result).to eq(false)
       end
 
       it "answers false when no search value is supplied" do
-        result = subject.activatable?
+        result = activator.activatable?
         expect(result).to eq(false)
       end
     end
@@ -114,11 +114,11 @@ RSpec.describe Navigator::TagActivator do
       subject { described_class.new }
 
       it "answers empty hash for empty parameters" do
-        expect(subject.activate).to eq({})
+        expect(activator.activate).to eq({})
       end
 
       it "answers equivalent hash for parameter hash" do
-        attributes = subject.activate href: path
+        attributes = activator.activate href: path
         proof = {"href" => path}
 
         expect(attributes).to eq(proof)
@@ -126,24 +126,24 @@ RSpec.describe Navigator::TagActivator do
     end
 
     context "with search value" do
-      subject { described_class.new search_value: path }
+      subject(:activator) { described_class.new search_value: path }
 
       it "adds target value when search and target values match" do
-        attributes = subject.activate href: path
+        attributes = activator.activate href: path
         proof = {"href" => path, "class" => "active"}
 
         expect(attributes).to eq(proof)
       end
 
       it "appends target value when search and target values match" do
-        attributes = subject.activate href: path, class: "example"
+        attributes = activator.activate href: path, class: "example"
         proof = {"href" => path, "class" => "example active"}
 
         expect(attributes).to eq(proof)
       end
 
       it "doesn't add target value when target key isn't present" do
-        attributes = subject.activate class: "example"
+        attributes = activator.activate class: "example"
         proof = {"class" => "example"}
 
         expect(attributes).to eq(proof)
@@ -152,16 +152,16 @@ RSpec.describe Navigator::TagActivator do
 
     context "with mixed symbol/string values" do
       it "adds target value when search key (symbol) and target key (string) values match" do
-        subject = described_class.new search_value: path
-        attributes = subject.activate "href" => path
+        activator = described_class.new search_value: path
+        attributes = activator.activate "href" => path
         proof = {"href" => path, "class" => "active"}
 
         expect(attributes).to eq(proof)
       end
 
       it "adds target value when search key (string) and target key (symbol) values match" do
-        subject = described_class.new search_key: "href", search_value: path
-        attributes = subject.activate href: path
+        activator = described_class.new search_key: "href", search_value: path
+        attributes = activator.activate href: path
         proof = {"href" => path, "class" => "active"}
 
         expect(attributes).to eq(proof)
@@ -170,24 +170,24 @@ RSpec.describe Navigator::TagActivator do
 
     context "with custom settings" do
       it "adds target value for custom search key" do
-        subject = described_class.new search_key: "data-url", search_value: path
-        attributes = subject.activate "data-url" => path
+        activator = described_class.new search_key: "data-url", search_value: path
+        attributes = activator.activate "data-url" => path
         proof = {"data-url" => path, "class" => "active"}
 
         expect(attributes).to eq(proof)
       end
 
       it "adds target value for custom target key" do
-        subject = described_class.new search_value: path, target_key: "data-class"
-        attributes = subject.activate href: path
+        activator = described_class.new search_value: path, target_key: "data-class"
+        attributes = activator.activate href: path
         proof = {"href" => path, "data-class" => "active"}
 
         expect(attributes).to eq(proof)
       end
 
       it "adds target value for custom target value" do
-        subject = described_class.new search_value: path, target_value: "custom"
-        attributes = subject.activate href: path
+        activator = described_class.new search_value: path, target_value: "custom"
+        attributes = activator.activate href: path
         proof = {"href" => path, "class" => "custom"}
 
         expect(attributes).to eq(proof)

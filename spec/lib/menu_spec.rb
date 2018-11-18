@@ -3,9 +3,10 @@
 require "rails_helper"
 
 RSpec.describe Navigator::Menu do
+  subject(:menu) { described_class.new template }
+
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
   let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
-  let(:menu) { described_class.new template }
 
   describe "#add" do
     it "adds single tag" do
@@ -22,6 +23,7 @@ RSpec.describe Navigator::Menu do
       menu.add "li", "one"
       menu.add "li", "two"
       menu.add "li", "three"
+
       expect(menu.render).to eq("<ul><li>one</li><li>two</li><li>three</li></ul>")
     end
 
@@ -335,7 +337,7 @@ RSpec.describe Navigator::Menu do
       expect(menu.render).to eq("<ul><header>header</header></ul>")
     end
 
-    context "header tags" do
+    context "with header tags" do
       it "adds an h1 tag" do
         menu.h1 "header"
         expect(menu.render).to eq("<ul><h1>header</h1></ul>")
