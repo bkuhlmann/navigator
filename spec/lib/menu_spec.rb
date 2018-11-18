@@ -133,17 +133,17 @@ RSpec.describe Navigator::Menu do
 
         expect(menu.render).to eq(%(<ul>#{link_1}#{link_2}</ul>))
       end
+    end
 
-      context "with blocks" do
-        it "renders a block" do
-          menu.link("/example") { span "Test" }
-          expect(menu.render).to eq(%(<ul><a href="/example"><span>Test</span></a></ul>))
-        end
+    context "with blocks" do
+      it "renders a block" do
+        menu.link("/example") { span "Test" }
+        expect(menu.render).to eq(%(<ul><a href="/example"><span>Test</span></a></ul>))
+      end
 
-        it "renders content with a block" do
-          menu.link("Example: ", "/example") { span "Test" }
-          expect(menu.render).to eq(%(<ul><a href="/example">Example: <span>Test</span></a></ul>))
-        end
+      it "renders content with a block" do
+        menu.link("Example: ", "/example") { span "Test" }
+        expect(menu.render).to eq(%(<ul><a href="/example">Example: <span>Test</span></a></ul>))
       end
     end
   end
