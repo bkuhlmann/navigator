@@ -63,7 +63,7 @@ module Navigator
     end
 
     def method_missing name, *args, &block
-      if respond_to_missing?(name)
+      if respond_to_missing? name
         add(name, *args, &block)
       else
         template.public_send(name, *args) || super
