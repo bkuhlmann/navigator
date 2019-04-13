@@ -85,9 +85,8 @@ module Navigator
     def activate_item_attributes! attributes, url, activator
       return unless url == activator.search_value
 
-      attributes[activator.target_key] = [attributes[activator.target_key], activator.target_value]
-                                         .compact
-                                         .join " "
+      key = [attributes[activator.target_key], activator.target_value].compact.join " "
+      attributes[activator.target_key] = key
     end
   end
 end

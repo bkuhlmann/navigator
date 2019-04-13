@@ -234,8 +234,10 @@ RSpec.describe Navigator::Menu do
       end
 
       it "adds item with item and link attributes" do
-        menu.item "Dashboard", "/dashboard", item_attributes: {class: "active"},
-                                             link_attributes: {"data-enabled" => true}
+        menu.item "Dashboard",
+                  "/dashboard",
+                  item_attributes: {class: "active"},
+                  link_attributes: {"data-enabled" => true}
 
         expect(menu.render).to eq(
           %(<ul><li class="active"><a data-enabled="true" href="/dashboard">Dashboard</a></li></ul>)
@@ -243,8 +245,10 @@ RSpec.describe Navigator::Menu do
       end
 
       it "adds item with multiple data attributes for item and link" do
-        menu.item "Test", "/test", item_attributes: {data: {one: 1, two: 2}},
-                                   link_attributes: {data: {a: "A", b: "B"}}
+        menu.item "Test",
+                  "/test",
+                  item_attributes: {data: {one: 1, two: 2}},
+                  link_attributes: {data: {a: "A", b: "B"}}
         link = %(<a href="/test" data-a="A" data-b="B">Test</a>)
 
         expect(menu.render).to eq(%(<ul><li data-one="1" data-two="2">#{link}</li></ul>))
