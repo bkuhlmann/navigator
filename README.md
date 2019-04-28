@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="navigator.png" alt="Navigator Icon"/>
+</p>
+
 # Navigator
 
 [![Gem Version](https://badge.fury.io/rb/navigator.svg)](http://badge.fury.io/rb/navigator)
