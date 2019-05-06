@@ -1,13 +1,7 @@
 ---
 detectors:
   IrresponsibleModule:
-    exclude:
-    - ApplicationCable::Channel
-    - ApplicationCable::Connection
-    - HomeController
-    - PagesController
-    - PostsController
-    - ApplicationJob
+    enabled: false
   BooleanParameter:
     exclude:
     - Navigator::Menu#respond_to_missing?
