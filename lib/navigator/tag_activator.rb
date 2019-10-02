@@ -30,12 +30,13 @@ module Navigator
       end
     end
 
-    # rubocop:disable Metrics/LineLength
     def activate attributes = {}
       attributes = attributes.with_indifferent_access
-      attributes[target_key] = [attributes[target_key], target_value].compact.join " " if activatable? attributes
+
+      return attributes unless activatable? attributes
+
+      attributes[target_key] = [attributes[target_key], target_value].compact.join " "
       attributes
     end
-    # rubocop:enable Metrics/LineLength
   end
 end
