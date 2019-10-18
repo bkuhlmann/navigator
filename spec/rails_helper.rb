@@ -7,7 +7,6 @@ ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "/dummy"
 require "spec_helper"
 require "rspec/rails"
 require "capybara/rails"
-require "sass"
 require "slim"
 
 RSpec.configure do |config|
