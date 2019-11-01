@@ -1,3 +1,14 @@
+# 4.1.4 (2019-11-01)
+
+- Fixed tag activator Rubocop Metrics/LineLength issue.
+- Added Rubocop Rake support.
+- Updated navigator spec to pending status.
+- Updated to RSpec 3.9.0.
+- Updated to Rake 13.0.0.
+- Updated to Rubocop 0.75.0.
+- Updated to Rubocop 0.76.0.
+- Updated to Ruby 2.6.5.
+
 # 4.1.3 (2019-09-01)
 
 - Updated to Rubocop 0.73.0.
