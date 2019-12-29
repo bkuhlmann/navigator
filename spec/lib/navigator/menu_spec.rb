@@ -6,7 +6,7 @@ RSpec.describe Navigator::Menu do
   subject(:menu) { described_class.new template }
 
   let(:erb_handler) { ActionView::Template::Handlers::ERB.new }
-  let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, {} }
+  let(:template) { ActionView::Template.new "<html></html>", "Example", erb_handler, locals: {} }
 
   describe "#add" do
     it "adds single tag" do
