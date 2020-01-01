@@ -12,7 +12,7 @@ module Navigator
     end
 
     def self.version
-      "4.1.4"
+      "5.0.0"
     end
 
     def self.version_label
