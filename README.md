@@ -5,8 +5,6 @@
 # Navigator
 
 [![Gem Version](https://badge.fury.io/rb/navigator.svg)](http://badge.fury.io/rb/navigator)
-[![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/2f8632ec1f734ea9561a/maintainability)](https://codeclimate.com/github/bkuhlmann/navigator/maintainability)
-[![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/2f8632ec1f734ea9561a/test_coverage)](https://codeclimate.com/github/bkuhlmann/navigator/test_coverage)
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/navigator.svg?style=svg)](https://circleci.com/gh/bkuhlmann/navigator)
 
 Enhances Rails with a DSL for menu navigation.
