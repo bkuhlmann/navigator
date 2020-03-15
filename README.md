@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="navigator.png" alt="Navigator Icon"/>
+  <img src="https://www.alchemists.io/images/projects/navigator/icon.png" alt="Navigator Icon"/>
 </p>
 
 # Navigator
