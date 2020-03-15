@@ -16,6 +16,8 @@ Enhances Rails with a DSL for menu navigation.
   - [Features](#features)
   - [Requirements](#requirements)
   - [Setup](#setup)
+    - [Production](#production)
+    - [Development](#development)
   - [Usage](#usage)
     - [Unordered List (simple)](#unordered-list-simple)
     - [Unordered List (with attributes)](#unordered-list-with-attributes)
@@ -75,13 +77,27 @@ Enhances Rails with a DSL for menu navigation.
 
 ## Setup
 
-Type the following to install:
+### Production
+
+To install, run:
 
     gem install navigator
 
 Add the following to your Gemfile:
 
     gem "navigator"
+
+### Development
+
+To contribute, run:
+
+    git clone https://github.com/bkuhlmann/navigator.git
+    cd navigator
+    bin/setup
+
+You can also use the IRB console for direct access to all objects:
+
+    bin/console
 
 ## Usage
 
