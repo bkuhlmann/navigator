@@ -3,20 +3,9 @@
 module Navigator
   # Gem identity information.
   module Identity
-    def self.name
-      "navigator"
-    end
-
-    def self.label
-      "Navigator"
-    end
-
-    def self.version
-      "5.0.0"
-    end
-
-    def self.version_label
-      "#{label} #{version}"
-    end
+    NAME = "navigator"
+    LABEL = "Navigator"
+    VERSION = "5.0.0"
+    VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end

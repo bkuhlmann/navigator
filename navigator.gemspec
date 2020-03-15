@@ -3,8 +3,8 @@
 require_relative "lib/navigator/identity"
 
 Gem::Specification.new do |spec|
-  spec.name = Navigator::Identity.name
-  spec.version = Navigator::Identity.version
+  spec.name = Navigator::Identity::NAME
+  spec.version = Navigator::Identity::VERSION
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
