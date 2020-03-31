@@ -3,11 +3,11 @@
 module Navigator
   # Renders a HTML menu.
   class Menu
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     def self.allowed_methods
       /^(div|section|header|h[1-6]|nav|ul|li|a|img|b|em|s|small|span|strong|sub|sup|form|label|select|option|input|button)$/
     end
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
 
     def initialize template,
                    tag: "ul",
