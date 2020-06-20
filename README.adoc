@@ -48,8 +48,8 @@ used menu elements.
 
 == Requirements
 
-. https://www.ruby-lang.org[Ruby 2.7.x].
-. http://rubyonrails.org[Ruby on Rails 6.0.x].
+. link:https://www.ruby-lang.org[Ruby]
+. link:https://rubyonrails.org[Ruby on Rails]
 
 == Setup
 
