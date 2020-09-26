@@ -8,6 +8,3 @@ inherit_from:
 Style/MixinGrouping:
   Exclude:
     - "spec/rails_helper.rb"
-Style/OptionalBooleanParameter:
-  Exclude:
-    - "lib/navigator/menu.rb"
