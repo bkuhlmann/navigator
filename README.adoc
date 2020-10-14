@@ -53,8 +53,6 @@ used menu elements.
 
 == Setup
 
-=== Production
-
 To install, run:
 
 ....
@@ -65,22 +63,6 @@ Add the following to your Gemfile:
 
 ....
 gem "navigator"
-....
-
-=== Development
-
-To contribute, run:
-
-....
-git clone https://github.com/bkuhlmann/navigator.git
-cd navigator
-bin/setup
-....
-
-You can also use the IRB console for direct access to all objects:
-
-....
-bin/console
 ....
 
 == Usage
@@ -450,6 +432,22 @@ Result:
 Assuming either the `Addresses` or `Emails` menu item was clicked, the `Profile` menu item
 would be active due to the regular expression (i.e. `/^profile.+/) matching one of the the
 `profile/` paths.
+
+== Development
+
+To contribute, run:
+
+....
+git clone https://github.com/bkuhlmann/navigator.git
+cd navigator
+bin/setup
+....
+
+You can also use the IRB console for direct access to all objects:
+
+....
+bin/console
+....
 
 == Tests
 
