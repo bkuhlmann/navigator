@@ -1,5 +1,16 @@
 = Changes
 
+== 5.3.0 (2020-10-18)
+
+* Fixed Rubocop Lint/EmptyFile issues
+* Fixed Style/OptionalBooleanParameter issue
+* Added Guard and Rubocop binstubs
+* Updated project documentation to conform to Rubysmith template
+* Updated to Rubocop 0.89.0
+* Updated to Ruby 2.7.2
+* Updated to SimpleCov 0.19.0
+* Removed Style/OptionalBooleanParameter configuration
+
 == 5.2.0 (2020-07-22)
 
 * Fixed Rubocop Lint/NonDeterministicRequireOrder issues
