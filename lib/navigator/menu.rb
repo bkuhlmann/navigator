@@ -19,12 +19,12 @@ module Navigator
       @tag = Navigator::Tag.new tag, attributes: attributes, activator: activator
       @menu_activator = activator
       @items = []
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
 
     def add name, content = nil, attributes: {}, activator: menu_activator, &block
       tag = Navigator::Tag.new name, content, attributes: attributes, activator: activator
-      return items << tag.render unless block_given?
+      return items << tag.render unless block
 
       items << tag.prefix
       items << tag.content
