@@ -71,7 +71,7 @@ module Navigator
     end
 
     def render
-      [tag.prefix, tag.content, items.compact.join(""), tag.suffix].compact * ""
+      [tag.prefix, tag.content, items.compact.join, tag.suffix].compact.join
     end
 
     private
