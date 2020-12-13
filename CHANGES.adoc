@@ -1,5 +1,22 @@
 = Changes
 
+== 5.5.0 (2020-12-13)
+
+* Fixed Rubocop Performance/BlockGivenWithExplicitBlock issues
+* Fixed Rubocop Performance/MethodObjectAsBlock issues
+* Fixed Rubocop Style/RedundantArgument
+* Fixed spec helper to only require tools
+* Added Amazing Print
+* Added Gemfile groups
+* Added Refinements development dependency
+* Added Refinements requirement to spec helper
+* Added RubyCritic
+* Added RubyCritic configuration
+* Updated Circle CI configuration to skip RubyCritic
+* Updated Gemfile to put Guard RSpec in test group
+* Updated Gemfile to put SimpleCov in code quality group
+* Removed RubyGems requirement from binstubs
+
 == 5.4.0 (2020-11-14)
 
 * Added Alchemists style guide badge
