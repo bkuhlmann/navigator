@@ -62,11 +62,11 @@ module Navigator
       end
     end
 
-    def method_missing name, *args, &block
+    def method_missing name, *positionals, **keywords, &block
       if respond_to_missing? name
-        add(name, *args, &block)
+        add(name, *positionals, **keywords, &block)
       else
-        template.public_send(name, *args) || super
+        template.public_send(name, *positionals, **keywords) || super
       end
     end
 
