@@ -1,5 +1,17 @@
 = Changes
 
+== 6.0.0 (2020-12-30)
+
+* Fixed Circle CI configuration for Bundler config path - Brooke Kuhlmann
+* Fixed menu method missing positional and keyword argument passing - Brooke Kuhlmann
+* Added Circle CI explicit Bundle install configuration - Brooke Kuhlmann
+* Added menu allowed elements constant - Brooke Kuhlmann
+* Updated to Gemsmith 15.0.0 - Brooke Kuhlmann
+* Updated to Git Lint 2.0.0 - Brooke Kuhlmann
+* Updated to Refinements 7.18.0 - Brooke Kuhlmann
+* Updated to Refinements 8.0.0 - Brooke Kuhlmann
+* Updated to Ruby 3.0.0 - Brooke Kuhlmann
+
 == 5.5.0 (2020-12-13)
 
 * Fixed Rubocop Performance/BlockGivenWithExplicitBlock issues
