@@ -3,11 +3,33 @@
 module Navigator
   # Renders a HTML menu.
   class Menu
-    # rubocop:disable Layout/LineLength
-    def self.allowed_methods
-      /^(div|section|header|h[1-6]|nav|ul|li|a|img|b|em|s|small|span|strong|sub|sup|form|label|select|option|input|button)$/
-    end
-    # rubocop:enable Layout/LineLength
+    ALLOWED_ELEMENTS = /
+      ^(
+      div|
+      section|
+      header|
+      h[1-6]|
+      nav|
+      ul|
+      li|
+      a|
+      img|
+      b|
+      em|
+      s|
+      small|
+      span|
+      strong|
+      sub|
+      sup|
+      form|
+      label|
+      select|
+      option|
+      input|
+      button
+      )$
+    /x
 
     def initialize template,
                    tag: "ul",
@@ -79,7 +101,7 @@ module Navigator
     attr_accessor :template, :tag, :menu_activator, :items
 
     def respond_to_missing? name, include_private = false
-      self.class.allowed_methods.match?(name) || super
+      ALLOWED_ELEMENTS.match?(name) || super
     end
 
     def activate_item_attributes! attributes, url, activator
