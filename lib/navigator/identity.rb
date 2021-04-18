@@ -5,7 +5,7 @@ module Navigator
   module Identity
     NAME = "navigator"
     LABEL = "Navigator"
-    VERSION = "6.0.0"
+    VERSION = "6.0.1"
     VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end
