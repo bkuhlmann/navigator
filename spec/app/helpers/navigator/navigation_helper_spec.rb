@@ -22,37 +22,26 @@ RSpec.describe Navigator::NavigationHelper, type: :helper do
     end
 
     it "answers menu with an item" do
-      nav = navigation do
-        li "one"
-      end
+      nav = navigation { li "one" }
 
       expect(nav).to eq("<ul><li>one</li></ul>")
     end
 
     it "answers menu with a link" do
-      nav = navigation do
-        link "Example", "/example"
-      end
+      nav = navigation { link "Example", "/example" }
 
       expect(nav).to eq(%(<ul><a href="/example">Example</a></ul>))
     end
 
     it "answers menu with an item that contains a link" do
       url = "http://www.example.com"
-      nav = navigation do
-        li do
-          a "One", attributes: {href: url}
-        end
-      end
+      nav = navigation { li { a "One", attributes: {href: url} } }
 
       expect(nav).to eq(%(<ul><li><a href="#{url}">One</a></li></ul>))
     end
 
     it "answers menu with default navigation activator" do
-      nav = navigation "ul" do
-        item "Dashboard", path
-      end
-
+      nav = navigation("ul") { item "Dashboard", path }
       expect(nav).to eq(%(<ul><li class="active"><a href="#{path}">Dashboard</a></li></ul>))
     end
 

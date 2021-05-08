@@ -23,9 +23,7 @@ RSpec.describe Navigator::Tag do
     end
 
     context "without suffix" do
-      described_class.names_without_suffix.each do |name|
-        it_behaves_like "a tag prefix", name
-      end
+      described_class.names_without_suffix.each { |name| it_behaves_like "a tag prefix", name }
     end
   end
 
