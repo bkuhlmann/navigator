@@ -474,6 +474,10 @@
 * Switched from the pry-debugger to pry-byebug gem.
 * Ignore the signing of a gem when building in a Travis CI environment.
 
+== 0.2.1 (2021-08-03)
+
+* Updated gemspec to support Ruby 2.0.x
+
 == 0.2.0 (2013-03-18)
 
 * Added Twitter Bootstrap navigation menu example.
