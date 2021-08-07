@@ -1,18 +1,23 @@
-default: &default
+production:
   adapter: postgresql
   encoding: unicode
   pool: 5
   database: dummy_development
 
-production:
-  <<: *default
-
 stage:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: dummy_development
 
 development:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: dummy_development
 
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: dummy_test
