@@ -4,9 +4,6 @@ Metrics/AbcSize:
 Metrics/ParameterLists:
   Exclude:
     - "lib/navigator/menu.rb"
-Style/CaseEquality:
-  Exclude:
-    - "lib/navigator/menu.rb"
 Style/DoubleNegation:
   Exclude:
     - "lib/navigator/tag_activator.rb"
