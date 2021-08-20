@@ -5,9 +5,7 @@ module Navigator
   class Tag
     attr_reader :name, :content
 
-    def self.names_without_suffix
-      %w[img input]
-    end
+    def self.names_without_suffix = %w[img input]
 
     # rubocop:disable Metrics/ParameterLists
     def initialize name, content = nil, attributes: {}, activator: Navigator::TagActivator.new
@@ -18,21 +16,13 @@ module Navigator
     end
     # rubocop:enable Metrics/ParameterLists
 
-    def prefix
-      ["<#{name}", format_attributes, ">"].compact * ""
-    end
+    def prefix = ["<#{name}", format_attributes, ">"].compact.join
 
-    def computed_content
-      self.class.names_without_suffix.include?(name) ? nil : content
-    end
+    def computed_content = self.class.names_without_suffix.include?(name) ? nil : content
 
-    def suffix
-      self.class.names_without_suffix.include?(name) ? nil : "</#{name}>"
-    end
+    def suffix = self.class.names_without_suffix.include?(name) ? nil : "</#{name}>"
 
-    def render
-      [prefix, computed_content, suffix].compact * ""
-    end
+    def render = [prefix, computed_content, suffix].compact.join
 
     private
 
@@ -45,7 +35,9 @@ module Navigator
     end
 
     def concatenate_attributes attrs
-      activator.activate(attrs).map { |key, value| %(#{key}="#{value}") } * " "
+      activator.activate(attrs)
+               .map { |key, value| %(#{key}="#{value}") }
+               .join(" ")
     end
 
     def format_attributes

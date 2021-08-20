@@ -92,17 +92,13 @@ module Navigator
       end
     end
 
-    def render
-      [tag.prefix, tag.content, items.compact.join, tag.suffix].compact.join
-    end
+    def render = [tag.prefix, tag.content, items.compact.join, tag.suffix].compact.join
 
     private
 
     attr_accessor :template, :tag, :menu_activator, :items
 
-    def respond_to_missing? name, include_private = false
-      ALLOWED_ELEMENTS.match?(name) || super
-    end
+    def respond_to_missing?(name, include_private = false) = ALLOWED_ELEMENTS.match?(name) || super
 
     def activate_item_attributes! attributes, url, activator
       return unless url == activator.search_value

@@ -13,12 +13,8 @@ module Navigator
 
     module_function
 
-    def current_path
-      request.env["PATH_INFO"]
-    end
+    def current_path = request.env["PATH_INFO"]
 
-    def navigation_activator
-      Navigator::TagActivator.new search_value: current_path
-    end
+    def navigation_activator = Navigator::TagActivator.new(search_value: current_path)
   end
 end
