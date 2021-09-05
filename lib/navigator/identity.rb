@@ -6,6 +6,6 @@ module Navigator
     NAME = "navigator"
     LABEL = "Navigator"
     VERSION = "6.0.2"
-    VERSION_LABEL = "#{LABEL} #{VERSION}"
+    VERSION_LABEL = "#{LABEL} #{VERSION}".freeze
   end
 end
