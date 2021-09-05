@@ -1,5 +1,14 @@
 = Changes
 
+== 6.0.3 (2021-09-05)
+
+* Fixed Rubocop Style/MutableConstant issue - Brooke Kuhlmann
+* Fixed tag activator spec individual run failure - Brooke Kuhlmann
+* Updated README project description - Brooke Kuhlmann
+* Removed RubyCritic and associated CLI option - Brooke Kuhlmann
+* Removed unnecessary Rubocop exclusions - Brooke Kuhlmann
+* Refactored methods as endless methods - Brooke Kuhlmann
+
 == 6.0.2 (2021-08-07)
 
 * Fixed RSpec dummy application issue with Psych bad alias - Brooke Kuhlmann
