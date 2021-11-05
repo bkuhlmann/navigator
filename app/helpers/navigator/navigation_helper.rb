@@ -3,13 +3,11 @@
 module Navigator
   # Navigation helper methods for the view layer.
   module NavigationHelper
-    # rubocop:disable Metrics/ParameterLists
     def navigation tag = "ul", attributes: {}, activator: navigation_activator, &block
       Navigator::Menu.new(self, tag: tag, attributes: attributes, activator: activator, &block)
                      .render
                      .then { |html| raw html }
     end
-    # rubocop:enable Metrics/ParameterLists
 
     module_function
 
