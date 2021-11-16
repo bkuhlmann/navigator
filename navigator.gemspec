@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
     "bug_tracker_uri" => "https://github.com/bkuhlmann/navigator/issues",
     "changelog_uri" => "https://www.alchemists.io/projects/navigator/changes.html",
     "documentation_uri" => "https://www.alchemists.io/projects/navigator",
+    "rubygems_mfa_required" => "true",
     "source_code_uri" => "https://github.com/bkuhlmann/navigator"
   }
 
