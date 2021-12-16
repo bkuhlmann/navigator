@@ -6,7 +6,7 @@ module Navigator
     isolate_namespace Navigator
 
     initializer "navigator.action_controller" do
-      ActiveSupport.on_load :action_controller do
+      ActiveSupport.on_load :action_controller_base do
         helper Navigator::Engine.helpers
       end
     end
