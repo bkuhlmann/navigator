@@ -54,7 +54,7 @@ RSpec.describe Navigator::Menu do
       path = "/home"
       activator = Navigator::TagActivator.new search_value: path
 
-      menu = described_class.new template, tag: "nav", activator: activator
+      menu = described_class.new(template, tag: "nav", activator:)
       menu.add "a", "Home", attributes: {href: path}
       menu.add "a", "About", attributes: {href: "/about"}
 
@@ -98,7 +98,7 @@ RSpec.describe Navigator::Menu do
       it "adds link using menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/examples/1"
 
-        menu = described_class.new template, activator: activator
+        menu = described_class.new(template, activator:)
         menu.link "Example 1", "/examples/1"
         menu.link "Example 2", "/examples/2"
 
@@ -170,7 +170,7 @@ RSpec.describe Navigator::Menu do
       it "adds image using menu tag activator" do
         activator = Navigator::TagActivator.new search_key: "src", search_value: "/examples/1"
 
-        menu = described_class.new template, activator: activator
+        menu = described_class.new(template, activator:)
         menu.image "/examples/1"
         menu.image "/examples/2"
 
@@ -259,7 +259,7 @@ RSpec.describe Navigator::Menu do
       it "adds item using default menu tag activator" do
         activator = Navigator::TagActivator.new search_value: "/users"
 
-        menu = described_class.new template, activator: activator
+        menu = described_class.new(template, activator:)
         menu.item "Dashboard", "/dashboard"
         menu.item "Users", "/users"
 
@@ -272,7 +272,7 @@ RSpec.describe Navigator::Menu do
       it "adds item with target value appended" do
         activator = Navigator::TagActivator.new search_value: "/two"
 
-        menu = described_class.new template, activator: activator
+        menu = described_class.new(template, activator:)
         menu.item "One", "/one"
         menu.item "Two", "/two", item_attributes: {class: "test"}
 

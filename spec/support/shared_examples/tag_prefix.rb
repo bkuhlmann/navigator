@@ -26,15 +26,17 @@ RSpec.shared_examples "a tag prefix" do |name|
     let(:activator) { Navigator::TagActivator.new search_value: path }
 
     it "answers prefix with target value added" do
-      tag = Navigator::Tag.new name, "Example", attributes: {href: path}, activator: activator
+      tag = Navigator::Tag.new(name, "Example", attributes: {href: path}, activator:)
       expect(tag.prefix).to eq(%(<#{name} href="#{path}" class="active">))
     end
 
     it "answers prefix with target value appended" do
-      tag = Navigator::Tag.new name,
-                               "Example",
-                               attributes: {href: path, class: "test"},
-                               activator: activator
+      tag = Navigator::Tag.new(
+        name,
+        "Example",
+        attributes: {href: path, class: "test"},
+        activator:
+      )
 
       expect(tag.prefix).to eq(%(<#{name} href="#{path}" class="test active">))
     end

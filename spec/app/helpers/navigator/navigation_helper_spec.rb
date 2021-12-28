@@ -49,7 +49,7 @@ RSpec.describe Navigator::NavigationHelper, type: :helper do
       path = "/one"
       activator = Navigator::TagActivator.new search_value: path
 
-      nav = navigation "ul", activator: activator do
+      nav = navigation "ul", activator: do
         item "One", path
         item "Two", "/two"
       end

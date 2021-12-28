@@ -38,14 +38,14 @@ module Navigator
                    &block
 
       @template = template
-      @tag = Navigator::Tag.new tag, attributes: attributes, activator: activator
+      @tag = Navigator::Tag.new(tag, attributes:, activator:)
       @menu_activator = activator
       @items = []
       instance_eval(&block) if block
     end
 
     def add name, content = nil, attributes: {}, activator: menu_activator, &block
-      tag = Navigator::Tag.new name, content, attributes: attributes, activator: activator
+      tag = Navigator::Tag.new(name, content, attributes:, activator:)
       return items << tag.render unless block
 
       items << tag.prefix
@@ -55,14 +55,14 @@ module Navigator
     end
 
     def link content = nil, url, attributes: {}, activator: menu_activator, &block
-      add "a", content, attributes: attributes.merge(href: url), activator: activator, &block
+      add "a", content, attributes: attributes.merge(href: url), activator:, &block
     end
 
     def image url, alt = nil, attributes: {}, activator: menu_activator
-      modified_attributes = attributes.merge src: url, alt: alt
+      modified_attributes = attributes.merge(src: url, alt:)
       modified_attributes = modified_attributes.delete_if { |_, value| !value.present? }
 
-      add "img", attributes: modified_attributes, activator: activator
+      add "img", attributes: modified_attributes, activator:
     end
 
     def item content = nil,
@@ -75,7 +75,7 @@ module Navigator
       modified_item_attributes = item_attributes.clone
       activate_item_attributes! modified_item_attributes, url, activator
 
-      add "li", attributes: modified_item_attributes, activator: activator do
+      add "li", attributes: modified_item_attributes, activator: do
         link content,
              url,
              attributes: link_attributes,

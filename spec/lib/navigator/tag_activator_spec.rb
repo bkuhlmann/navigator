@@ -50,7 +50,7 @@ RSpec.describe Navigator::TagActivator do
   end
 
   describe "activatable?" do
-    subject(:activator) { described_class.new search_value: search_value }
+    subject(:activator) { described_class.new search_value: }
 
     let(:search_value) { "/example/path" }
 
