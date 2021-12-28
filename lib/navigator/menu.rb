@@ -84,9 +84,9 @@ module Navigator
       end
     end
 
-    def method_missing name, *positionals, **keywords, &block
+    def method_missing(name, *positionals, **keywords, &)
       if respond_to_missing? name
-        add(name, *positionals, **keywords, &block)
+        add(name, *positionals, **keywords, &)
       else
         template.public_send(name, *positionals, **keywords) || super
       end
