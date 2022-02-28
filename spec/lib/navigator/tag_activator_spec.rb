@@ -18,7 +18,7 @@ RSpec.describe Navigator::TagActivator do
 
   describe "#search_value" do
     it "answers default value" do
-      expect(activator.search_value).to eq(nil)
+      expect(activator.search_value).to be_nil
     end
 
     it "answers custom value" do
@@ -57,12 +57,12 @@ RSpec.describe Navigator::TagActivator do
     context "with search value" do
       it "answers true when search value is found" do
         result = activator.activatable? href: search_value
-        expect(result).to eq(true)
+        expect(result).to be(true)
       end
 
       it "answers false when search value is not found" do
         result = activator.activatable? href: "/unknown/path"
-        expect(result).to eq(false)
+        expect(result).to be(false)
       end
     end
 
@@ -71,19 +71,19 @@ RSpec.describe Navigator::TagActivator do
 
       it "answers false with attributes" do
         result = activator.activatable? href: search_value
-        expect(result).to eq(false)
+        expect(result).to be(false)
       end
 
       it "answers false without attributes" do
         result = activator.activatable?
-        expect(result).to eq(false)
+        expect(result).to be(false)
       end
     end
 
     context "with indifferent access" do
       it "answers true when string attribute key is used" do
         result = activator.activatable? "href" => search_value
-        expect(result).to eq(true)
+        expect(result).to be(true)
       end
     end
 
@@ -92,17 +92,17 @@ RSpec.describe Navigator::TagActivator do
 
       it "answers true when search values match" do
         result = activator.activatable? href: "admin/test/path"
-        expect(result).to eq(true)
+        expect(result).to be(true)
       end
 
       it "answers false when search values don't match" do
         result = activator.activatable? href: "/admin/test/path"
-        expect(result).to eq(false)
+        expect(result).to be(false)
       end
 
       it "answers false when no search value is supplied" do
         result = activator.activatable?
-        expect(result).to eq(false)
+        expect(result).to be(false)
       end
     end
   end

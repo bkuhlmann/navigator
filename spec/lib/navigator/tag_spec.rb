@@ -38,7 +38,7 @@ RSpec.describe Navigator::Tag do
       it "answers nil" do
         described_class.names_without_suffix.each do |name|
           tag = described_class.new name, "Example text."
-          expect(tag.computed_content).to eq(nil)
+          expect(tag.computed_content).to be_nil
         end
       end
     end
@@ -60,7 +60,7 @@ RSpec.describe Navigator::Tag do
       it "excludes suffix" do
         described_class.names_without_suffix.each do |name|
           tag = described_class.new name
-          expect(tag.suffix).to eq(nil)
+          expect(tag.suffix).to be_nil
         end
       end
     end
