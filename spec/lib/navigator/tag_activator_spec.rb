@@ -18,7 +18,7 @@ RSpec.describe Navigator::TagActivator do
 
   describe "#search_value" do
     it "answers default value" do
-      expect(activator.search_value).to be_nil
+      expect(activator.search_value).to be(nil)
     end
 
     it "answers custom value" do
