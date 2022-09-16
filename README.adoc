@@ -319,7 +319,7 @@ end
 These are just a few, simple, examples of what can be achieved. See the specs for additional usage
 and customization.
 
-== Customization
+=== Customization
 
 The `+navigation+` view helper can accept an optional `+Navigator::TagActivator+` instance.
 
@@ -435,17 +435,19 @@ would be active due to the regular expression (i.e. `/^profile.+/) matching one
 
 To contribute, run:
 
-....
-git clone https://github.com/bkuhlmann/navigator.git
+[source,bash]
+----
+git clone https://github.com/bkuhlmann/navigator
 cd navigator
 bin/setup
-....
+----
 
 You can also use the IRB console for direct access to all objects:
 
-....
+[source,bash]
+----
 bin/console
-....
+----
 
 == Tests
 
