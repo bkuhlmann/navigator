@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Site Navigation", type: :feature do
+RSpec.describe "Site Navigation" do
   it "As a visitor, I want a visual indication of which tab is active", :aggregate_failures do
     visit root_path
     expect(all(".active").count).to eq(1)
