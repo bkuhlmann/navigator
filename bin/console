@@ -7,7 +7,7 @@ ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "/dummy"
 
 Bundler.require :tools
 
-require "navigator"
 require "irb"
+require "navigator"
 
 IRB.start __FILE__
