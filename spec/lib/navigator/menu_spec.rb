@@ -68,7 +68,7 @@ RSpec.describe Navigator::Menu do
 
       menu = described_class.new template, tag: "nav"
       menu.add "a", "Home", attributes: {href: "/home"}
-      menu.add "a", "About", attributes: {href: "/about"}, activator: activator
+      menu.add("a", "About", attributes: {href: "/about"}, activator:)
 
       expect(menu.render).to eq(
         %(<nav><a href="/home">Home</a><a href="/about" class="active">About</a></nav>)
@@ -113,7 +113,7 @@ RSpec.describe Navigator::Menu do
 
         menu = described_class.new template
         menu.link "Test 1", "/test/1"
-        menu.link "Test 2", "/test/2", activator: activator
+        menu.link("Test 2", "/test/2", activator:)
 
         expect(menu.render).to eq(
           %(<ul><a href="/test/1">Test 1</a><a href="/test/2" class="active">Test 2</a></ul>)
@@ -184,7 +184,7 @@ RSpec.describe Navigator::Menu do
 
         menu = described_class.new template
         menu.image "/examples/1"
-        menu.image "/examples/2", activator: activator
+        menu.image("/examples/2", activator:)
 
         expect(menu.render).to eq(
           %(<ul><img src="/examples/1"><img src="/examples/2" class="active"></ul>)
@@ -286,7 +286,7 @@ RSpec.describe Navigator::Menu do
         activator = Navigator::TagActivator.new search_value: "/dashboard"
 
         menu = described_class.new template
-        menu.item "Dashboard", "/dashboard", activator: activator
+        menu.item("Dashboard", "/dashboard", activator:)
         menu.item "Users", "/users"
 
         item_1 = %(<li class="active"><a href="/dashboard">Dashboard</a></li>)
