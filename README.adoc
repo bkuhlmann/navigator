@@ -455,7 +455,7 @@ To test, run:
 
 [source,bash]
 ----
-bundle exec rake
+bin/rake
 ----
 
 To test the dummy application, run:
