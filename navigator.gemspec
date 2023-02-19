@@ -5,14 +5,14 @@ Gem::Specification.new do |spec|
   spec.version = "8.0.1"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
-  spec.homepage = "https://www.alchemists.io/projects/navigator"
+  spec.homepage = "https://alchemists.io/projects/navigator"
   spec.summary = "Enhances Rails with a DSL for menu navigation."
   spec.license = "Hippocratic-2.1"
 
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/bkuhlmann/navigator/issues",
-    "changelog_uri" => "https://www.alchemists.io/projects/navigator/versions",
-    "documentation_uri" => "https://www.alchemists.io/projects/navigator",
+    "changelog_uri" => "https://alchemists.io/projects/navigator/versions",
+    "documentation_uri" => "https://alchemists.io/projects/navigator",
     "funding_uri" => "https://github.com/sponsors/bkuhlmann",
     "label" => "Navigator",
     "rubygems_mfa_required" => "true",
