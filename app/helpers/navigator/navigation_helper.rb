@@ -3,8 +3,8 @@
 module Navigator
   # Navigation helper methods for the view layer.
   module NavigationHelper
-    def navigation tag = "ul", attributes: {}, activator: navigation_activator, &block
-      Navigator::Menu.new(self, tag:, attributes:, activator:, &block)
+    def navigation(tag = "ul", attributes: {}, activator: navigation_activator, &)
+      Navigator::Menu.new(self, tag:, attributes:, activator:, &)
                      .render
                      .then { |html| raw html }
     end
