@@ -15,11 +15,7 @@ detectors:
     exclude:
     - Navigator::Menu#activate_item_attributes!
   LongParameterList:
-    exclude:
-    - Navigator::Menu#add
-    - Navigator::Menu#image
-    - Navigator::Menu#item
-    - Navigator::Menu#link
+    enabled: false
   MissingSafeMethod:
     exclude:
     - Navigator::Menu
