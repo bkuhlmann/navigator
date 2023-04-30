@@ -1,5 +1,11 @@
 = Versions
 
+== 8.0.3 (2023-04-30)
+
+* Updated Reek configuration to disable long parameter lists - Brooke Kuhlmann
+* Updated to Caliber 0.30.0 - Brooke Kuhlmann
+* Updated to Ruby 3.2.2 - Brooke Kuhlmann
+
 == 8.0.2 (2023-03-22)
 
 * Updated Reek dependency to not be required - Brooke Kuhlmann
