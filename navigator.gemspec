@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name = "navigator"
-  spec.version = "8.0.3"
+  spec.version = "9.0.0"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://alchemists.io/projects/navigator"
-  spec.summary = "Enhances Rails with a DSL for menu navigation."
+  spec.summary = "A Rails domain specific language for menu navigation."
   spec.license = "Hippocratic-2.1"
 
   spec.metadata = {
