@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "navigator"
-  spec.version = "10.6.0"
+  spec.version = "10.7.0"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://alchemists.io/projects/navigator"
