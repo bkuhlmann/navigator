@@ -36,7 +36,6 @@ module Navigator
                    attributes: {},
                    activator: Navigator::TagActivator.new,
                    &block
-
       @template = template
       @tag = Navigator::Tag.new(tag, attributes:, activator:)
       @menu_activator = activator
@@ -71,7 +70,6 @@ module Navigator
              link_attributes: {},
              activator: menu_activator,
              &block
-
       modified_item_attributes = item_attributes.clone
       activate_item_attributes! modified_item_attributes, url, activator
 
