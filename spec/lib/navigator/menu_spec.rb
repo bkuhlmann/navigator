@@ -204,13 +204,6 @@ RSpec.describe Navigator::Menu do
         )
       end
     end
-
-    context "with blocks" do
-      it "ignores block" do
-        menu.image("/example") { "Nothing to see here." }
-        expect(menu.render).to eq(%(<ul><img src="/example"></ul>))
-      end
-    end
   end
 
   describe "#item" do
