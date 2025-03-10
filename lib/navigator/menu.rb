@@ -59,7 +59,7 @@ module Navigator
 
     def image url, alt = nil, attributes: {}, activator: menu_activator
       modified_attributes = attributes.merge(src: url, alt:)
-      modified_attributes = modified_attributes.delete_if { |_, value| !value.present? }
+                                      .delete_if { |_, value| !value.present? }
 
       add "img", attributes: modified_attributes, activator:
     end
