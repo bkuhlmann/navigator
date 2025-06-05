@@ -4,6 +4,8 @@
 
 = Navigator
 
+‼️ *This gem is deprecated and will be fully destroyed on 2026-01-15. There is no replacement. Please update accordingly.* ‼️
+
 Navigator is a Rails Engine that provides a domain specific language for menu navigation. Great for
 situations in which you need dynamic, server-side, rendering of site navigation menus complete with
 active page highlighting. You can also style your navigation menus with plain CSS or any CSS
